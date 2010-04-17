@@ -1,0 +1,3 @@
+include openletters/config/deployment.ini_tmpl
+recursive-include openletters/public *
+recursive-include openletters/templates *

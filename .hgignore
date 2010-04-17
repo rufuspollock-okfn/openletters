@@ -1,0 +1,15 @@
+syntax: glob
+# generic
+*.pyc
+*.egg-info/*
+sandbox/*
+tmp/*
+build/*
+
+# pylons
+development.ini*
+sstore/*
+data/*
+pylons_data/*
+
+
