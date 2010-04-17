@@ -3,7 +3,6 @@ from parseText import parse_date
 
 '''
 Class to parse the Dickens letters and enter into a Redis store
-@author: Iain Emsley (print.crimes@yatterings.com)
 '''
 
 text = open('C:\\Users\\iain\\texts\\dickens\\letterone.txt').read()
