@@ -2,10 +2,10 @@ from parseText import parse_text
 from parseText import parse_date
 
 '''
-Class to parse the Dickens letters and enter into a Redis store
+Class to parse the Dickens letters and enter into a store
 '''
 
-text = open('C:\\Users\\iain\\texts\\dickens\\letterone.txt').read()
+text = open('doc/letterone.txt').read()
 
 #remove the asterisks
 text = text.replace("*","")
