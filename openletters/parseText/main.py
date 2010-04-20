@@ -24,10 +24,14 @@ for letter in text.split("[Sidenote"):
         if m != '':
             m_sal = m[1]
         
-        #if "._" in l:
-        m_date_let = parse_date.parseDate(l)
-        if m_date_let != '':
-            print "date",  m_date_let
+        if "._" in l:
+            if "_" in l:
+                 n = l.split("_")
+                 m_date_let = parse_date.parseDate(n[1])
+            #else:
+            #    m_date_let = parse_date.parseDate(l)
+            if m_date_let != '':
+                print "date",  m_date_let
     #insertLetters(m_url, 1, m_let, m_sal, letter)
     print "url", m_url
     print "corres", m_let
