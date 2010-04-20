@@ -1,8 +1,8 @@
 from sqlalchemy import *
 
 #TODO: change this run off the .ini file. 
-db = create_engine('engine://user:pwrd@host/db')
-
+#db = create_engine('engine://user:pwrd@host/db')
+db = create_engine('mysql://root:enoch@localhost/py_dickens')
 
 #for testing echo out the SQL
 db.echo = False
@@ -20,7 +20,7 @@ def run(stmt):
         #print "row", row
         return row
  
-#gets the letter text - where letter_text       
+#gets the letter text - where letter_text     
 def getLetterText(uri): 
     s = users.select(users.c.perm_url == uri)
     r = run(s)
@@ -48,3 +48,9 @@ def insertAnnotation (url):
     insertNote = notes.insert(notes.c.url == url)
     r = run(insertNote)
     return r
+
+#void method to insert the data from the parser
+#TODO: add in the date to the db  
+def insertLetters(url, vol, corr, sal, letter):
+    ins = lettersTbl.insert()
+    db.execute(ins, perm_url=url,volume=vol, correspondent=corr, salutation=sal, letter_text=letter)

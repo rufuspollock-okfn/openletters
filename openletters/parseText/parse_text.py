@@ -17,14 +17,24 @@ def parseCorrespondent (line):
 # needs tidying up - need to cast tuple to string to clean it up
 def parseSalutation (n):
         sal = ''
-        n = n.replace("MY", "")
+        n = n.replace("MY", "").replace(",","")
         if "DEAREST" in n:
             sal = n.split("DEAREST")
         elif "DEAR" in n:
             sal = n.split("DEAR")  
         elif "RESPECTED" in n:
             sal = n.split("RESPECTED")
-        else:
-            pass
     
         return sal
+    
+def stripPunc (urlstring, type=''):
+    urlstring = str(urlstring)
+    ret_url = ''
+    ret_url = urlstring.replace("]","")
+    ret_url = ret_url.replace(".", "")
+    if type == "url":
+        ret_url = ret_url.replace(" ", "")
+        ret_url = ret_url.replace(":", "")
+        ret_url = ret_url.strip().lower()
+    
+    return ret_url

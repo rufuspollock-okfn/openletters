@@ -1,23 +1,22 @@
 import re
 '''
   Gets the relevant line from the letter then breaks it up
+  I think that this should be eventually returned as ISO8601 format
 '''
 
 def parseDate (letter):
     dateObj = ''
-    #dateObj = re.findall("_", letter)
-    #date = re.compile("(?<=_).*")
-    #lett_date = date.match(letter)
-    #if lett_date:
-    #    dateObj = lett_date.group()
-    if "_" in letter:
+    if "._" in letter:
         dateObj = "dateObj is ", parseLineDate(letter)
         return dateObj
-    
+
+''' 
+  Functions finds the year at the moment 
+'''
 def parseLineDate(obj):
     ret_obj = ''
-    h = re.compile("(\d+{4})", obj)
+    h = re.compile(".*(\d{4})")
     mat_m = h.match(obj)
     if mat_m:
-        ret_obj = mat_m
+        ret_obj = mat_m.group()
         return ret_obj

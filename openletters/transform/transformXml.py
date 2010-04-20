@@ -8,6 +8,7 @@ def createIndex (author):
     doc = ''
     letterIndex = {}
     letterIndex = data.indexAuthor(author)
+    print letterIndex
     root = ET.Element("index")
     #for k,v in letterIndex.items():
     for key in letterIndex.iteritems():
@@ -15,6 +16,6 @@ def createIndex (author):
         url.text = key
         author = ET.SubElement(url, "author")
         author.text = letterIndex[key]
-            #letter = ET.SubElement(author, "book_details", v)
+        
     doc = ET.ElementTree(root)
     return doc
