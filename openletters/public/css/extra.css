@@ -1,0 +1,64 @@
+/**
+  * Mods to basic 'kforge' theme
+  */
+
+/* change background */
+body {
+  background: url('http://www.openshakespeare.org/img/background_scroll_light.jpg');
+}
+
+/* get rid of color so background comes through */
+#navigation li a,
+#navigation li a:link,
+#navigation li a:visited,
+.box .rtop, .box .rbottom,
+#footer
+{
+  background-color: transparent;
+}
+
+#top { margin-top: 0.4em; }
+/* mess with standard ckan theme to remove second submenu for time being */
+#subnav { background: transparent; height: 1px; }
+#subnav * { display: none; }
+#main { margin-top: 0.5em; }
+#primary { margin-top: 1.2em; }
+
+/**
+  * Minor generic additions
+  */
+
+p.error {
+  color: red;
+  font-weight: bold;
+}
+
+blockquote {
+  border-left: 5px solid #ccc;
+  margin: 15px 30px 0px 10px;
+  color: #777;
+  padding-left: 20px;
+}
+
+table.index {
+  background-color: transparent; 
+  border: none;
+  margin: 0;
+}
+
+table.index th {
+  text-align: center;
+  background-color: transparent;
+}
+
+table.index td {
+  background: transparent;
+  border: none;
+  vertical-align: top;
+}
+
+table.index p.work-actions {
+  font-size: 0.9em;
+  margin-left: 1.5em;
+}
+

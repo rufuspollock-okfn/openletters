@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:py="http://genshi.edgewall.org/" 
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:doap="http://usefulinc.com/ns/doap"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  >
+
+<head>
+  <title>${c.site_title} - ${page_title()}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="http://m.okfn.org/kforge/css/master.css" type="text/css" media="screen, print" title="Master stylesheet" charset="utf-8" />
+  <link rel="stylesheet" href="/css/extra.css" type="text/css" media="screen, print" title="Master stylesheet" charset="utf-8" />
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://m.okfn.org/kforge/scripts/kforge.js"></script>
+
+  <py:if test="defined('optional_head')">
+    ${optional_head()}
+  </py:if>
+</head>
+<body>
+<div id="airlock">
+  <!--[if IE]>
+    <hr class="holder" />
+  <![endif]-->
+  <div id="top">
+    <div id="top-inner">
+      <div id="top-bar">
+        <!--<topbar>-->
+        <!-- TODO: re-enable once user stuff in place
+        <py:choose>
+        <py:when test="c.user">
+        <p>
+          Logged in as <strong>${c.user.name}</strong> |
+          <a href="${url(controller='user',action='read',id=c.user.id)}">My Account</a>
+          | <a href="${url('/logout_openid')}">Logout</a>
+        </p>
+        </py:when>
+        <py:otherwise>
+          <p>
+					<a href="${url(controller='user',action='login', id=None)}">Login with <img width="16" height="16" alt="None" src="http://m.okfn.org/images/icons/openid.png"/> OpenID</a>
+          </p>
+        </py:otherwise>
+        </py:choose>
+        -->
+        <!--</topbar>-->
+      </div><!-- /top-bar -->
+    <h1>
+      <a href="${url('home')}" title="${c.site_title} Home">${c.site_title}</a><sup style="font-size:0.4em;">v${c.__version__}</sup>
+    </h1>
+    
+    </div><!-- /top-inner -->
+     
+    <h3 class="hidden">Sections:</h3>
+    <ul id="navigation">
+      <li><a href="${url('home')}">Home</a></li>
+      <li><a href="${url('gallery')}">Gallery</a></li>
+      <li><a href="${url(controller='letters', action='index')}">Letters</a></li>
+      <li><a href="${url(controller='timeline', action='index')}">Timeline</a></li>
+    </ul>
+    <h3 class="hidden">In this section:</h3>
+    <ul id="subnav">
+      <!--<minornavigation>-->
+      <li><a href="${url('home')}">Home</a></li>
+      <!--</minornavigation>-->
+    </ul>
+       
+    <!--[if IE]>
+    <hr class="holder" />
+    <![endif]-->
+    
+  </div><!-- /top -->
+  
+  <p class="hidden"><a href="#main" title="Skip to page content">[ Skip to main content ]</a></p> 
+  
+
+  <div id="main">
+    <div id="content">
+      ${content()}
+    </div>
+    
+    <div id="footer">
+      <p>
+        <a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.1">XHTML</a>
+        | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+        | <a href="http://www.wheredoesmymoneygo.org/">Project Home Page</a>
+        | <a href="http://www.wheredoesmymoneygo.org/contact/">Contact Us</a>
+      </p>
+      <p>
+        <img style="margin-bottom: -5px;" src="http://m.okfn.org/images/logo/okf_logo_white_and_green_tiny.png" /> An <a href="http://www.okfn.org/">Open Knowledge Foundation</a> Project
+      </p>
+      <p>
+        (c) Open Knowledge Foundation
+        | All material available under an <a rel="license" href="http://www.opendefinition.org/">open license</a>
+        | <a href="http://www.opendefinition.org/1.0/"><img
+            style="border: none; margin-bottom: -4px;"
+            src="http://m.okfn.org/images/ok_buttons/ok_90x15_blue.png"
+            alt="This Content and Data is Open" /></a>
+      </p>
+    </div><!-- /footer -->
+    
+    <!--[if IE]>
+    <hr class="main" />
+    <![endif]-->
+    
+  </div><!-- /main -->
+
+  <div id="primary" class="sidebar">
+    <!--[if IE]>
+    <hr class="primary" />
+    <![endif]-->
+
+    <py:if test="defined('primary_sidebar_extras')">
+      ${primary_sidebar_extras()}
+    </py:if>
+
+    <div class="box">
+      <h2>Get in Touch</h2>
+      <p>If you have a question, have found a bug or have any other reason for
+      wanting to talk with us please just <a
+        href="http://www.okfn.org/contact/">get in
+        touch</a>.
+      </p>
+    </div>
+  </div><!-- /primary -->
+</div><!-- /airlock -->
+</body>
+</html>
+
