@@ -1,17 +1,24 @@
 from setuptools import setup, find_packages
+import sys
+sys.path.insert(0, '.')
+from openletters import __version__, __description__, __license__
+from openletters import __doc__ as __long_description__
 
 setup(
     name='openletters',
-    version='0.1',
-    description='',
+    version=__version__,
+    license=__license__,
+    description=__description__,
+    long_description=__long_description__,
     author='Open Knowledge Foundation (Open Literature WG)',
     author_email='info@okfn.org',
     url='http://knowledgeforge.net/project/letters/',
     install_requires=[
         # please use pip-requirements.txt
-        "Pylons>=0.9.7",
-        "SQLAlchemy>=0.5",
-        "Genshi>=0.4",
+        # "Pylons>=0.9.7",
+        # "SQLAlchemy>=0.5",
+        # "Genshi>=0.4",
+        # ...
     ],
     setup_requires=["PasteScript>=1.6.3"],
     packages=find_packages(exclude=['ez_setup']),
