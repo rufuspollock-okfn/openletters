@@ -4,17 +4,24 @@
 
 /* change background */
 body {
-  background: url('http://www.openshakespeare.org/img/background_scroll_light.jpg');
+  /* background: url('http://www.openshakespeare.org/img/background_scroll_light.jpg'); */
+  font-family: Georgia, serif;
+  font-size: 1.1em;
 }
 
-/* get rid of color so background comes through */
-#navigation li a,
-#navigation li a:link,
-#navigation li a:visited,
-.box .rtop, .box .rbottom,
-#footer
-{
+#top h1 {
+  color: #E12000;
+  margin-bottom: 0.3em;
+}
+
+#top h1 a.hover, #top h1 a.link {
   background-color: transparent;
+}
+
+#top h2.subtitle {
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0;
 }
 
 #top { margin-top: 0.4em; }
@@ -62,3 +69,7 @@ table.index p.work-actions {
   margin-left: 1.5em;
 }
 
+p.caption {
+  text-align: center;
+  font-size: 0.95em;
+}
