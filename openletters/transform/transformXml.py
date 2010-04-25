@@ -6,18 +6,30 @@ from openletters.model import data
 def createIndex (author):
 
     doc = ''
-    letterIndex = {}
-    letterIndex = data.indexAuthor(author)
-    print letterIndex
+    letter = []
+    #letterIndexUrl, letterIndexCorr, letterIndexDt = data.indexAuthor(author)
+    letter = data.indexAuthor(author)
+
     root = ET.Element("index")
-    #for k,v in letterIndex.items():
-    for key in letterIndex.iteritems():
-        url = ET.SubElement(root, "url")
-        url.text = key
-        author = ET.SubElement(url, "author")
-        author.text = letterIndex[key[0]]
-        date = ET.SubElement(author, "date")
-        date.text = letterIndex[key[1]]
-        
-    doc = ET.ElementTree(root)
+
+    index_items = letter.items()
+    index_items.sort()
+    
+    url = ET.SubElement(root, "url")
+    author = ET.SubElement(url, "correspondent")
+    date = ET.SubElement(author, "date")
+    doc = '<?xml version="1.0" encoding="ISO-8859-1"?>'
+    doc += "<index>"
+    for letter_url, letter_corr in index_items:
+        doc += "<letter>"
+        doc += "<url>%s</url><corr>%s</corr><date>%s</date>" %(letter_corr[0], letter_corr[1],letter_corr[2])
+        doc += "</letter>"
+    #for key in letter.iteritems():
+    #for n in letter:
+        #url.text = letter_corr[0]
+        #author.text = letter_corr[1]
+        #date.text = letter_corr[2]
+    doc += "</index>"   
+    
+
     return doc

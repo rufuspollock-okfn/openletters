@@ -11,15 +11,10 @@ from openletters.transform import transformHtml
 log = logging.getLogger(__name__)
 
 class LettersController(BaseController):
-
+#hardcoded variables to change 
     def index(self):
-        # Return a rendered template
-        #return render('/letters.mako')
-        # or, return a response
-        #return 'Hello World'
-        #we'll render this at some point 
         author = "Dickens"
-        authorIndex = transformXml.createIndex(author)
+        authorIndex = transformHtml.outputAuthorIndex(author)
         return authorIndex
     
     def letter (self):
@@ -29,4 +24,10 @@ class LettersController(BaseController):
         
         return letterHtml
         
+    def xml(self):
+        response.headers['content-type'] = 'text/xml; charset=utf-8'
+        author = "Dickens"
+        #authorIndex = transformHtml.outputAuthorIndex(author)
+        authorIndex = transformXml.createIndex(author)
+        return authorIndex
         

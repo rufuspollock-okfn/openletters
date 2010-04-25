@@ -37,9 +37,12 @@ def indexAuthor (author):
     index = users.select(users.c.type == author)
     #r =run(index)
     rs = index.execute()
+    count = 0
     for row in rs:
         #create dictionary of url and correspondent 
-        ret_index[row[3]] = row[5], row[7]
+        count += 1
+        ret_index[count] = [row[3],row[5],row[7]]
+        
     return ret_index
 
 #gets any annotations for a letter - this will come later
