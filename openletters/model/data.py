@@ -10,8 +10,8 @@ db.echo = False
 metadata = MetaData(db)
 
 #define the table mappings here
-users = Table('text', metadata, autoload=True)
-notes = Table('annotation', metadata, autoload=True)
+users = Table('letters', metadata, autoload=True)
+#notes = Table('annotation', metadata, autoload=True)
 
 
 def run(stmt):
@@ -20,11 +20,16 @@ def run(stmt):
         #print "row", row
         return row
  
-#gets the letter text - where letter_text     
+#gets the letter text - where letter_text  
+#need to map this to the correct table
 def getLetterText(uri): 
+    ret_arr = {}
     s = users.select(users.c.perm_url == uri)
-    r = run(s)
-    return r
+    rs = s.execute()
+    for row in rs:
+        ret_arr[row[0]] = row[6]
+    
+    return ret_arr
 
 #returns all letters by an author 
 def indexAuthor (author):
@@ -34,7 +39,7 @@ def indexAuthor (author):
     rs = index.execute()
     for row in rs:
         #create dictionary of url and correspondent 
-        ret_index[row[3]] = row[4]
+        ret_index[row[3]] = row[5], row[7]
     return ret_index
 
 #gets any annotations for a letter - this will come later
@@ -51,6 +56,6 @@ def insertAnnotation (url):
 
 #void method to insert the data from the parser
 #TODO: add in the date to the db  
-def insertLetters(url, vol, corr, sal, letter):
-    ins = lettersTbl.insert()
-    db.execute(ins, perm_url=url,volume=vol, correspondent=corr, salutation=sal, letter_text=letter)
+def insertLetters(url, vol, corr, type, sal, letter, date):
+    ins = users.insert()
+    db.execute(ins, volume=vol, type=type,  perm_url=url,correspondent=corr, salutation=sal, letter_text=letter, letter_date= date)

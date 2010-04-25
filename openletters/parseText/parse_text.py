@@ -32,9 +32,9 @@ def stripPunc (urlstring, type=''):
     ret_url = ''
     ret_url = urlstring.replace("]","")
     ret_url = ret_url.replace(".", "")
+    ret_url = ret_url.replace(": ", "")
     if type == "url":
         ret_url = ret_url.replace(" ", "")
-        ret_url = ret_url.replace(":", "")
         ret_url = ret_url.strip().lower()
     
     return ret_url

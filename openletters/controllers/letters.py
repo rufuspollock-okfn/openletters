@@ -6,6 +6,7 @@ from pylons.controllers.util import abort, redirect_to
 from openletters.lib.base import BaseController, render
 
 from openletters.transform import transformXml
+from openletters.transform import transformHtml
 
 log = logging.getLogger(__name__)
 
@@ -20,3 +21,12 @@ class LettersController(BaseController):
         author = "Dickens"
         authorIndex = transformXml.createIndex(author)
         return authorIndex
+    
+    def letter (self):
+        #self.uri = uri
+        uri = ("3misshogarth")
+        letterHtml = transformHtml.outputLetter(uri)
+        
+        return letterHtml
+        
+        

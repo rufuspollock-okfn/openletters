@@ -15,7 +15,9 @@ def createIndex (author):
         url = ET.SubElement(root, "url")
         url.text = key
         author = ET.SubElement(url, "author")
-        author.text = letterIndex[key]
+        author.text = letterIndex[key[0]]
+        date = ET.SubElement(author, "date")
+        date.text = letterIndex[key[1]]
         
     doc = ET.ElementTree(root)
     return doc
