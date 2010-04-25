@@ -27,7 +27,7 @@ def outputAuthorIndex (author):
     index_items.sort()
     
     for letter_url, letter_corr in index_items:
-        authorIndex += '<p><a href="index?author=%s">%s</a> written on %s </p>' %(letter_corr[0], letter_corr[1], letter_corr[2])
+        authorIndex += '<p><a href="letter?letter=%s">%s</a> written on %s </p>' %(letter_corr[0], letter_corr[1], letter_corr[2])
     
     return authorIndex
     

@@ -13,20 +13,21 @@ log = logging.getLogger(__name__)
 class LettersController(BaseController):
 #hardcoded variables to change 
     def index(self):
-        author = "Dickens"
+        author =  request.params['author']
+
         authorIndex = transformHtml.outputAuthorIndex(author)
         return authorIndex
     
     def letter (self):
         #self.uri = uri
-        uri = ("3misshogarth")
+        uri =  request.params['letter']
         letterHtml = transformHtml.outputLetter(uri)
         
         return letterHtml
         
     def xml(self):
         response.headers['content-type'] = 'text/xml; charset=utf-8'
-        author = "Dickens"
+        author =  request.params['author']
         #authorIndex = transformHtml.outputAuthorIndex(author)
         authorIndex = transformXml.createIndex(author)
         return authorIndex
