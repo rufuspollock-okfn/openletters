@@ -1,8 +1,8 @@
 from sqlalchemy import *
 
 #TODO: change this run off the .ini file. 
-#db = create_engine('engine://user:pwrd@host/db')
-db = create_engine('mysql://root:enoch@localhost/py_dickens')
+db = create_engine('engine://user:pwrd@host/db')
+
 
 #for testing echo out the SQL
 db.echo = False
