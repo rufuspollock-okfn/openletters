@@ -1,4 +1,4 @@
-from openletters.model import data
+from openletters.model import dbase
 
 '''
    Script to output the letters in html
@@ -6,7 +6,7 @@ from openletters.model import data
 
 def outputLetter (uri):
     letter = {}
-    letter = data.getLetterText(uri)
+    letter = dbase.getLetterText(uri)
     letter_output = '<p>'
 
     letter_output = "[Sidenote"
@@ -21,7 +21,7 @@ def outputLetter (uri):
 def outputAuthorIndex (author):
     authorIndex = ''
     letter = []
-    letter = data.indexAuthor(author)
+    letter = dbase.indexAuthor(author)
 
     index_items = letter.items()
     index_items.sort()

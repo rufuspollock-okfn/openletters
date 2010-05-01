@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-from openletters.model import data
+from openletters.model import dbase
  
 #create an XML of letters for a defined author
 def createIndex (author):
@@ -8,7 +8,7 @@ def createIndex (author):
     doc = ''
     letter = []
     #letterIndexUrl, letterIndexCorr, letterIndexDt = data.indexAuthor(author)
-    letter = data.indexAuthor(author)
+    letter = dbase.indexAuthor(author)
 
     root = ET.Element("index")
 

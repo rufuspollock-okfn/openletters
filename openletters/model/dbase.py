@@ -41,9 +41,23 @@ def indexAuthor (author):
     for row in rs:
         #create dictionary of url and correspondent 
         count += 1
-        ret_index[count] = [row[3],row[5],row[7]]
+        ret_index[count] = [row[3], row[5], row[7]]
         
     return ret_index
+
+#returns correspondents
+def createCorrespondents (author):
+    ret_corr = {}
+    index = users.select(users.c.type == author)
+    #r =run(index)
+    rs = index.execute()
+    count = 0
+    for row in rs:
+        #create dictionary of url and correspondent 
+        count += 1
+        ret_corr[count] = [row[3], row[5], row[7]]
+    print "dbase", ret_corr
+    return ret_corr
 
 #gets any annotations for a letter - this will come later
 def getAnnotation (url):
@@ -61,4 +75,4 @@ def insertAnnotation (url):
 #TODO: add in the date to the db  
 def insertLetters(url, vol, corr, type, sal, letter, date):
     ins = users.insert()
-    db.execute(ins, volume=vol, type=type,  perm_url=url,correspondent=corr, salutation=sal, letter_text=letter, letter_date= date)
+    db.execute(ins, volume=vol, type=type, perm_url=url, correspondent=corr, salutation=sal, letter_text=letter, letter_date=date)
