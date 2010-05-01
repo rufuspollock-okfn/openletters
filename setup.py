@@ -36,5 +36,9 @@ setup(
 
     [paste.app_install]
     main = pylons.util:PylonsInstaller
+
+    [paste.paster_command]
+    db = openletters.cli:ManageDb
+    load = openletters.cli:Load
     """,
 )

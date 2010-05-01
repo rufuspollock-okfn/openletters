@@ -8,12 +8,20 @@ from letter import letter_table, Letter
 
 def init_model(engine):
     """Call me before using any of the tables or classes in the model"""
-    ## Reflected tables must be defined and mapped here
-    #global reflected_table
-    #reflected_table = sa.Table("Reflected", meta.metadata, autoload=True,
-    #                           autoload_with=engine)
-    #orm.mapper(Reflected, reflected_table)
-    #
     meta.Session.configure(bind=engine)
+    meta.metadata.bind = engine
     meta.engine = engine
 
+
+class Repository(object):
+    def create_db(self):
+        meta.metadata.create_all()
+    
+    def clean_db(self):
+        meta.metadata.drop_all()
+
+    def rebuild_db(self):
+        self.clean_db()
+        self.create_db()
+
+repo = Repository()
