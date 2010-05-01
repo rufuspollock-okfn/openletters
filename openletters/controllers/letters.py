@@ -5,8 +5,7 @@ from pylons.controllers.util import abort, redirect_to
 
 from openletters.lib.base import BaseController, render
 
-from openletters.transform import transformXml
-from openletters.transform import transformHtml
+from openletters.transform import transformXml, transformHtml
 
 log = logging.getLogger(__name__)
 
@@ -25,10 +24,4 @@ class LettersController(BaseController):
         
         return letterHtml
         
-    def xml(self):
-        response.headers['content-type'] = 'text/xml; charset=utf-8'
-        author =  request.params['author']
-        #authorIndex = transformHtml.outputAuthorIndex(author)
-        authorIndex = transformXml.createIndex(author)
-        return authorIndex
         

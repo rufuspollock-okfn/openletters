@@ -6,7 +6,7 @@ from openletters.model import dbase
   
 def authorTimeline (author):
     aTimeline = ''
-    author = "{'dateTimeFormat:iso8601, events:["
+    author_index = "{'dateTimeFormat:iso8601, events:["
     letters = []
     letters = dbase.createCorrespondents(author)
     print letters
@@ -14,12 +14,12 @@ def authorTimeline (author):
     letter_items.sort()
     
     for count, body in letter_items:
-        author += "{"
-        author += "type: %s, description, %s, id: %s, title: %s, start: %s" % (author, body[0] , body[1], body[1], body[2])
-        author += "}"
+        author_index += "{"
+        author_index += "type: %s, description: %s, id: %s, title: %s, start: %s" % (author, body[0] , body[1], body[1], body[2])
+        author_index += "}"
         
-    author += "]}"
+    author_index += "]}"
     
-    aTimeline = author
-    print aTimeline
+    aTimeline = json.dumps(author_index, sort_keys=True, indent=4)
+
     return aTimeline

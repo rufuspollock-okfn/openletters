@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, 
 '''creates the tables - to be extended at a later date 19 April 2010'''
 metadata = MetaData()
 
-engine = create_engine('engine://user:pwrd@localhost/table', echo=True)
+engine = create_engine('engine://user:pword@localhost/py_dickens', echo=True)
 
 lettersTbl = Table('letters', metadata,
                    Column('id', Integer, primary_key=True),

@@ -48,6 +48,7 @@ def indexAuthor (author):
 #returns correspondents
 def createCorrespondents (author):
     ret_corr = {}
+    print "author", author
     index = users.select(users.c.type == author)
     #r =run(index)
     rs = index.execute()
