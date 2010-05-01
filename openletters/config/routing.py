@@ -19,7 +19,8 @@ def make_map():
     map.connect('/error/{action}/{id}', controller='error')
 
     # CUSTOM ROUTES HERE
-
+    map.connect('home', '/', controller='home', action='index')
+    map.connect('gallery', '/gallery', controller='home', action='gallery')
     map.connect('/{controller}/{action}')
     map.connect('/{controller}/{action}/{id}')
 

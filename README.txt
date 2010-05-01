@@ -2,6 +2,8 @@ A project which tries to define the social networks that can be defined from
 letters written in the nineteenth century. Currently the project focuses on
 Charles Dickens but this will be expanded as new datasets are created. 
 
+Project home page (wiki): http://wiki.okfn.org/p/Open_Letters
+
 Installation and Setup
 ======================
 

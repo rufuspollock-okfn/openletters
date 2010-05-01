@@ -51,7 +51,7 @@ class Analyzer(object):
             dates = [ x[1] for x in self.letters ]
         bins = range(min(dates), max(dates)+1)
         plt.hist(dates, bins, fc='blue', alpha=0.8)
-        plt.savefig('letter_dates.png')
+        self._savefig('letter_dates.png')
 
     def plot_letter_network(self, names=None, fn='dickens_letter_network.png'):
         if names is None:
@@ -66,7 +66,7 @@ class Analyzer(object):
         pos = nx.graphviz_layout(dgr, prog='twopi')
         fig = plt.figure(1, figsize=(15,15))
         nx.draw(dgr, pos, node_size=15, labels=labels, font_size=10)
-        plt.savefig(self._fn(fn))
+        self._savefig(fn)
 
     def _clock_data(self, letters):
         counts = {}
@@ -80,7 +80,7 @@ class Analyzer(object):
             ends[name] = max(year+1, ends.get(name, minyear))
         return counts,starts,ends
     
-    def _clock_data_in_polar(self, counts, starts, ends, start_radius=0.1):
+    def _clock_data_in_polar(self, counts, starts, ends, start_radius=0.05):
         maxcount = float(max(counts.values()))
         first = min(starts.values())
         last = max(ends.values())
@@ -99,12 +99,14 @@ class Analyzer(object):
             sorted([(y,x) for x,y in counts.items()]) ]
 
         # dictionary of (starttheta, startr)
-        results = {}
+        results = []
         radius = start_radius
         for name,count in orderedcounts:
             astart = angle_start(starts[name])
             aend = angle_end(ends[name])
-            results[name] = [(astart,radius), aend-astart, alpha*count]
+            results.append([name,
+                [[(astart,radius), aend-astart, alpha*count]]
+                ])
             radius += alpha*count
         return results
 
@@ -120,58 +122,66 @@ class Analyzer(object):
         Use polar coordinates. (If not using polar you would need to use
         matplotlib.patches.Wedge)
         '''
+        # important because used to normalize segments, charts and labels
+        ylim = 1.0
         if letters is None:
             letters = self.letters
         counts, starts, ends = self._clock_data(letters)
         out = self._clock_data_in_polar(counts,starts,ends)
-        import pylab
         from matplotlib.patches import Rectangle
         from matplotlib.collections import PatchCollection
-        fig=pylab.figure()
+        fig=plt.figure()
         ax=fig.add_subplot(111, polar=True)
         patches = []
-        for name in out:
-            anglestart,radius = out[name][0]
-            radius_width = out[name][2]
+        for name, segments in out:
             # draw line out to segment
-            # pylab.polar([anglestart,anglestart], [0,radius], 'k-')
-            w = Rectangle(*out[name], facecolor='black', ec='black')
-            patches.append(w)
+            # plt.polar([anglestart,anglestart], [0,radius], 'k-')
+            for segment in segments:
+                w = Rectangle(*segment, fc='none', ec='black', alpha=0.5)
+                patches.append(w)
 
-            wedge_centre = (anglestart,radius+radius_width)
-            if annotate:
-                 pylab.annotate(name, wedge_centre,
-                     (anglestart,1.2+2*radius_width),
-                     arrowprops={'width':0.05, 'headwidth': 0.05, 'frac': 0.01},
-                     size='xx-small'
-                     )
+        if annotate:
+            # only annotate last 10 (most significant)
+            for name,segments in out[-10:]:
+                segment = segments[0]
+                anglestart,radius = segment[0]
+                radius_width = segment[2]
+                wedge_centre = (anglestart,radius+radius_width)
+                plt.annotate(name, wedge_centre,
+                    (anglestart,ylim * 1.2),
+                    arrowprops={'width':0.05, 'headwidth': 0.05, 'frac': 0.01},
+                    size='xx-small'
+                    )
 
         p = PatchCollection(patches)
         ax.add_collection(p)
-        pylab.polar([0,0], [0,0.0])
+        plt.polar([0,0], [0,0.0])
 
         # hack to get rid of axes ...
-        # ax = pylab.gca()
+        # ax = plt.gca()
         # ax.set_frame_on(False)
-        # pylab.yticks([],[])
-        # pylab.xticks([],[])
+        # plt.yticks([],[])
+        # plt.xticks([],[])
         first = min(starts.values())
         last = max(ends.values())
         numticks = 10
         increment = int(float(last-first)/numticks)
         increment_angle = (2*PI*increment)/(last-first)
-        pylab.xticks([idx*increment_angle for idx in range(numticks)],
-            [ first + increment * idx for idx in range(numticks) ]
+        plt.xticks([idx*increment_angle for idx in range(numticks+1)],
+            [ first + increment * idx for idx in range(numticks+1) ]
             )
         # play around with where outside is relative to annotations and data
-        pylab.ylim(0, 1.0)
-        pylab.yticks([],[])
-        # pylab.title('Who Dickens Wrote To (width~num letters)')
-        pylab.savefig(self._fn(fn))
+        plt.ylim(0, ylim)
+        plt.yticks([],[])
+        # plt.title('Who Dickens Wrote To (width~num letters)')
+        self._savefig(fn)
     
     def _fn(self, fn):
         return os.path.join(OUTDIR, fn)
 
+    def _savefig(self, fn):
+        plt.savefig(self._fn(fn), transparent=True)
+        
 
 if __name__ == '__main__':
     a = Analyzer()
