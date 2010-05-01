@@ -5,7 +5,7 @@ from pylons.controllers.util import abort, redirect_to
 
 from openletters.lib.base import BaseController, render
 
-from openletters.transform import transformXml, transformHtml
+from openletters.transform import transform_html
 
 log = logging.getLogger(__name__)
 

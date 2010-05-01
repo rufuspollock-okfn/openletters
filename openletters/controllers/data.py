@@ -5,7 +5,7 @@ from pylons.controllers.util import abort, redirect_to
 
 from openletters.lib.base import BaseController, render
 
-from openletters.transform import transformJson, transformXml, transformRdf
+from openletters.transform import transform_json, transform_xml, transform_rdf
 
 log = logging.getLogger(__name__)
 
@@ -34,7 +34,7 @@ class DataController(BaseController):
         return letterXml
     
     def letterrdf(self):
-        response.headers['content-type'] = 'text/xml; charset=utf-8'
+        #response.headers['content-type'] = 'text/xml; charset=utf-8'
         letter_url =  request.params['url']
         letterRdf = transformRdf.createRdfLetter (letter_url)
         return letterRdf
