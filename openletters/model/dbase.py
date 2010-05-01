@@ -1,17 +1,9 @@
 from sqlalchemy import *
 
-#TODO: change this run off the .ini file. 
-db = create_engine('engine://user:pwrd@host/db')
-
-
-#for testing echo out the SQL
-db.echo = False
-
-metadata = MetaData(db)
-
-#define the table mappings here
-users = Table('letters', metadata, autoload=True)
-#notes = Table('annotation', metadata, autoload=True)
+from meta import engine as db, metadata
+from letter import letter_table
+# TODO: remove (backwards compat hack)
+users = letter_table
 
 
 def run(stmt):
@@ -24,7 +16,7 @@ def run(stmt):
 #need to map this to the correct table
 def getLetterText(uri): 
     ret_arr = {}
-    s = users.select(users.c.perm_url == uri)
+    s = letter_table.select(letter_table.c.perm_url == uri)
     rs = s.execute()
     for row in rs:
         ret_arr[row[0]] = row[6]
@@ -34,7 +26,7 @@ def getLetterText(uri):
 #returns all letters by an author 
 def indexAuthor (author):
     ret_index = {}
-    index = users.select(users.c.type == author)
+    index = letter_table.select(letter_table.c.type == author)
     #r =run(index)
     rs = index.execute()
     count = 0
@@ -49,7 +41,7 @@ def indexAuthor (author):
 def createCorrespondents (author):
     ret_corr = {}
     print "author", author
-    index = users.select(users.c.type == author)
+    index = letter_table.select(letter_table.c.type == author)
     #r =run(index)
     rs = index.execute()
     count = 0
@@ -75,5 +67,5 @@ def insertAnnotation (url):
 #void method to insert the data from the parser
 #TODO: add in the date to the db  
 def insertLetters(url, vol, corr, type, sal, letter, date):
-    ins = users.insert()
+    ins = letter_table.insert()
     db.execute(ins, volume=vol, type=type, perm_url=url, correspondent=corr, salutation=sal, letter_text=letter, letter_date=date)

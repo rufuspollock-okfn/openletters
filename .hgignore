@@ -12,5 +12,6 @@ development.ini*
 sstore/*
 data/*
 pylons_data/*
-
+# test.ini db
+sqlitetest.db
 
