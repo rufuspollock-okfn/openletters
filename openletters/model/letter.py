@@ -1,18 +1,26 @@
-from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, ForeignKey
 '''creates the tables - to be extended at a later date 19 April 2010'''
-metadata = MetaData()
+from sqlalchemy import create_engine, Table, Column, Integer, UnicodeText, MetaData, ForeignKey
+from sqlalchemy import orm
 
-engine = create_engine('mysql://root:enoch@localhost/py_dickens', echo=True)
+from meta import engine, metadata
 
-lettersTbl = Table('letters', metadata,
-                   Column('id', Integer, primary_key=True),
-                   Column('volume', Integer),
-                   Column('type', String(20)),
-                   Column('perm_url', String(50)),
-                   Column('salutation', String(75)),
-                   Column('correspondent', String(50)),
-                   Column('letter_text', String(10000)),
-                   Column('letter_date', String(20)),                 
+letter_table = Table('letter', metadata,
+    Column('id', Integer, primary_key=True),
+    Column('volume', Integer),
+    Column('type', UnicodeText),
+    Column('perm_url', UnicodeText),
+    Column('salutation', UnicodeText),
+    Column('correspondent', UnicodeText),
+    Column('letter_text', UnicodeText),
+    Column('letter_date', UnicodeText),                 
 )
 
-metadata.create_all(engine)
+
+class Letter(object):
+    def __init__(self, **kwargs):
+        for k,v in kwargs.items():
+            setattr(self, k, v)
+
+
+orm.mapper(Letter, letter_table)
+
