@@ -4,7 +4,7 @@ from sqlalchemy import orm
 
 from meta import engine, metadata
 
-lettersTbl = Table('letters', metadata,
+letter_table = Table('letter', metadata,
     Column('id', Integer, primary_key=True),
     Column('volume', Integer),
     Column('type', UnicodeText),
@@ -14,7 +14,6 @@ lettersTbl = Table('letters', metadata,
     Column('letter_text', UnicodeText),
     Column('letter_date', UnicodeText),                 
 )
-letter_table = lettersTbl
 
 
 class Letter(object):
@@ -23,5 +22,5 @@ class Letter(object):
             setattr(self, k, v)
 
 
-orm.mapper(Letter, lettersTbl)
+orm.mapper(Letter, letter_table)
 
