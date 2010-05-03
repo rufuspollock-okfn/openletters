@@ -11,30 +11,30 @@ log = logging.getLogger(__name__)
 
 class DataController(BaseController):
 
-    def index(self):
+    def index_json(self):
         # Return a rendered template
         #return render('/data.mako')
         # or, return a response
         response.headers['content-type'] = 'application/json'
         author =  request.params['author']
-        timeline = transformJson.authorTimeline(author)
+        timeline = transform_json.authorTimeline(author)
         return timeline
     
-    def xml(self):
+    def index_xml(self):
         response.headers['content-type'] = 'text/xml; charset=utf-8'
         author =  request.params['author']
         #authorIndex = transformHtml.outputAuthorIndex(author)
-        authorIndex = transformXml.createIndex(author)
+        authorIndex = transform_xml.createIndex(author)
         return authorIndex
         
-    def letterxml(self):
+    def letter_xml(self):
         response.headers['content-type'] = 'text/xml; charset=utf-8'
         letter_url =  request.params['url']
-        letterXml = transformXml.createLetter (letter_url)
+        letterXml = transform_xml.createLetter (letter_url)
         return letterXml
     
-    def letterrdf(self):
-        #response.headers['content-type'] = 'text/xml; charset=utf-8'
+    def letter_rdf(self):
+        response.headers['content-type'] = 'text/xml; charset=utf-8'
         letter_url =  request.params['url']
-        letterRdf = transformRdf.createRdfLetter (letter_url)
+        letterRdf = transform_rdf.createRdfLetter (letter_url)
         return letterRdf

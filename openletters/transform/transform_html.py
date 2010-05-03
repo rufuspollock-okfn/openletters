@@ -15,6 +15,7 @@ def outputLetter (uri):
             letter_output += '%s<br />' %(n)
     
     letter_output += '</p>'
+    letter_output += '<a href="../data/letter_rdf?url='+uri+'">Rdf version</a>'
     
     return letter_output
 

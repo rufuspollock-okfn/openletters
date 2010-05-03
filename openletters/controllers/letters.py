@@ -14,13 +14,13 @@ class LettersController(BaseController):
     def index(self):
         author =  request.params['author']
 
-        authorIndex = transformHtml.outputAuthorIndex(author)
+        authorIndex = transform_html.outputAuthorIndex(author)
         return authorIndex
     
     def letter (self):
         #self.uri = uri
         uri =  request.params['letter']
-        letterHtml = transformHtml.outputLetter(uri)
+        letterHtml = transform_html.outputLetter(uri)
         
         return letterHtml
         
