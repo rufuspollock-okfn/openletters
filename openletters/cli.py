@@ -65,6 +65,47 @@ class ManageDb(BaseCommand):
             sys.exit(1)
 
 
+class Fixtures(BaseCommand):
+    '''Load external data into domain model.
+
+        dickens: Load Dickens data.
+    '''
+    summary = __doc__.split('\n')[0]
+    usage = __doc__
+    max_args = None
+    min_args = 1
+
+    def command(self):
+        self._load_config()
+        action = self.args[0]
+        if action == 'setup':
+            self.setup()
+        elif action == 'teardown':
+            self.teardown()
+    
+    perm_url = u'http://openletters.org/letters/testing'
+
+    @classmethod
+    def setup(self):
+        from openletters import model
+        letter = model.Letter(volume=1, type=u'dickens',
+                correspondent=u'Mr MaCready', perm_url=self.perm_url,
+                letter_text=u'xxxxx', letter_date=u'6th August 1847')
+        model.Session.add(letter)
+        model.Session.commit()
+        model.Session.remove()
+
+    @classmethod
+    def teardown(self):
+        from openletters import model
+        letters = model.Session.query(model.Letter
+                ).filter_by(perm_url=self.perm_url).all()
+        for l in letters:
+            model.Session.delete(l)
+        model.Session.commit()
+        model.Session.remove()
+
+
 class Load(BaseCommand):
     '''Load external data into domain model.
 
