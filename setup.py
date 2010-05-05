@@ -40,5 +40,6 @@ setup(
     [paste.paster_command]
     db = openletters.cli:ManageDb
     load = openletters.cli:Load
+    fixtures = openletters.cli:Fixtures
     """,
 )
