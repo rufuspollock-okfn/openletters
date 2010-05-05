@@ -36,5 +36,10 @@ class DataController(BaseController):
     def letter_rdf(self):
         response.headers['content-type'] = 'text/xml; charset=utf-8'
         letter_url =  request.params['url']
-        letterRdf = transform_rdf.createRdfLetter (letter_url)
-        return letterRdf
+        letter_rdf = transform_rdf.createRdfLetter (letter_url)
+        return letter_rdf
+    
+    def endpoint(self):
+        response.headers['content-type'] = 'text/xml; charset=utf-8'
+        letter_rdf = transform_rdf.create_rdf_end ()
+        return letter_rdf
