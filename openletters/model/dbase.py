@@ -76,23 +76,33 @@ def get_endpoint_rdf ():
     s = users.select()
     rs = s.execute()
     for row in rs:
-        ret_arr[row[0]] = [row[3], row[5],row[6], row[7]]
+        ret_arr[row[0]] = [row[3], row[5],row[6], row[7], row[4]]
+    
+    return ret_arr
+
+#gets the correspondent details to wrap in foaf
+def get_correspondent (corr):
+    ret_arr = {}
+    corres = users.select(users.c.correspondent == corr)
+    rs = corres.execute()
+    for row in rs:
+        ret_arr[row[4]] = [row[5]]
     
     return ret_arr
 #gets any annotations for a letter - this will come later
-def getAnnotation (url):
+def get_annotation (url):
     annotation = notes.select(notes.c.url == url)
     r = run(annotation)
     return r
 
 #inserts the annotation - this will come later once the templating as been done
-def insertAnnotation (url):
+def insert_annotation (url):
     insertNote = notes.insert(notes.c.url == url)
     r = run(insertNote)
     return r
 
 #void method to insert the data from the parser
 #TODO: add in the date to the db  
-def insertLetters(url, vol, corr, type, sal, letter, date):
+def insert_letters(url, vol, corr, type, sal, letter, date):
     ins = users.insert()
     db.execute(ins, volume=vol, type=type, perm_url=url, correspondent=corr, salutation=sal, letter_text=letter, letter_date=date)

@@ -43,3 +43,9 @@ class DataController(BaseController):
         response.headers['content-type'] = 'text/xml; charset=utf-8'
         letter_rdf = transform_rdf.create_rdf_end ()
         return letter_rdf
+    
+    def correspondent(self):
+        response.headers['content-type'] = 'text/xml; charset=utf-8'
+        corr = request.params['corr']
+        corr_rdf = transform_rdf.create_correspondent(corr)
+        return corr_rdf
