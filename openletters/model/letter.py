@@ -4,7 +4,7 @@ from sqlalchemy import orm
 
 from meta import engine, metadata
 
-letter_table = Table('letter', metadata,
+letter_table = Table('letters', metadata,
     Column('id', Integer, primary_key=True),
     Column('volume', Integer),
     Column('type', UnicodeText),
@@ -21,6 +21,4 @@ class Letter(object):
         for k,v in kwargs.items():
             setattr(self, k, v)
 
-
 orm.mapper(Letter, letter_table)
-

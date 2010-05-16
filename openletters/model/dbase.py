@@ -1,18 +1,13 @@
 from sqlalchemy import *
+from meta import engine, metadata, Session
 
-#TODO: change this run off the .ini file. 
-#db = create_engine('engine://user:pwrd@host/db')
-db = create_engine('mysql://root:enoch@localhost/py_dickens')
-
-#for testing echo out the SQL
-db.echo = False
-
-metadata = MetaData(db)
+from openletters.model.letter import Letter
 
 #define the table mappings here
 users = Table('letters', metadata, autoload=True)
 #notes = Table('annotation', metadata, autoload=True)
 
+session = Session()
 
 def run(stmt):
     rs = stmt.execute()
@@ -22,17 +17,18 @@ def run(stmt):
  
 #gets the letter text - where letter_text  
 #need to map this to the correct table
-def getLetterText(uri): 
+def get_letter_text(uri): 
     ret_arr = {}
-    s = users.select(users.c.perm_url == uri)
-    rs = s.execute()
-    for row in rs:
-        ret_arr[row[0]] = row[6]
-    
+    url = ''
+    text = ''
+    for url, text in session.query(Letter.id, Letter.letter_text).filter(Letter.id==uri):
+        ret_arr[url] = text
+
+    print "session", ret_arr
     return ret_arr
 
 #returns all letters by an author 
-def indexAuthor (author):
+def index_author (author):
     ret_index = {}
     index = users.select(users.c.type == author)
     #r =run(index)

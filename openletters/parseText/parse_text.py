@@ -46,7 +46,6 @@ but exclude long exclamations
 '''
 def parse_balanced_quotes (text):
     ret_quotes = []
-    print "text", text
     m_quote = ''
     bq = re.findall('"([^\\"]+)"', text)
     if "," in str(bq):

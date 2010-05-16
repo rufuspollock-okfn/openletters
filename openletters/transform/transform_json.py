@@ -4,8 +4,8 @@ from openletters.model import dbase
   Methods for json output
   '''
   
-def authorTimeline (author):
-    aTimeline = ''
+def author_timeline (author):
+    a_timeline = ''
     author_index = "{'dateTimeFormat:iso8601, events:["
     letters = []
     letters = dbase.createCorrespondents(author)
@@ -20,6 +20,6 @@ def authorTimeline (author):
         
     author_index += "]}"
     
-    aTimeline = json.dumps(author_index, sort_keys=True, indent=4)
+    a_timeline = json.dumps(author_index, sort_keys=True, indent=4)
 
-    return aTimeline
+    return a_timeline

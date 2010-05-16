@@ -35,7 +35,7 @@ def createRdfLetter (uri):
     letter_rdf += 'xmlns:dc ="http://purl.org/dc/elements/1.1/"\n'
     letter_rdf += 'xml:base="http://www.opencorrespondence.org/" >\n'
     
-    letter_rdf += '<rdf:Description rdf:about="'+uri+'">'
+    letter_rdf += '<rdf:Description rdf:about="letter/text?letter='+uri+'">'
     letter_rdf += '<dc:author>Charles Dickens</dc:author>'
         
     letter = {}  
@@ -98,7 +98,8 @@ def create_rdf_end ():
     
     
     for url, text in letter_items:
-        letter_rdf += '<rdf:Description rdf:about="'+str(url)+'">\n'
+        print url
+        letter_rdf += '<rdf:Description rdf:about="letters/text?letter='+ str(text[0])+'">\n'
         letter_rdf += '<dc:author>Charles Dickens</dc:author>\n'
         #graph.add((owl_time, owl_time['inCalendarClockDataType'], Literal(str(text[3])+'T00:00:00')))
         #graph.add(dublin_core, dublin_core['author'], Literal('Charles Dickens'))
@@ -107,7 +108,7 @@ def create_rdf_end ():
         letter_rdf += '<time-entry:inCalendarClockDataType rdf:datatype="xsd:dateTime">'+str(text[3])+'T00:00:00</time-entry:inCalendarClockDataType>\n'
         #still need to put in a foaf:Person link for the person - we have potential nickname data in the db
         
-        letter_rdf += '<letter:Correspondent>'+str(text[1])+'</letter:Correspondent>\n'
+        letter_rdf += '<letter:Correspondent rdf:resource="/data/correspondent?corr='+urllib.quote(str(text[1]))+'" />\n'
         letter_rdf += '<foaf:nick>'+str(text[4])+'</foaf:nick>\n'
         
         #this section will parse for proper names in due course
@@ -121,7 +122,7 @@ def create_rdf_end ():
         letter_quotes = parse_text.parse_balanced_quotes(text[2])
         for quote in letter_quotes:
             #the length is to remove anything really long
-            if str(quote[0:1]).isupper and "!" not in quote and len(str(quote)) < 60:
+            if str(quote[0:1]).isupper and "!" not in quote and len(str(quote)) < 40:
                 #graph.add(Letter, Letter['textReferred'], Literal(parse_text.stripPunc(quote)))
                 letter_rdf += "<letter:textReferred>%s</letter:textReferred>\n" %(parse_text.stripPunc(quote))
         
@@ -141,7 +142,7 @@ def create_correspondent(corr):
         letter_rdf += 'xmlns:foaf="http://xmlns.com/foaf/0.1/"\n'
         letter_rdf += 'xml:base="http://www.opencorrespondence.org/data/correspondent" >\n'
         
-        letter_rdf += '<rdf:Description rdf:about="/'+urllib.quote(corr)+'">\n'       
+        letter_rdf += '<rdf:Description rdf:about="?corr='+urllib.quote(corr)+'">\n'       
         letter_rdf += '<letter:Correspondent>'+u_corr+'</letter:Correspondent>\n'
         
         letter = {}  
