@@ -35,9 +35,11 @@ def load_dickens_letters(fileobj, verbose=True):
                      
         if m_url != "1none":
             vol = 1
-            model.Letter(volume=vol, type=u'dickens', perm_url=m_url,
-                    correspondent=m_let, salutation=m_sal, letter_text=letter,
+            modelletter = model.Letter(volume=vol, type=u'dickens', perm_url=m_url,
+                    correspondent=m_let, salutation=unicode(m_sal),
+                    letter_text=unicode(letter),
                     letter_date=m_date_let)
+            model.Session.add(modelletter)
             model.Session.commit()
             if verbose:
                 print('Letter %s: %s\n\t%s ...' % (count, m_let, letter[:15]))
