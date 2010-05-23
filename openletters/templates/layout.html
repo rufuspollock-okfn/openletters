@@ -63,7 +63,7 @@
       <li><a href="${url(controller='letters', action='index')}">Letters</a></li>
       <li><a href="${url(controller='data', action='endpoint')}">RDF Export</a></li>
       <!-- <li><a href="${url(controller='timeline', action='index')}">Timeline</a></li> -->
-      <li><a href="${url(controller='schema', action='index')}">Schema</a></li>
+      <li><a href="${url('schema')}">Schema</a></li>
     </ul>
     <h3 class="hidden">In this section:</h3>
     <ul id="subnav">
@@ -83,7 +83,7 @@
 
   <div id="main">
     <div id="content">
-      ${c.letterhtml}
+      ${content()}
     </div>
     
     <div id="footer">

@@ -21,6 +21,7 @@ def make_map():
     # CUSTOM ROUTES HERE
     map.connect('home', '/', controller='home', action='index')
     map.connect('gallery', '/gallery', controller='home', action='gallery')
+    map.connect('schema', '/schema', controller='home', action='schema')
     map.connect('/{controller}/', action='index')
     map.connect('/{controller}/{action}')
     map.connect('/{controller}/{action}/{id}')

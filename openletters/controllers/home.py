@@ -14,3 +14,6 @@ class HomeController(BaseController):
     def gallery(self):
         return render('home/index.html')
 
+    def schema(self):
+        return render('home/schema.html')
+

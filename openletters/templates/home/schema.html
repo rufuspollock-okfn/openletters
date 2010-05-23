@@ -1,0 +1,36 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+  xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <py:def function="page_title">Home</py:def>
+
+  <div py:def="content">
+    <h2>Open Correspondence Schema</h2>
+    <p>The Open Correspondence project re-uses schemas where possible.</p>
+
+    <p>It uses <a href="http://purl.org/dc/elements/1.1/">Dublin Core</a>,
+     <a href="http://xmlns.com/foaf/0.1/">Friend of a Friend</a> and <a href="http://www.isi.edu/~pan/damltime/time-entry.owl#">OWL time</a>.
+    There are sections of the letter that these schemas do not cover.
+    The letter schema is designed to patch these holes to allow users to link letters and the letter texts. </p>
+    
+    <h3>Letter schema</h3>
+    
+    <p>Namespace: http://purl.org/letter</p>
+    
+    <h4>Character</h4>
+    <p>A fictional person who is referenced in the text. This element is used to disambiguated between fictional and non-fictional characters. Non-fictional, i.e. real people, are denoted by foaf:Person. Character is a subset of foaf:Person and is intended for fictional people. For example, in a letter from an author to an agent, the author may describing their latest project.</p>
+    
+    <h4>Correspondent</h4>
+    <p>This field denotes the correspondent of the letter.  It is a subset of foaf:Person as it should denote a real person. (However it is perfectly possible for a fictional letter to be written and in this case it would perhaps be inappropriate to use foaf:Person).<br />
+    foaf:nick can be used to highlight the different ways that the correspondent is addressed by the author.</p>
+    
+    <h4>personReferred</h4>
+    <p>This field refers to a person who is referred to in the body of the letter</p>
+    
+    <h4>textReferred</h4>
+    <p>This refers to a text (book, verse or similar) which is referred to in the letter being serialised. It is intended to allow the building of graphs between the letters where a text is being referred to so that a graph can be built of what an author was doing or thinking about a text around the time or after writing the text. It is designed to allow for some contextualisation of the referred work. It could also be used to build a reading list, possible influences or forgotten works that the author was aware of at the time.</p>
+
+  </div>
+
+  <xi:include href="../layout.html" />
+</html>
+
