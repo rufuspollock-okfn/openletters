@@ -35,7 +35,7 @@ def createRdfLetter (uri):
     letter_rdf += 'xmlns:dc ="http://purl.org/dc/elements/1.1/"\n'
     letter_rdf += 'xml:base="http://www.opencorrespondence.org/" >\n'
     
-    letter_rdf += '<rdf:Description rdf:about="letter/text?letter='+uri+'">'
+    letter_rdf += '<rdf:Description rdf:about="letters/view/'+uri+'">'
     letter_rdf += '<dc:author>Charles Dickens</dc:author>'
         
     letter = {}  
@@ -99,7 +99,7 @@ def create_rdf_end ():
     
     for url, text in letter_items:
         print url
-        letter_rdf += '<rdf:Description rdf:about="letters/text?letter='+ str(text[0])+'">\n'
+        letter_rdf += '<rdf:Description rdf:about="letters/view/'+ str(url)+'">\n'
         letter_rdf += '<dc:author>Charles Dickens</dc:author>\n'
         #graph.add((owl_time, owl_time['inCalendarClockDataType'], Literal(str(text[3])+'T00:00:00')))
         #graph.add(dublin_core, dublin_core['author'], Literal('Charles Dickens'))
