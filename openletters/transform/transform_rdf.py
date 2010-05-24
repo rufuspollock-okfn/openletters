@@ -98,7 +98,6 @@ def create_rdf_end ():
     
     
     for url, text in letter_items:
-        print url
         letter_rdf += '<rdf:Description rdf:about="letters/view/'+ str(url)+'">\n'
         letter_rdf += '<dc:author>Charles Dickens</dc:author>\n'
         #graph.add((owl_time, owl_time['inCalendarClockDataType'], Literal(str(text[3])+'T00:00:00')))

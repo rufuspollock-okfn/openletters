@@ -48,15 +48,30 @@ def parse_balanced_quotes (text):
     ret_quotes = []
     m_quote = ''
     bq = re.findall('"([^\\"]+)"', text)
+    bq = str(bq).replace("[", "").replace("u'", "").replace("]", "").replace("'", "").strip()
+
     if "," in str(bq):
         for a in str(bq).split(","): 
-            if str(bq[0:1]).isupper and "!" not in bq and len(str(bq)) < 40:
-                ret_quotes.append(a)
-            
+            if str(a[0:1]).isspace():
+                str(a).strip() 
+            if str(a[0:1]) is "u":
+                str(a).replace("u", "")
+
+            if str(a[0:1]).isupper() and "!" not in a and len(str(a)) < 40:
+                ret_quotes.append(a)  
+            else:
+                pass     
     else:
+        if str(bq[0:1]).isspace():
+                str(bq[0:1]).strip()
+        if str(bq[0:1]) is "u":
+                str(bq[0:1]).replace("u", "")
+                           
         if str(bq[0:1]).isupper and "!" not in bq and len(str(bq)) < 40:
             ret_quotes.append(bq)         
-    
+        else:
+            pass
+        
     return ret_quotes
 
 '''
