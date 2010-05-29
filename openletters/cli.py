@@ -66,9 +66,10 @@ class ManageDb(BaseCommand):
 
 
 class Fixtures(BaseCommand):
-    '''Load external data into domain model.
+    '''Load (and remove) fixture data.
 
-        dickens: Load Dickens data.
+        setup: setup fixtures
+        teardown: teardown the fixtures
     '''
     summary = __doc__.split('\n')[0]
     usage = __doc__
@@ -94,6 +95,14 @@ class Fixtures(BaseCommand):
         model.Session.add(letter)
         model.Session.commit()
         model.Session.remove()
+
+    @classmethod
+    def letter(self):
+        '''Get the letter the fixtures create.'''
+        from openletters import model
+        letter = model.Session.query(model.Letter).\
+                filter_by(perm_url=self.perm_url).one()
+        return letter
 
     @classmethod
     def teardown(self):
