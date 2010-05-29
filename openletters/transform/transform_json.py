@@ -1,8 +1,9 @@
-import json
+try:
+    import json
+except ImportError:
+    import simplejson as json
+
 from openletters.model import dbase
-'''
-  Methods for json output
-  '''
   
 def author_timeline (author):
     a_timeline = ''
