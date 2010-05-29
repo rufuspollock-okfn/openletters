@@ -1,4 +1,5 @@
-import re
+import re, datetime, time
+
 '''
   Gets the relevant line from the letter then breaks it up
   I think that this should be eventually returned as ISO8601 format (YYYY-MM-DD)
@@ -90,4 +91,23 @@ def parseDay (date):
     
     return dtLine
 
+def reformat(dtline):
+    
+    if dtline is "0000-00-00":
+        letterdate = "No date"
+    else:
+        dt = dtline.split("-")
+        print "dt", int(dt[1])
+        letterdate = str(dt[0]) +","+ format_month(int(dt[1]))+","+ str(dt[2])
+        
+    return letterdate
 
+def format_month (mth):
+    
+    if mth is 00:
+        month = "no month"
+    else:
+        month = datetime.date.strftime(mth, '%B')
+    
+    return month
+    

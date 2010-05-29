@@ -8,7 +8,7 @@ from pylons.controllers.util import abort, redirect_to
 from openletters.lib.base import BaseController, render
 from openletters import model
 from openletters.transform import transform_html
-from openletters.parseText import parse_text
+from openletters.parseText import parse_text, parse_date
 
 log = logging.getLogger(__name__)
 
