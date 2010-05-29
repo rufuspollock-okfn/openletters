@@ -25,7 +25,8 @@ import urllib
   @param uri 
   @return letter_rdf
   '''
-def createRdfLetter (uri):
+def create_rdf_letter (uri):
+
 #uses OWL, FOAF, DC and letter Purl schemas
     letter_rdf = '<rdf:RDF\n'
     letter_rdf += 'xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"\n'
@@ -87,7 +88,7 @@ def create_rdf_end ():
     letter_rdf += 'xmlns:time-entry="http://www.isi.edu/~pan/damltime/time-entry.owl#"\n'
     letter_rdf += 'xmlns:foaf="http://xmlns.com/foaf/0.1/"\n'
     letter_rdf += 'xmlns:dc ="http://purl.org/dc/elements/1.1/"\n'
-    letter_rdf += 'xml:base="http://www.opencorrespondence.org/" >\n'
+    letter_rdf += 'xml:base="http://www.opencorrespondence.org" >\n'
     
     
     letter = {}  
@@ -98,7 +99,7 @@ def create_rdf_end ():
     
     
     for url, text in letter_items:
-        letter_rdf += '<rdf:Description rdf:about="letters/view/'+ str(url)+'">\n'
+        letter_rdf += '<rdf:Description rdf:about="/letters/view/'+ str(url)+'">\n'
         letter_rdf += '<dc:author>Charles Dickens</dc:author>\n'
         #graph.add((owl_time, owl_time['inCalendarClockDataType'], Literal(str(text[3])+'T00:00:00')))
         #graph.add(dublin_core, dublin_core['author'], Literal('Charles Dickens'))
@@ -107,7 +108,7 @@ def create_rdf_end ():
         letter_rdf += '<time-entry:inCalendarClockDataType rdf:datatype="xsd:dateTime">'+str(text[3])+'T00:00:00</time-entry:inCalendarClockDataType>\n'
         #still need to put in a foaf:Person link for the person - we have potential nickname data in the db
         
-        letter_rdf += '<letter:Correspondent rdf:resource="/data/correspondent?corr='+urllib.quote(str(text[1]))+'" />\n'
+        letter_rdf += '<letter:Correspondent rdf:resource="/data/correspondent/'+urllib.quote(str(text[1]))+'" />\n'
         letter_rdf += '<foaf:nick>'+str(text[4])+'</foaf:nick>\n'
         
         #this section will parse for proper names in due course
@@ -141,7 +142,7 @@ def create_correspondent(corr):
         letter_rdf += 'xmlns:foaf="http://xmlns.com/foaf/0.1/"\n'
         letter_rdf += 'xml:base="http://www.opencorrespondence.org/data/correspondent" >\n'
         
-        letter_rdf += '<rdf:Description rdf:about="?corr='+urllib.quote(corr)+'">\n'       
+        letter_rdf += '<rdf:Description rdf:about="/'+urllib.quote(corr)+'">\n'       
         letter_rdf += '<letter:Correspondent>'+u_corr+'</letter:Correspondent>\n'
         
         letter = {}  

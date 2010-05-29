@@ -8,6 +8,7 @@ from pylons.controllers.util import abort, redirect_to
 from openletters.lib.base import BaseController, render
 from openletters import model
 from openletters.transform import transform_html
+from openletters.parseText import parse_text
 
 log = logging.getLogger(__name__)
 
@@ -26,6 +27,7 @@ class LettersController(BaseController):
         
     def view(self, id=None):
         c.letter = model.Session.query(model.Letter).get(id)
+
         if c.letter is None:
             abort(404)
         else:

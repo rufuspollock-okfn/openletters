@@ -37,12 +37,12 @@ def index_author (author):
     for row in rs:
         #create dictionary of url and correspondent 
         count += 1
-        ret_index[count] = [row[3], row[5], row[7]]
+        ret_index[count] = [row[0], row[5], row[7]]
         
     return ret_index
 
 #returns correspondents
-def createCorrespondents (author):
+def create_correspondents (author):
     ret_corr = {}
 
     index = users.select(users.c.type == author)
@@ -52,14 +52,14 @@ def createCorrespondents (author):
     for row in rs:
         #create dictionary of url and correspondent 
         count += 1
-        ret_corr[count] = [row[3], row[5], row[7]]
+        ret_corr[count] = [row[3], row[5], row[7], row[0]]
 
     return ret_corr
 
 #gets the basic details for RDF representation of letter
 def get_letter_rdf (url):
     ret_arr = {}
-    s = users.select(users.c.perm_url == url)
+    s = users.select(users.c.id == url)
     rs = s.execute()
     for row in rs:
         ret_arr[row[0]] = [row[3], row[5],row[6], row[7]]

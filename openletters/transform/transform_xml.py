@@ -8,7 +8,7 @@ def createIndex (author):
     doc = ''
     letter = []
     #letterIndexUrl, letterIndexCorr, letterIndexDt = data.indexAuthor(author)
-    letter = dbase.indexAuthor(author)
+    letter = dbase.index_author(author)
 
     root = ET.Element("index")
 
@@ -22,7 +22,7 @@ def createIndex (author):
     doc += "<index>"
     for letter_url, letter_corr in index_items:
         doc += "<letter>"
-        doc += "<url>%s</url><corr>%s</corr><date>%s</date>" %(letter_corr[0], letter_corr[1],letter_corr[2])
+        doc += "<url>http://www.opencorrespondence.org/letter/view/%s</url><corr>%s</corr><date>%s</date>" %(letter_corr[0], letter_corr[1],letter_corr[2])
         doc += "</letter>"
     #for key in letter.iteritems():
     #for n in letter:
