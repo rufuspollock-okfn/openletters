@@ -16,4 +16,6 @@ class HomeController(BaseController):
 
     def schema(self):
         return render('home/schema.html')
-
+   
+    def help(self):
+        return render('home/help.html')
