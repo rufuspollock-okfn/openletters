@@ -129,7 +129,8 @@ class Load(BaseCommand):
         self._load_config()
         cmd = self.args[0]
         if cmd == 'dickens':
-            fileobj = open('openletters/docs/letter.txt')
+            fileobj = 'openletters/docs/dickens.xml'
+            #fileobj = open('openletters/docs/letter.txt')
             import openletters.main
             openletters.main.load_dickens_letters(fileobj)
             fileobj.close()

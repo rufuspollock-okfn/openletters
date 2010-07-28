@@ -4,46 +4,56 @@ Class to parse the Dickens letters and enter into a store
 from parseText import parse_text
 from parseText import parse_date
 
+from xml.dom import minidom
+
 from openletters import model
 
+def getText(nodelist):
+    rc = []
+    for node in nodelist:
+        if node.nodeType == node.TEXT_NODE:
+            rc.append(node.data)
+    return ''.join(rc)
+
+def handle_elements (elementname, element):
+    e = element.getElementsByTagName(elementname)
+    
+    for name in e:
+        return handle_parts(elementname, name)
+
+    
+def handle_parts (nodename, node):
+   # print "<%s>%s</%s>" % (nodename, getText(node.childNodes), nodename)
+    return getText(node.childNodes)
+    
+
 def load_dickens_letters(fileobj, verbose=True):
-    text = fileobj.read()
-    #remove the asterisks
-    text = text.replace("*","")
+    #read = fileobj.read()
+    text = minidom.parse(fileobj)
 
     #split the body into individual letters
-    count = 0
-    for letter in text.split("[Sidenote"):
-        m_sal = u''
-        m_date_let = u''
-        m_let = unicode(parse_text.stripPunc(
-            parse_text.parseCorrespondent(letter),
-            ''))
-        m_url = unicode(count) + unicode(parse_text.stripPunc(m_let, "url"))
-        count += 1
-        
-        #print m_let
-        for l in letter.split("\n"):
-            m = parse_text.parseSalutation(l)
-            if m != '':
-                m_sal = m[1]
-            
-            if "._" in l:
-                if "_" in l:
-                     n = l.split("_")
-                     m_date_let = unicode(parse_date.parseDate(n[1]))
-                     
-        if m_url != "1none":
-            vol = 1
-            modelletter = model.Letter(volume=vol, type=u'dickens', perm_url=m_url,
-                    correspondent=m_let, salutation=unicode(m_sal),
-                    letter_text=unicode(letter),
-                    letter_date=m_date_let)
-            model.Session.add(modelletter)
-            model.Session.commit()
-            if verbose:
-                print('Letter %s: %s\n\t%s ...' % (count, m_let, letter[:15]))
+    letters  = text.getElementsByTagName('div')
+ 
+    vol = 1
+    count = 1
+    for letter in letters:
+        modelletter = model.Letter(
+                    volume=vol, 
+                    type=u'dickens',
+                    correspondent = handle_elements("correspondent", letter), 
+                    salutation=unicode(handle_elements("salutation", letter)),
+                    letter_text=unicode(handle_elements("letter", letter)),
+                    letter_date=unicode(handle_elements("date", letter))
+                    )
+        print "date", unicode(handle_elements("date", letter))
+        model.Session.add(modelletter)
+        model.Session.commit()
+    
+        if verbose:
+            print('Letter %s: \n\t ...' % (count))
             model.Session.remove()
         else:
             print('Letter %s: SKIPPING' % (count))
         
+#fileobj = open('C:\\Users\\iain\\texts\\dickens\\letterone1.xml')
+#load_dickens_letters(fileobj)
