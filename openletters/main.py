@@ -54,6 +54,3 @@ def load_dickens_letters(fileobj, verbose=True):
             model.Session.remove()
         else:
             print('Letter %s: SKIPPING' % (count))
-        
-#fileobj = open('C:\\Users\\iain\\texts\\dickens\\letterone1.xml')
-#load_dickens_letters(fileobj)
