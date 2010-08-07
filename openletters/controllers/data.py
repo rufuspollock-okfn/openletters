@@ -11,16 +11,10 @@ from openletters.transform import transform_json, transform_xml, transform_rdf
 log = logging.getLogger(__name__)
 
 class DataController(BaseController):
-
     def json(self, id=None):
-        # Return a rendered template
-        #return render('/data.mako')
-        # or, return a response
-        #response.headers['content-type'] = 'application/json'
         timeline = transform_json.author_timeline(id)
         if id is None:
             abort(404)
-            
         return timeline
     
     def letter_rdf(self, id=None):
