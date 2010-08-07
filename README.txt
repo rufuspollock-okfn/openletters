@@ -30,3 +30,20 @@ Tweak the config file as appropriate and then setup the application::
     paster setup-app config.ini
 
 Then you are ready to go.
+
+
+Using the Command Line Tools
+============================
+
+Our command line tools have been created as `paster commands` (and found in
+openletters/cli.py). To get a list do::
+
+    paster -h
+
+And look at commands in openletters section (some of other commands may be
+useful to). To get more info on a given command do::
+
+    paster {command} -h
+
+.. _paster commands: http://pythonpaste.org/script/developer.html
+
