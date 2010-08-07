@@ -15,12 +15,13 @@ log = logging.getLogger(__name__)
 class LettersController(BaseController):
     def index(self):
         c.site_title = "Open Correspondence"
-        c.page_title = "Index of letters written by Charles Dickens"
+        
         author = request.params.get('author', '')
         if author:
-            # TODO: filter by author
-            pass
+            c.page_title = "Index of letters written by Charles Dickens"
+            c.letters = model.Session.query(model.Letter).filter(model.Letter.type == author)
         else:
+            c.page_title = "Index of letters"
             c.letters = model.Session.query(model.Letter).all()
         return render('letters/index.html')
         return render('index.html')
