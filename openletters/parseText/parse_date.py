@@ -110,4 +110,13 @@ def format_month (mth):
         month = datetime.date.strftime(mth, '%B')
     
     return month
-    
+   
+def parse_human_date (dtline): 
+    ret_date = ''
+    print "date", dtline
+    if dtline is "0000-00-00":
+        ret_date = "No date"
+    else:
+        ret_date = dtline
+        
+    return ret_date

@@ -15,10 +15,28 @@ letter_table = Table('letters', metadata,
     Column('letter_date', UnicodeText),                 
 )
 
+source_table = Table('sources', metadata,
+                     Column('t_id', Integer, primary_key=True),
+                     Column('source_id', Integer), 
+                     Column('title', UnicodeText),
+                     Column('author', UnicodeText),
+                     Column('publn_data', UnicodeText),
+                     Column('publn_date', UnicodeText),
+                     Column('s_url', UnicodeText),
+
+                     )
+
 
 class Letter(object):
     def __init__(self, **kwargs):
         for k,v in kwargs.items():
             setattr(self, k, v)
+            
+class Source(object):
+    def __init__(self, **kwargs):
+        for k,v in kwargs.items():
+            setattr(self, k, v)
 
 orm.mapper(Letter, letter_table)
+orm.mapper(Source, source_table)
+

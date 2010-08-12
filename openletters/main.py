@@ -38,7 +38,7 @@ def load_dickens_letters(fileobj, verbose=True):
     count = 1
     for letter in letters:
         modelletter = model.Letter(
-                    volume=vol, 
+                    volume=handle_elements("volume", letter), 
                     type=u'dickens',
                     correspondent = handle_elements("correspondent", letter), 
                     salutation=unicode(handle_elements("salutation", letter)),
@@ -54,3 +54,28 @@ def load_dickens_letters(fileobj, verbose=True):
             model.Session.remove()
         else:
             print('Letter %s: SKIPPING' % (count))
+
+def load_source (fileobj, verbose=True):
+    
+    source_text = minidom.parse(fileobj)
+    
+    letters  = source_text.getElementsByTagName('source')
+    title = ''
+    for letter in letters:
+        modelsource = model.Source (
+               source_id=unicode(handle_elements("id", letter)),   
+               title=unicode(handle_elements("title", letter)), 
+               author=unicode(handle_elements("author", letter)),   
+               publn_data=unicode(handle_elements("publication", letter)),
+               publn_date=unicode(handle_elements("date", letter)), 
+               s_url=unicode(handle_elements("url", letter)),                 
+            )
+        
+        model.Session.add(modelsource)
+        model.Session.commit()
+    
+        if verbose:
+            print('Source %s: \n\t ...' % (title))
+            model.Session.remove()
+        else:
+            print('Source : SKIPPING')

@@ -129,11 +129,15 @@ class Load(BaseCommand):
         self._load_config()
         cmd = self.args[0]
         if cmd == 'dickens':
-            fileobj = 'openletters/docs/dickens.xml'
+            fileobj = 'openletters/docs/dickens_letters.xml'
+            file_obj = 'openletters/docs/dickens_source.xml'
             #fileobj = open('openletters/docs/letter.txt')
             import openletters.main
             openletters.main.load_dickens_letters(fileobj)
-            fileobj.close()
+            #fileobj.close()
+            
+            openletters.main.load_source(file_obj)
+            #file_obj.close()
         else:
             print 'Action not recognized'
 
