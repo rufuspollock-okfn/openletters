@@ -9,9 +9,9 @@
       ${h.literal(h.markdown(c.letter.letter_text))}
       <a href="../../data/letter_rdf/${c.letter.id}">Rdf version</a>
       <p>&nbsp;</p>
-      <p>Source: ${c.type.title}<br />${c.type.author}</p>
-      <p>${c.type.publn_data} : ${c.type.publn_date}</p>
-      <p><a href="${c.type.s_url}">${c.type.s_url}</a></p>
+      <p>Source: ${getattr(c.type, 'title', '')}<br />${getattr(c.type, 'author', '')}</p>
+      <p>${getattr(c.type, 'publn_data', '')} : ${getattr(c.type, 'publn_date', '')}</p>
+      <p><a href="${getattr(c.type, 's_url', '')}">${getattr(c.type, 's_url' ,'')}</a></p>
     </div>
   </div>
 
