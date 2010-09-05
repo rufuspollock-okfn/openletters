@@ -1,20 +1,35 @@
 <html xmlns:py="http://genshi.edgewall.org/"
- xmlns:xi="http://www.w3.org/2001/XInclude">
+ xmlns:xi="http://www.w3.org/2001/XInclude" 
+ py:strip="True">
 
  <py:def function="page_title">Letters - Home</py:def>
 
 <div py:def="content">
  <p>Current letters in the database organized by their associated
- author.</p>
+ author.
+ </p>
+ 
 
- <h3>Charles Dickens</h3>
+<div py:for="letter in c.letters">
+ <h3>
+   <div py:choose="">
+      <span py:when="letter.id == 'dickens'">Charles Dickens</span>
+      <span py:otherwise=""> </span>
+   </div>
+ </h3>
  <ul>
- <li py:for="letter in c.letters">
- <a href="${url(controller='letters', action='view',
- id=letter.id)}">${letter.correspondent} - ${letter.letter_date}</a> -
- ${' '.join(letter.letter_text.split()[:10])}
- </li>
+   <li >
+     <a href="${url(controller='letters', action='view', author=letter.type, correspondent = letter.correspondent,
+     id=letter.id)}">${letter.correspondent} -  
+     <div py:choose = ""> 
+       <span py:when="letter.letter_date == '0000-00-00'">No date</span>
+       <span py:otherwise="">${letter.letter_date[-2:]}, ${letter.letter_date[5:7]}, ${letter.letter_date[:4]}</span>
+     </div>
+    </a> -
+    ${' '.join(letter.letter_text.split()[:10])}
+  </li>
  </ul>
+ </div>
  </div>
 
  <xi:include href="../layout.html" />

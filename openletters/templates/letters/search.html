@@ -1,0 +1,33 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  py:strip = "True">
+
+  <py:def function="page_title">Letters - Search</py:def>
+
+  <div py:def="content">
+    <div class="letter">
+    <form action="search" method="post">
+    <p>This form will allow you to search for collections of letters by correspondent.
+    The selection is currently limited to the letters of Charles Dickens but more authors 
+    will be added. </p>
+    
+    <p>If you want to look at the index for all the letters, just submit the form without a correspondent
+    or you can <a href="view/dickens">view them here</a>.</p>
+    <p>Please choose a correspondent from the menu.</p>
+    <input type="hidden" name="author" value="dickens" /><br />
+    Search by correspondent: <br />
+  
+       <select name="recipient">
+          <option value="">Please select correspondent...</option>
+            <div py:for="corr in c.corres">
+               <option value="${corr.correspondent}">${corr.correspondent}</option>
+            </div>
+       </select>
+       
+    <input type="submit" name="Search Letters" />
+    </form>
+  </div>
+  </div>
+
+  <xi:include href="../layout.html" />
+</html>

@@ -106,3 +106,14 @@ def parseProperNames (text):
 
         
     return ret_name 
+
+''' 
+Method to return the full author name from db representation 
+'''
+def author_full (self, author):
+        
+    full_author = ''
+    if "dickens" in author:
+        full_author = "Charles Dickens" 
+        
+    return full_author

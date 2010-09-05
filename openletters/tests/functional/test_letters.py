@@ -19,9 +19,16 @@ class TestLettersController(TestController):
     def test_view(self):
         letter = Fixtures.letter()
         response = self.app.get(url(controller='letters', action='view',
-            id=letter.id))
+            author = 'dickens',
+            correspondent = 'Lord Lytton',
+            id='879'))
         print letter.correspondent
         restext = response.body.decode('utf8').encode('ascii', 'ignore')
         # print unicode(response.body, encoding='utf8')
-        assert 'To: %s' % letter.correspondent in response, restext
+        assert '[Sidenote: %s ]' % letter.correspondent in response, restext
 
+    def test_correspondent(self):
+        letter = Fixtures.letter()
+        response = self.app.get(url(controller='letters', action="correspondent", 
+            author="Miss Hogarth" ))
+        assert 'Miss Hogarth' in response

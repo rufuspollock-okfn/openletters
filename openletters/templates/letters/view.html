@@ -1,13 +1,13 @@
 <html xmlns:py="http://genshi.edgewall.org/"
-  xmlns:xi="http://www.w3.org/2001/XInclude">
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  py:strip = "True">
 
   <py:def function="page_title">Letters - View</py:def>
 
   <div py:def="content">
     <div class="letter">
-       <p><strong>To: ${c.letter.correspondent}</strong>, <strong>${c.letter.letter_date}</strong></p>
-      ${h.literal(h.markdown(c.letter.letter_text))}
-      <a href="../../data/letter_rdf/${c.letter.id}">Rdf version</a>
+      ${h.literal(h.markdown(c.letter_text))}
+      <!--<a href="../../../../data/letter_rdf/${c.id}">Rdf version</a>-->
       <p>&nbsp;</p>
       <p>Source: ${getattr(c.type, 'title', '')}<br />${getattr(c.type, 'author', '')}</p>
       <p>${getattr(c.type, 'publn_data', '')} : ${getattr(c.type, 'publn_date', '')}</p>
@@ -17,4 +17,3 @@
 
   <xi:include href="../layout.html" />
 </html>
-

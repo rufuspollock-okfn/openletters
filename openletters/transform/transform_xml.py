@@ -1,35 +1,78 @@
 import xml.etree.ElementTree as ET
 
-from openletters.model import dbase
+class xml_transform:
  
-#create an XML of letters for a defined author
-def createIndex (author):
-
-    doc = ''
-    letter = []
-    #letterIndexUrl, letterIndexCorr, letterIndexDt = data.indexAuthor(author)
-    letter = dbase.index_author(author)
-
-    root = ET.Element("index")
-
-    index_items = letter.items()
-    index_items.sort()
+    '''create an XML of letters for a defined author'''
+    def index_xml (self, letters):
     
-    url = ET.SubElement(root, "url")
-    author = ET.SubElement(url, "correspondent")
-    date = ET.SubElement(author, "date")
-    doc = '<?xml version="1.0" encoding="ISO-8859-1"?>'
-    doc += "<index>"
-    for letter_url, letter_corr in index_items:
-        doc += "<letter>"
-        doc += "<url>http://www.opencorrespondence.org/letter/view/%s</url><corr>%s</corr><date>%s</date>" %(letter_corr[0], letter_corr[1],letter_corr[2])
-        doc += "</letter>"
-    #for key in letter.iteritems():
-    #for n in letter:
-        #url.text = letter_corr[0]
-        #author.text = letter_corr[1]
-        #date.text = letter_corr[2]
-    doc += "</index>"   
+        root = ET.Element("opencorrespondence")
+        
+        
+        for l in letters:
+            letter = ET.SubElement(root, "letter")
+            url = ET.SubElement(letter, "author")
+            url.text = unicode(l.type)
+            author = ET.SubElement(letter, "correspondent")
+            author.text = unicode(l.correspondent)
+            date = ET.SubElement(letter, "date")
+            date.text = unicode(l.letter_date)
+            id = ET.SubElement(letter, "id")
+            id.text = unicode(str(l.id))
+            
+            if l.letter_text:
+                
+                l_text = ET.SubElement(letter, "text")
+                l_text.text = unicode(self.xml_encode(l.letter_text))
+   
+        doc = ET.tostring(root, "UTF-8")
     
+        return doc
+    
+    def letter_xml (self, letters):
+            
+        root = ET.Element("opencorrespondence")
+        
+        
+        for l in letters:
+            letter = ET.SubElement(root, "letter")
+            url = ET.SubElement(letter, "author")
+            url.text = unicode(l.type)
+            date = ET.SubElement(letter, "date")
+            date.text = unicode(l.letter_date)
+            author = ET.SubElement(letter, "correspondent")
+            author.text = unicode(l.correspondent)
+            l_text = ET.SubElement(letter, "letter_text")
+            l_text.text = unicode(l.letter_text)
 
-    return doc
+            
+            if l.letter_text:
+                
+                l_text = ET.SubElement(letter, "text")
+                l_text.text = unicode(self.xml_encode(l.letter_text))
+   
+        doc = ET.tostring(root, "UTF-8")
+    
+        return doc
+    
+    def corres_xml (self, corr, letters):
+        
+        root = ET.Element("opencorrespondence")
+        
+        letter = ET.SubElement(root, "person")
+        author = ET.SubElement(letter, "correspondent")
+        author.text = unicode(corr)
+        
+        for name, url in letters:
+ 
+            nick = ET.SubElement(letter, "nick")
+            nick.text = unicode(name)
+
+   
+        doc = ET.tostring(root, "UTF-8")
+        
+        return doc
+
+    def xml_encode (self, text):
+        
+        return text.replace("&", "&amp;").replace('"', '&quote').replace("'", "&apos;").replace("<", "&lt;").replace(">", "&gt;")
+        

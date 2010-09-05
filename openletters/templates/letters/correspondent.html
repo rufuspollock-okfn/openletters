@@ -1,0 +1,26 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  py:strip="True" >
+
+  <py:def function="page_title">c.page_title</py:def>
+
+  <div py:def="content">
+    <div class="letter">
+
+        <h4>${c.author}</h4>
+        <p>Also known as:</p>
+          <ul>
+          <div py:for="nick, t in c.nicks">
+            <li>${nick}</li>
+          </div>
+          </ul>
+        <!--<h5>Letters</h5>
+          <ul>
+            <li><a href="${corr.type}/${corr.correspondent}/${corr.id}">${corr.type}/${corr.correspondent}/${corr.id}</a></li>
+          </ul>-->
+
+    </div>
+  </div>
+
+  <xi:include href="../layout.html" />
+</html>

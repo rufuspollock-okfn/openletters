@@ -24,6 +24,10 @@ def make_map():
     map.connect('schema', '/schema', controller='home', action='schema')
     map.connect('/{controller}/', action='index')
     map.connect('/{controller}/{action}')
-    map.connect('/{controller}/{action}/{id}')
+    map.connect('/{controller}/{action}/{author}')
+    map.connect('/{controller}/{action}/{author}/')
+    map.connect('/{controller}/{action}/{author}/{correspondent}')
+    map.connect('/{controller}/{action}/{author}/{correspondent}/')
+    map.connect('/{controller}/{action}/{author}/{correspondent}/{id}')
 
     return map

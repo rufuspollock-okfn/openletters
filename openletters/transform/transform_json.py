@@ -3,38 +3,60 @@ try:
 except ImportError:
     import simplejson as json
 
-from openletters.model import dbase
+class json_transform:
   
-def author_timeline (author=None):
-    
-    if author is None:
-        a_timeline = "No author passed through"
-        return a_timeline
-    
-    else:
-        a_timeline = ''
-        author_index = "{'dateTimeFormat:iso8601, events:["
-        letters = []
-        letters = dbase.create_correspondents(author)
-        letter_items = letters.items()
-        letter_items.sort()
-    
-        for count, body in letter_items:
-            author_index += "{"
-            author_index += "type: %s, description: %s, id: %s, title: %s, start: %s" % (author, author_timeline_letter(str(body[3]), str(body[1]), str(body[2])) , body[1], body[1], body[2])
-            author_index += "}"
+
+    '''
+    Function to return the text as json
+    '''
+    def to_dict (self, letterobj, type):
+
+        dict = '{'
         
-        author_index += "]}"
+        if type is None:
+            dict += "index: {"
+        else:
+            dict += "letter: {"
+         
+        for l in letterobj:
+            
+            dict +=  str(l.id) + ': [ {'
+            dict += '"author": "' + l.type
+            dict += '", "correspondent: "' + l.correspondent
+            dict += ', "date": "' + l.letter_date
+            
+            if l.letter_text:
+                #remove the brackets in the letter
+                text = l.letter_text.replace("[", "").replace("]", "")
+                dict += '", "text": "' + text
+            
+            dict += '"}],'
+        
+        #remove the last comma
+        dict = dict[0: -1]
+        
+        dict += '} }'
+            
+        return self.jsonify(dict)
     
-        a_timeline = json.dumps(author_index, sort_keys=True, indent=4)
+        '''
+    Function to return the text as json
+    '''
+    def corr_json (self, author, letterobj):
 
-    return a_timeline
+        dict = '{'
 
-def author_timeline_letter (id, correspondent, time):
-    
-    a_letter_text = ''
-    
-    a_letter_text = "Letter written to " + correspondent + " on " + time + "."
-    a_letter_text +=  'The text can be viewed at <a href="http://www.opencorrespondence.org/letters/view/'+id+'">http://www.opencorrespondence.org/letters/view/'+id+'</a>'
-    
-    return a_letter_text
+        dict +=  str(author) + ': [ '
+        dict += '"correspondent": "' + author
+
+        for l, txt in letterobj:
+            dict += '", "nick: "' + l
+        
+        dict += '"]'
+        
+        dict += '}'
+            
+        return self.jsonify(dict)
+
+    def jsonify (self, output):
+        return json.dumps(output, sort_keys = True, indent=4)
