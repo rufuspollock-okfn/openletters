@@ -51,8 +51,8 @@ class LettersController(BaseController):
         
         sender = request.POST['author']
         recip = request.POST['recipient']
-        
-        redirect_to(action="view", author= sender, correspondent= recip, id=None)
+
+        redirect_to(controller = "letters", action="view", author=sender, correspondent=recip)
         
     
     ''' 
