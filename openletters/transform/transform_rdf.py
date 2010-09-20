@@ -1,53 +1,46 @@
 from openletters.model import dbase
 from openletters.parse import parse_text
 
-
 import urllib
 
-#import rdflib
-#from rdflib.graph import ConjunctiveGraph as Graph
-#from rdflib import plugin
-#from rdflib.store import Store, NO_STORE, VALID_STORE
-#from rdflib import Namespace
-#from rdflib import Literal
-#from rdflib import URIRef
+import rdflib
+from rdflib.Graph import ConjunctiveGraph as Graph
+from rdflib.store import Store, NO_STORE, VALID_STORE
+from rdflib import Namespace, Literal, URIRef, RDF, RDFS, plugin
 
 
-#letter_ns = Namespace('http://purl.org/letter#')
-#Letter = URIRef(letter_ns['Letter'])
-#FOAF = Namespace('http://xmlns.com/foaf/0.1/')
-#XSD_NS = Namespace(u'http://www.w3.org/2001/XMLSchema#')
-#owl_time = Namespace('http://www.isi.edu/~pan/damltime/time-entry.owl#')
-#dublin_core = Namespace('http://purl.org/dc/elements/1.1/')
-#base_uri = "http://www.opencorrespondence.org/schema"
+
+letter_ns = Namespace('http://purl.org/letter/')
+FOAF = Namespace('http://xmlns.com/foaf/0.1/')
+XSD_NS = Namespace(u'http://www.w3.org/2001/XMLSchema#')
+owl_time = Namespace('http://www.isi.edu/~pan/damltime/time-entry.owl#')
+dublin_core = Namespace('http://purl.org/dc/elements/1.1/')
+base_uri = "http://www.opencorrespondence.org/"
 
 class rdf_transform:
+    
+    def __init__(self):
+        
+        self.g = Graph('IOMemory')
+        self.g.bind('dc', dublin_core)
+        self.g.bind('foaf', FOAF)
+        self.g.bind('time-entry', owl_time)
+        self.g.bind('letter', letter_ns)
+        self.g.bind('base', base_uri)
+
     '''
       creates an rdf representation of letter used to load into the triple store
-      @param letters
-      @return letter_rdf
       '''
     def create_rdf_letter (self, letters):
-    
-    #uses OWL, FOAF, DC and letter Purl schemas
-        letter_rdf = '<rdf:RDF\n'
-        letter_rdf += 'xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"\n'
-        letter_rdf += 'xmlns:letter="http://purl.org/letter/"\n'
-        letter_rdf += 'xmlns:time-entry="http://www.isi.edu/~pan/damltime/time-entry.owl#"\n'
-        letter_rdf += 'xmlns:foaf="http://xmlns.com/foaf/0.1/"\n'
-        letter_rdf += 'xmlns:dc ="http://purl.org/dc/elements/1.1/"\n'
-        letter_rdf += 'xml:base="http://www.opencorrespondence.org/" >\n'
-        
+ 
         for l in letters:
+            correspondence = base_uri + "letters/view/" + l.type + '/' + urllib.quote(l.correspondent) + '/' + str(l.id)
+            self.add_author(correspondence, "Charles Dickens")
             
-            letter_rdf += '<rdf:Description rdf:about="letters/view/' + l.type + '/' + urllib.quote(l.correspondent) + '/' + str(l.id) +'">'
-            letter_rdf += '<dc:author>Charles Dickens</dc:author>'
-    
-            letter_rdf += '<time-entry:inCalendarClockDataType rdf:datatype="xsd:dateTime">'+str(l.letter_date)+'T00:00:00</time-entry:inCalendarClockDataType>'
-                #still need to put in a foaf:Person link for the person - we have potential nickname data in the db
-                
-            letter_rdf += '<letter:Correspondent>'+l.correspondent+'</letter:Correspondent>'
-            letter_rdf += '<foaf:nick>'+l.salutation+'</foaf:nick>'
+            self.add_time(correspondence, str(l.letter_date)+'T00:00:00')
+            self.add_correspondent(correspondence, l.correspondent)
+
+            self.add_salutation(correspondence, l.correspondent, l.salutation)
                 #this section will parse for proper names in due course
                 #commented out whilst code is being ported
                 #letter_name = parse_text.parseProperNames(text)
@@ -59,58 +52,29 @@ class rdf_transform:
             letter_quotes = parse_text.parse_balanced_quotes(l.letter_text)
             for quote in letter_quotes:
                  if str(quote[0:1]).isupper and "!" not in quote:
-                    letter_rdf += "<letter:textReferred>%s</letter:textReferred>\n" %(parse_text.stripPunc(quote))
+                     self.add_text(correspondence, parse_text.stripPunc(quote))
                 
-            letter_rdf += "</rdf:Description>"
-            
-        letter_rdf += "</rdf:RDF>"
-        
+        letter_rdf = self.g.serialize(format="pretty-xml", max_depth=3)
         return letter_rdf
     
+    ''' function to create an endpoint '''
     def create_rdf_end (self):
-        #default_graph_uri = "http://rdflib.net/rdfstore"
-        #configString = "host=localhost,user=root,password=enoch,db=rdfstore"
-        # Get the mysql plugin. You may have to install the python mysql libraries
-        #store = plugin.get('MySQL', Store)('rdfstore')
-        # Open previously created store, or create it if it doesn't exist yet
-        #rt = store.open(configString, create=False)
-        #if rt == NO_STORE:
-        # There is no underlying MySQL infrastructure, create it
-        #    store.open(configString,create=True)
-        #else:
-        #    assert rt == VALID_STORE,"The underlying store is corrupted"
-        # There is a store, use it
-        #graph = Graph(identifier = URIRef(default_graph_uri))
-    #uses OWL, FOAF, DC and letter Purl schemas
-        letter_rdf = '<rdf:RDF\n'
-        letter_rdf += 'xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"\n'
-        letter_rdf += 'xmlns:letter="http://purl.org/letter/"\n'
-        letter_rdf += 'xmlns:time-entry="http://www.isi.edu/~pan/damltime/time-entry.owl#"\n'
-        letter_rdf += 'xmlns:foaf="http://xmlns.com/foaf/0.1/"\n'
-        letter_rdf += 'xmlns:dc ="http://purl.org/dc/elements/1.1/"\n'
-        letter_rdf += 'xml:base="http://www.opencorrespondence.org" >\n'
-        
+
+        correspondence = base_uri 
         
         letter = {}  
         letter = dbase.get_endpoint_rdf()
     
         letter_items = letter.items()
         letter_items.sort()
-        
-        
+          
         for url, text in letter_items:
-            letter_rdf += '<rdf:Description rdf:about="/letters/view/'+ str(url)+'">\n'
-            letter_rdf += '<dc:author>Charles Dickens</dc:author>\n'
-            #graph.add((owl_time, owl_time['inCalendarClockDataType'], Literal(str(text[3])+'T00:00:00')))
-            #graph.add(dublin_core, dublin_core['author'], Literal('Charles Dickens'))
-            #graph.add(Letter, Letter['Correspondent'], Literal(str(text[1])))
+            correspondence = base_uri + "letters/view/dickens/" + urllib.quote(text[1]) + '/' + str(url)
+            self.add_author(correspondence, "Charles Dickens")
             
-            letter_rdf += '<time-entry:inCalendarClockDataType rdf:datatype="xsd:dateTime">'+str(text[3])+'T00:00:00</time-entry:inCalendarClockDataType>\n'
-            #still need to put in a foaf:Person link for the person - we have potential nickname data in the db
-            
-            letter_rdf += '<letter:Correspondent rdf:resource="/letters/correspondent/'+urllib.quote(str(text[1]))+'" />\n'
-            letter_rdf += '<foaf:nick>'+str(text[4])+'</foaf:nick>\n'
-            
+            self.add_time(correspondence, str(text[3])+'T00:00:00')
+            self.add_correspondent(correspondence, urllib.quote(str(text[1])))
+            self.add_salutation(correspondence, urllib.quote(str(text[1])), str(text[4]))
             #this section will parse for proper names in due course
             #commented out whilst code is being ported
             #letter_name = parse_text.parseProperNames(text)
@@ -123,40 +87,67 @@ class rdf_transform:
             for quote in letter_quotes:
                 #the length is to remove anything really long
                 if str(quote[0:1]).isupper and "!" not in quote and len(str(quote)) < 40:
-                    #graph.add(Letter, Letter['textReferred'], Literal(parse_text.stripPunc(quote)))
-                    letter_rdf += "<letter:textReferred>%s</letter:textReferred>\n" %(parse_text.stripPunc(quote))
-            
-            letter_rdf += "</rdf:Description>"
-            
-        letter_rdf += "</rdf:RDF>"
-        #letter_rdf = graph.serialize
+                    self.add_text(correspondence, parse_text.stripPunc(quote))
+
+        letter_rdf = self.g.serialize(format="pretty-xml", max_depth=3)
         return letter_rdf
         
     def create_correspondent(self, corr, letter_items):
             u_corr = unicode(corr)
             
-            letter_rdf = '<rdf:RDF\n'
-            letter_rdf += 'xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"\n'
-            letter_rdf += 'xmlns:letter="http://purl.org/letter/"\n'
-            letter_rdf += 'xmlns:time-entry="http://www.isi.edu/~pan/damltime/time-entry.owl#"\n'
-            letter_rdf += 'xmlns:foaf="http://xmlns.com/foaf/0.1/"\n'
-            letter_rdf += 'xml:base="http://www.opencorrespondence.org/letters/correspondent" >\n'
+            correspondence = base_uri + "letters/correspondent/" + urllib.quote(corr)
             
-            letter_rdf += '<rdf:Description rdf:about="/'+urllib.quote(u_corr)+'">\n'       
-            letter_rdf += '<letter:Correspondent>'+u_corr+'</letter:Correspondent>\n'
-            
-            #letter = {}  
-            #letter = dbase.get_correspondent(corr)
-    
-            #letter_items = letter.items()
-            #letter_items.sort()
+            self.add_correspondent(correspondence, corr)
     
             for url, text in letter_items:
                 if url is not None or url != '':
-                    letter_rdf += "<foaf:nick>%s</foaf:nick>\n" %(str(url))
+                    self.add_salutation(correspondence, corr, str(url))
             
-            letter_rdf += '</rdf:Description>'
-            letter_rdf += '</rdf:RDF>'
+            letter_rdf = self.g.serialize(format="pretty-xml", max_depth=3)
             
             return letter_rdf
+        
+    ''' function to add author to graph '''
+    def add_author(self, correspondence, name):
+            
+        dc_author = urllib.quote(name)
+        lauthor = URIRef(base_uri+ 'author/%s' % dc_author)
+        self.g.add((correspondence, dublin_core['author'], Literal(name)))
+
+        return lauthor
     
+    ''' function to add salutation to graph '''
+    def add_salutation(self, correspondence, author, name):
+        
+        nameid = urllib.quote(author)
+        person = URIRef(base_uri + 'view/dickens/correspondent/%s' % nameid)
+        #self.g.add((person, RDF.type, FOAF['nick']))
+        self.g.add((correspondence, FOAF['nick'], Literal(name)))
+        
+        return person
+    
+    ''' function to add correspondent to graph '''
+    def add_correspondent(self, correspondence, name):
+        
+        nameid = urllib.quote(name)
+        person = URIRef(base_uri + 'view/dickens/correspondent/%s' % nameid)
+        self.g.add((correspondence, letter_ns["correspondent"], Literal(name)))
+        #self.g.add((person, Letter, Literal(name)))
+        
+        return person
+    
+    ''' function to add referred text to the graph'''
+    def add_text (self, correspondence, textname):
+
+        textid = urllib.quote(textname)
+        book = URIRef(base_uri + 'book/%s' % textid)
+        self.g.add((correspondence, letter_ns['textReferred'], Literal(textname)))  
+        #self.g.add((book, Letter["textReferred"], Literal(textname)))       
+        return book
+    
+    ''' function to add time '''
+    def add_time(self, correspondence, time):
+        
+        owl = URIRef(base_uri + 'date/%s' % time)
+        self.g.add((correspondence, owl_time['inCalendarClockDataType'], Literal(str(time))))
+        return owl
