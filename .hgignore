@@ -20,3 +20,5 @@ syntax: regexp
 ^production\.db$
 syntax: regexp
 ^db$
+syntax: regexp
+^openletters/templates/viz$
