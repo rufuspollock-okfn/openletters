@@ -1,18 +1,22 @@
+# -*- coding: latin-1 -*-
+import unicodedata
 '''
 Class to parse the Dickens letters and enter into a store
 '''
-from parseText import parse_text
-from parseText import parse_date
+from parse import parse_text, parse_date
+
 
 from xml.dom import minidom
 
 from openletters import model
 
+import xapian, urllib, os
+
 def getText(nodelist):
     rc = []
     for node in nodelist:
         if node.nodeType == node.TEXT_NODE:
-            rc.append(node.data)
+            rc.append(unicodedata.normalize('NFKC', node.data))
     return ''.join(rc)
 
 def handle_elements (elementname, element):
@@ -23,7 +27,6 @@ def handle_elements (elementname, element):
 
     
 def handle_parts (nodename, node):
-   # print "<%s>%s</%s>" % (nodename, getText(node.childNodes), nodename)
     return getText(node.childNodes)
     
 
@@ -79,3 +82,38 @@ def load_source (fileobj, verbose=True):
             model.Session.remove()
         else:
             print('Source : SKIPPING')
+
+
+def index_letters(self, type, fileobj):
+
+
+    db_path = 'db'
+    
+    database = xapian.WritableDatabase(db_path, xapian.DB_CREATE_OR_OPEN)
+    indexer = xapian.TermGenerator()
+    indexer.set_stemmer(xapian.Stem('english'))
+    
+    xapian_file_name = 0
+    count = 0
+    text = minidom.parse(fileobj)
+    #split the body into individual letters
+    letters  = text.getElementsByTagName('div')
+    #open the XML, parse the letter id
+    for letter in letters:
+        count +=1
+        text=unicode(handle_elements("letter", letter))
+        corr=unicode(handle_elements("correspondent", letter))
+            
+        document = xapian.Document()
+        document.set_data(text)
+        #not sure this is going to work - rather than using the filename, use letter ids
+        letter_index = type + "/" + urllib.quote(corr) + "/" + str(count)
+
+        print "indexing %s" ,letter_index
+        document.add_value(xapian_file_name, letter_index)
+        
+        indexer.set_document(document)
+        indexer.index_text(text)
+        database.add_document(document)
+        
+    database.flush()

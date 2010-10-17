@@ -41,5 +41,6 @@ setup(
     db = openletters.cli:ManageDb
     load = openletters.cli:Load
     fixtures = openletters.cli:Fixtures
+    index = openletters.cli:Index
     """,
 )

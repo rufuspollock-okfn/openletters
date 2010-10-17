@@ -1,6 +1,7 @@
 ''' Command Line Interface for setting up Open Letters stores
-Derived from open shakespeare - needs to include Redis details in model
+Derived from open shakespeare
 '''
+
 import os
 import sys
 
@@ -134,10 +135,32 @@ class Load(BaseCommand):
             #fileobj = open('openletters/docs/letter.txt')
             import openletters.main
             openletters.main.load_dickens_letters(fileobj)
-            #fileobj.close()
             
             openletters.main.load_source(file_obj)
-            #file_obj.close()
+
         else:
             print 'Action not recognized'
 
+
+class Index(BaseCommand):
+    '''Index the letters for a Xapian powered search
+    
+    index dickens  - indexes the Dickens letters
+    '''
+    summary = __doc__.split('\n')[0]
+    usage = __doc__
+    max_args = None
+    min_args = 1
+    
+    def command(self):
+        self._load_config()
+        cmd = self.args[0]
+        
+        if cmd == 'dickens':
+            type = 'dickens'
+            fileobj = 'openletters/docs/dickens_letters.xml'
+            import openletters.main
+            
+            openletters.main.index_letters(self, type, fileobj)
+        else:
+            print 'Action not recognized'

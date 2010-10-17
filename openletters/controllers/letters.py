@@ -1,8 +1,4 @@
-import logging
-
-import genshi
-
-import urllib
+import logging, genshi, urllib
 
 from pylons import request, response, session, tmpl_context as c
 from pylons.controllers.util import abort, redirect_to
@@ -17,24 +13,11 @@ from openletters.transform.transform_rdf import rdf_transform
 
 from openletters.model import dbase
 
-from sqlalchemy import join, and_
 
 log = logging.getLogger(__name__)
 
 class LettersController(BaseController):
-    #def index(self):
-    #    c.site_title = "Open Correspondence"
-    #    
-    #    author = request.params.get('author', '')
-    #    if author:
-    #        pass
-    #    
-    #    else:
-    #        c.page_title = "Index of letters"
-    #        c.letters = model.Session.query(model.Letter).all()
 
-        #return render('letters/index.html')
-        #return render('index.html')
     ''' 
       Search for letters 
     '''
@@ -169,3 +152,4 @@ class LettersController(BaseController):
         letter_items.sort()
         
         return letter_items
+

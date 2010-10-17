@@ -39,7 +39,7 @@ class json_transform:
             
         return self.jsonify(dict)
     
-        '''
+    '''
     Function to return the text as json
     '''
     def corr_json (self, author, letterobj):
@@ -58,5 +58,23 @@ class json_transform:
             
         return self.jsonify(dict)
 
+    '''
+    Function to return the book graph
+    '''
+    def book_json (self, book_query):
+        
+        dict = '{'
+
+        for b in book_query:
+            dict +=  str(b.author) + ': [ '
+            dict += '"correspondent": "' + author
+            dict += '", "nick: "' + l
+        
+            dict += '"]'
+        
+        dict += '}'
+        
+        return self.jsonify(dict)
+    
     def jsonify (self, output):
         return json.dumps(output, sort_keys = True, indent=4)

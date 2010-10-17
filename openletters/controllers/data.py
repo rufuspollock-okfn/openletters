@@ -17,3 +17,19 @@ class DataController(BaseController):
         rdf = rdf_transform()
         
         return rdf.create_rdf_end()
+
+    def book (self):
+        #response.headers['Content-Type'] = 'application/json'
+        json = json_transform()
+        query_string = model.Session.query(model.Letter).filter(model.Letter.type == author).all()
+        return json.book_json(query_string)
+    
+    def correspondent(self):
+        req = request.POST('search')
+        corres =  model.Session.query(model.Letter.correspondent).distinct().all()
+        
+        for c in corres:
+            if req in c:
+                b = '<li>%s</li>' % c
+        
+        return b    

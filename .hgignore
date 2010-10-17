@@ -18,3 +18,5 @@ sqlitetest.db
 
 syntax: regexp
 ^production\.db$
+syntax: regexp
+^db$
