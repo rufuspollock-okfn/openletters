@@ -1,14 +1,17 @@
 from openletters.model import dbase
 from openletters.parse import parse_text
+import urllib, rdflib
 
 try:
     from sets import Set
-except ImportException:
+except ImportError:
     from set import Set
-    
-import urllib, rdflib
 
-from rdflib.Graph import ConjunctiveGraph as Graph
+try:
+    from rdflib.Graph import ConjunctiveGraph as Graph
+except ImportError:
+    from rdflib.graph import ConjunctiveGraph as Graph
+        
 from rdflib.store import Store, NO_STORE, VALID_STORE
 from rdflib import Namespace, Literal, URIRef, RDF, RDFS, plugin
 
