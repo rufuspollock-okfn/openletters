@@ -1,7 +1,8 @@
 import logging, genshi, urllib
 
 from pylons import request, response, session, tmpl_context as c
-from pylons.controllers.util import abort, redirect_to
+from pylons.controllers.util import abort
+from routes import redirect_to
 
 from openletters.lib.base import BaseController, render
 from openletters import model

@@ -1,7 +1,6 @@
 import logging, xapian, re, urllib
 
 from pylons import request, response, session, tmpl_context as c, config
-from pylons.controllers.util import abort, redirect_to
 
 from openletters.lib.base import BaseController, render
 from openletters import model
