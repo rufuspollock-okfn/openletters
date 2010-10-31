@@ -1,16 +1,13 @@
 # -*- coding: latin-1 -*-
-import unicodedata
 '''
 Class to parse the Dickens letters and enter into a store
 '''
-from parse import parse_text, parse_date
-
-
+import unicodedata
 from xml.dom import minidom
+import urllib, os
 
+from openletters.parse import parse_text, parse_date
 from openletters import model
-
-import xapian, urllib, os
 
 def getText(nodelist):
     rc = []
@@ -85,7 +82,7 @@ def load_source (fileobj, verbose=True):
 
 
 def index_letters(self, type, fileobj):
-
+    import xapian
 
     db_path = 'db'
     
