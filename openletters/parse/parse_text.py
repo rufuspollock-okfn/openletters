@@ -47,29 +47,34 @@ but exclude long exclamations
 '''
 def parse_balanced_quotes (text):
     ret_quotes = []
-    m_quote = ''
+    
     bq = re.findall('"([^\\"]+)"', text)
-    bq = str(bq).replace("[", "").replace("u'", "").replace("]", "").replace("'", "").strip()
+    #is there a better way of removing the punctuation - common theme for project
+    bq = str(bq).replace("[", "").replace("u'", "").replace("]", "").replace("'", "").replace('"', "").strip()
 
     if "," in str(bq):
         for a in str(bq).split(","): 
-            if str(a[0:1]).isspace():
+            if str(a[:1]).isspace():
                 str(a).strip() 
-            if str(a[0:1]) is "u":
+            if str(a[:1]) is "u":
                 str(a).replace("u", "")
-
-            if str(a[0:1]).isupper() and "!" not in a and len(str(a)) < 40:
-                ret_quotes.append(a)  
+                
+            print "str", str(a[:1])
+            if str(a[:1]).isupper():
+                print "str", str(a[:1])
+                if "!" not in a and len(str(a)) < 40:
+                    ret_quotes.append(a)  
             else:
                 pass     
     else:
-        if str(bq[0:1]).isspace():
-                str(bq[0:1]).strip()
-        if str(bq[0:1]) is "u":
-                str(bq[0:1]).replace("u", "")
-                           
-        if str(bq[0:1]).isupper and "!" not in bq and len(str(bq)) < 40:
-            ret_quotes.append(bq)         
+        if str(bq[:1]).isspace():
+                str(bq[:1]).strip()
+        if str(bq[:1]) is "u":
+                str(bq[:1]).replace("u", "")
+        
+        if str(bq[:1]).isupper():
+            if  "!" not in bq and len(str(bq)) < 40:
+                ret_quotes.append(bq)         
         else:
             pass
         

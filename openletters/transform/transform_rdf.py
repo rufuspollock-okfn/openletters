@@ -1,9 +1,13 @@
 from openletters.model import dbase
 from openletters.parse import parse_text
 
-import urllib
+try:
+    from sets import Set
+except ImportException:
+    from set import Set
+    
+import urllib, rdflib
 
-import rdflib
 from rdflib.Graph import ConjunctiveGraph as Graph
 from rdflib.store import Store, NO_STORE, VALID_STORE
 from rdflib import Namespace, Literal, URIRef, RDF, RDFS, plugin
@@ -57,7 +61,7 @@ class rdf_transform:
         letter_rdf = self.g.serialize(format="pretty-xml", max_depth=3)
         return letter_rdf
     
-    ''' function to create an endpoint '''
+    ''' function to create an endpoint in rdf/xml '''
     def create_rdf_end (self):
 
         correspondence = base_uri 
@@ -82,12 +86,16 @@ class rdf_transform:
             
             #for name in letter_name:
             #    letter_rdf += "<letter:personReferred>%s</letter:personReferred>" %(name)
-                               
+           # works = Set(["Copperfield", "David Copperfield"])                
             letter_quotes = parse_text.parse_balanced_quotes(text[2])
             for quote in letter_quotes:
                 #the length is to remove anything really long
-                if str(quote[0:1]).isupper and "!" not in quote and len(str(quote)) < 40:
-                    self.add_text(correspondence, parse_text.stripPunc(quote))
+                #if str(quote[0:1]).isupper and "!" not in quote and len(str(quote)) < 40:
+                self.add_text(correspondence, parse_text.stripPunc(quote))
+                #if quote in works:
+                #    self.add_author_text(correspondence, parse_text.stripPunc(quote))
+                #else:
+                #    self.add_text(correspondence, parse_text.stripPunc(quote))
 
         letter_rdf = self.g.serialize(format="pretty-xml", max_depth=3)
         return letter_rdf
@@ -142,6 +150,15 @@ class rdf_transform:
         textid = urllib.quote(textname)
         book = URIRef(base_uri + 'book/%s' % textid)
         self.g.add((correspondence, letter_ns['textReferred'], Literal(textname)))  
+        #self.g.add((book, Letter["textReferred"], Literal(textname)))       
+        return book
+    
+    ''' function to add author referred text to the graph'''
+    def add_author_text (self, correspondence, textname):
+
+        textid = urllib.quote(textname)
+        book = URIRef(base_uri + 'book/%s' % textid)
+        self.g.add((correspondence, letter_ns['textAuthorReferred'], Literal(textname)))  
         #self.g.add((book, Letter["textReferred"], Literal(textname)))       
         return book
     

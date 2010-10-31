@@ -2,6 +2,10 @@ try:
     import json
 except ImportError:
     import simplejson as json
+    
+from openletters.model import dbase
+from openletters.parse import parse_text
+
 
 class json_transform:
   
@@ -9,7 +13,7 @@ class json_transform:
     '''
     Function to return the text as json
     '''
-    def to_dict (self, letterobj, type):
+    def to_dict (self, letterobj, type = ''):
 
         dict = '{'
         
@@ -29,6 +33,40 @@ class json_transform:
                 #remove the brackets in the letter
                 text = l.letter_text.replace("[", "").replace("]", "")
                 dict += '", "text": "' + text
+            
+            dict += '"}],'
+        
+        #remove the last comma
+        dict = dict[0: -1]
+        
+        dict += '} }'
+            
+        return self.jsonify(dict)
+    
+    '''
+       Function to return json endpoint
+    '''
+    def to_end_dict (self):
+
+        letter = dbase.get_endpoint_rdf()
+        
+        letter_items = letter.items()
+        letter_items.sort()
+        
+        dict = '{'
+        
+        dict += "index: {"
+         
+        for url, text in letter_items:
+            
+            dict +=  str(url) + ': [ {'
+            dict += '"author": " Charles Dickens",'
+            dict += '"correspondent: "' + str(text[1])
+            dict += '", "date": "' + str(text[3])+'T00:00:00'
+            
+            letter_quotes = parse_text.parse_balanced_quotes(text[2])
+            for quote in letter_quotes:
+                dict += '", "text": "' + parse_text.stripPunc(quote)
             
             dict += '"}],'
         
