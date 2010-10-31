@@ -21,8 +21,9 @@ class DataController(BaseController):
     '''
     def endpoint (self, author = '', correspondent = ''):
         
+            
         if author == "rdf":
-            response.headers['Content-Type'] = 'text/rdf+xml; charset=utf-8'
+            response.headers['Content-Type'] = 'application/rdf+xml; charset=utf-8'
             rdf = rdf_transform()
             return rdf.create_rdf_end()
         
@@ -38,6 +39,8 @@ class DataController(BaseController):
                 return xml.endpoint_xml("simile")
             else:
                 return xml.endpoint_xml()
+        else:
+            return render("endpoint/index.html")
 
     def book (self):
         #response.headers['Content-Type'] = 'application/json'

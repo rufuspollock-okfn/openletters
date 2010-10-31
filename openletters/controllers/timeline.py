@@ -13,5 +13,6 @@ log = logging.getLogger(__name__)
 
 class TimelineController(BaseController):
     def index(self):
+        c.page_title = "Simile timeline of Charles Dickens's letters"
         return render('timeline/index.html')
 

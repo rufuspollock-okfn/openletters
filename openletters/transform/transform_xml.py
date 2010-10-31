@@ -76,11 +76,14 @@ class xml_transform:
         return doc
     
     '''
-        Function to create xml for Simile timeline
+        Function to create xml for Simile timeline and xml endpoint
     '''
     def endpoint_xml (self, type = ''):
         
-        root = ET.Element("data", {'date-time-format': 'ISO 8601'})
+        if type =="simile":
+            root = ET.Element("data", {'date-time-format': 'ISO 8601'})
+        else:
+            root = ET.Element("data")
         
         letter = {}  
         letter = dbase.get_endpoint_rdf()
