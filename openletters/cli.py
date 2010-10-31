@@ -35,7 +35,6 @@ class ManageDb(BaseCommand):
     db create
     db clean
     db rebuild # clean and create
-    db init # create and put in default data
     # db upgrade [{version no.}] # Data migrate
     '''
     summary = __doc__.split('\n')[0]
@@ -50,8 +49,6 @@ class ManageDb(BaseCommand):
         cmd = self.args[0]
         if cmd == 'create':
             model.repo.create_db()
-        elif cmd == 'init':
-            model.repo.init_db()
         elif cmd == 'clean' or cmd == 'drop':
             model.repo.clean_db()
         elif cmd == 'rebuild':
