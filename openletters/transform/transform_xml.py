@@ -80,7 +80,7 @@ class xml_transform:
     '''
     def endpoint_xml (self, type = ''):
         
-        root = ET.Element("data", {'date-time-format': 'iso8601'})
+        root = ET.Element("data", {'date-time-format': 'ISO 8601'})
         
         letter = {}  
         letter = dbase.get_endpoint_rdf()
@@ -90,7 +90,7 @@ class xml_transform:
           
         for url, utext in letter_items:
             if type == "simile":
-                event = ET.SubElement(root, "event", {"start": str(utext[3])+"T00:00:00", "title": utext[1] , "link": 'http://www.opencorrespondence.org/letters/view/dickens/' + urllib.quote(utext[1]) + '/' + str(url)  })
+                event = ET.SubElement(root, "event", {"start": str(utext[3])+'T00:00:00Z', "title": utext[1] , "link": 'http://www.opencorrespondence.org/letters/view/dickens/' + urllib.quote(utext[1]) + '/' + str(url)  })
                 event.text = unicode("Letter to " + utext[1])
             else:
                 letter = ET.SubElement(root, "letter")

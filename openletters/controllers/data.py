@@ -22,7 +22,7 @@ class DataController(BaseController):
     def endpoint (self, author = '', correspondent = ''):
         
         if author == "rdf":
-            response.headers['Content-Type'] = 'application/rdf+xml; charset=utf-8'
+            response.headers['Content-Type'] = 'text/rdf+xml; charset=utf-8'
             rdf = rdf_transform()
             return rdf.create_rdf_end()
         
@@ -33,7 +33,7 @@ class DataController(BaseController):
         
         elif author == "xml":
             xml = xml_transform()
-            response.headers['Content-Type'] = 'application/xml'
+            response.headers['Content-Type'] = 'text/xml'
             if correspondent == "simile":
                 return xml.endpoint_xml("simile")
             else:
