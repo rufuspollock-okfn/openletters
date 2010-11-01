@@ -59,9 +59,7 @@ def parse_balanced_quotes (text):
             if str(a[:1]) is "u":
                 str(a).replace("u", "")
                 
-            print "str", str(a[:1])
             if str(a[:1]).isupper():
-                print "str", str(a[:1])
                 if "!" not in a and len(str(a)) < 40:
                     ret_quotes.append(a)  
             else:
