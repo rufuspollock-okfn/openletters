@@ -1,5 +1,5 @@
 ''' Command Line Interface for setting up Open Letters stores
-Derived from open shakespeare
+
 '''
 
 import os
@@ -129,7 +129,6 @@ class Load(BaseCommand):
         if cmd == 'dickens':
             fileobj = 'openletters/docs/dickens_letters.xml'
             file_obj = 'openletters/docs/dickens_source.xml'
-            #fileobj = open('openletters/docs/letter.txt')
             import openletters.main
             openletters.main.load_dickens_letters(fileobj)
             

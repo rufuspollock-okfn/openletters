@@ -26,9 +26,9 @@ class SearchController(BaseController):
         if queryString:
             # Connect to database
             try:
-                database = xapian.Database(config['path_indices'])
+                database = xapian.remote_open(config['xapian_host'], 33333)
             except xapian.DatabaseOpeningError:
-                return 'Cannot open database at ' + config['path_indices']
+                return 'Cannot open database at ' + config['xapian_host']
             # Parse query string
             queryParser = xapian.QueryParser()
             queryParser.set_stemmer(xapian.Stem('english'))
