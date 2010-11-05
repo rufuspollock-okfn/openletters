@@ -123,7 +123,7 @@ class rdf_transform:
             
         dc_author = urllib.quote(name)
         lauthor = URIRef(base_uri+ 'author/%s' % dc_author)
-        self.g.add((correspondence, dublin_core['author'], Literal(name)))
+        self.g.add((correspondence, dublin_core['creator'], Literal(name)))
 
         return lauthor
     
