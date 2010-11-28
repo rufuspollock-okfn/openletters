@@ -147,7 +147,7 @@ class LettersController(BaseController):
                 return xml.letter_xml(query_string)
        
         elif type == "rdf":
-            response.headers['Content-Type'] = 'text/xml'
+            response.headers['Content-Type'] = 'application/rdf+xml'
             rdf = rdf_transform()
             return rdf.create_rdf_letter(query_string)
 

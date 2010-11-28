@@ -30,6 +30,7 @@ class PlaceController(BaseController):
         locations = []
         locations = list(sparql.find_places())
         c.places = sorted(locations)
+        print "locations", c.places
 
         return render('letters/magazineindex.html')
     

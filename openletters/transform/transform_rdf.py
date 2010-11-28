@@ -237,17 +237,19 @@ class rdf_transform:
         
     def create_place (self, place):
         
-        long = ''
-        lat = ''
-        place_name = ''
-        
-        if place == "Gad's Hill":
-            long = '51.2440'
+        (long, lat, place_name, place_abstract) = ('','','','')
+       # long = ''
+       # lat = ''
+       # place_name = ''
+       # place_abstract = ''
+
+        if place == "Gads Hill":
+            long = '51.2440N'
             lat = '0.2728E'
             place_name = place
             place_abstract = "Gads Hill Place in Higham, Kent, sometimes spelt Gadshill Place and Gad's Hill Place, was the country home of Charles Dickens, the most successful British author of the Victorian era."
-        elif place == 'Tavistock Place':
-            long = '51.5255'
+        elif place == 'Tavistock House':
+            long = '51.5255N'
             lat = '0.1286W'
             place_name = place
             place_abstract = "Tavistock House was the London home of the noted British author Charles Dickens and his family from 1851 to 1860. At Tavistock House Dickens wrote Bleak House, Hard Times, Little Dorrit and A Tale of Two Cities. He also put on amateur theatricals there which are described in John Forster's Life of Charles Dickens. Later, it was the home of William and Georgina Weldon, whose lodger was the French composer Charles Gounod, who composed part of his opera Polyeucte at the house."

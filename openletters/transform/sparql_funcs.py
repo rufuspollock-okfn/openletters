@@ -20,6 +20,7 @@ from rdflib import Namespace, Literal, URIRef, RDF, RDFS, plugin
 '''
 
 geo = Namespace('http://www.w3.org/2003/01/geo/wgs84_pos#')
+dublin_core = Namespace('http://purl.org/dc/elements/1.1/')
 
 class sparql_funcs():
     
@@ -36,11 +37,12 @@ class sparql_funcs():
         '''
         row = set()
         self.g.parse(self.endpoint)
-        print "places", len(self.g)
-        for s,_,n in self.g.triples((None, geo['name'], None)):
+
+        for s,_,n in self.g.triples((None, dublin_core['title'], None)):
+            print "sub", s
             loc_key = urllib.unquote(n.replace("http://www.opencorrespondence.org/place/resource/", ""))
             row.add(self.__tidy_location(loc_key))
-       
+        print "row", row
         return row
     
     def __tidy_location (self, location):
