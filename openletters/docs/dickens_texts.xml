@@ -1,0 +1,277 @@
+<opencorrespondence>
+<book>
+        <id>1</id>
+        <title>The Pickwick Papers</title>
+        <mag_start>1836-04-01</mag_start>
+        <mag_end>1837-11-01</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>580</source>
+        <url>The_Pickwick_Papers</url>
+        <description></description>
+    </book>
+    <book>
+        <id>2</id>
+        <title>The Adventures of Oliver Twist </title>
+        <mag_start>1837-02-01</mag_start>
+        <mag_end>1839-04-01</mag_end>
+        <aka>Oliver Twist</aka>
+        <aka2></aka2>
+        <source>730</source>
+        <url>Oliver_Twist</url>
+        <description></description>
+    </book>
+    <book>
+        <id>3</id>
+        <title>The Life and Adventures of Nicholas Nickleby</title>
+        <mag_start>1838-04-01</mag_start>
+        <mag_end>1839-10-01</mag_end>
+        <aka>Nicholas Nickleby</aka>
+        <aka2></aka2>
+        <source>967</source>
+        <url>Nicholas_Nickleby</url>
+        <description></description>
+    </book>
+    <book>
+        <id>4</id>
+        <title>The Old Curiosity Shop</title>
+        <mag_start>1840-04-25</mag_start>
+        <mag_end>1841-02-06</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source></source>
+        <url>The_Old_Curiosity_Shop</url>
+        <description></description>
+    </book>
+    <book>
+        <id>5</id>
+        <title>Barnaby Rudge: A Tale of the Riots of 'Eighty </title>
+        <mag_start>1841-02-13</mag_start>
+        <mag_end>1841-11-27</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>917</source>
+        <url>Barnaby_Rudge</url>
+        <description></description>
+    </book>
+    <book>
+        <id>6</id>
+        <title>A Christmas Carol </title>
+        <mag_start>1843</mag_start>
+        <mag_end></mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>46</source>
+        <url>A_Christmas_Carol</url>
+        <description></description>
+    </book>
+    <book>
+        <id>7</id>
+        <title>The Chimes </title>
+        <mag_start>1844</mag_start>
+        <mag_end></mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>653</source>
+        <url>The _Chimes</url>
+        <description></description>
+    </book>
+    <book>
+        <id>8</id>
+        <title>The Cricket on the Hearth </title>
+        <mag_start>1845</mag_start>
+        <mag_end></mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>678</source>
+        <url>The _Cricket_on_the_Hearth</url>
+        <description></description>
+    </book>
+    <book>
+        <id>9</id>
+        <title>The Battle of Life</title>
+        <mag_start>1846</mag_start>
+        <mag_end></mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>676</source>
+        <url>The_Battle_of_Life</url>
+        <description></description>
+    </book>
+    <book>
+        <id>10</id>
+        <title>The Haunted Man and the Ghost's Bargain </title>
+        <mag_start>1848</mag_start>
+        <mag_end></mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>644</source>
+        <url>The_Haunted_Man_and_the_Ghost's_Bargain</url>
+        <description></description>
+    </book>
+    <book>
+        <id>11</id>
+        <title>The Life and Adventures of Martin Chuzzlewit </title>
+        <mag_start>1843-01-01</mag_start>
+        <mag_end>1844-07-01</mag_end>
+        <aka>Martin Chuzzlewit</aka>
+        <aka2></aka2>
+        <source>968</source>
+        <url>Martin_Chuzzlewit</url>
+        <description></description>
+    </book>
+    <book>
+        <id>12</id>
+        <title>Dombey and Son</title>
+        <mag_start>1846-10-01</mag_start>
+        <mag_end>1848-04-01</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>821</source>
+        <url>Dombey_and_Son</url>
+        <description></description>
+    </book>
+    <book>
+        <id>13</id>
+        <title>David Copperfield </title>
+        <mag_start>1849-05-01</mag_start>
+        <mag_end>1850-11-01</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>766</source>
+        <url>David_Copperfield</url>
+        <description></description>
+    </book>
+    <book>
+        <id>14</id>
+        <title>Bleak House </title>
+        <mag_start>1852-03-01</mag_start>
+        <mag_end>1853-09-01</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>1023</source>
+        <url>Bleak_House</url>
+        <description></description>
+    </book>
+    <book>
+        <id>15</id>
+        <title>Hard Times: For These Times </title>
+        <mag_start>1854-04-01</mag_start>
+        <mag_end>1845-08-12</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>786</source>
+        <url>Hard_Times</url>
+        <description></description>
+    </book>
+    <book>
+        <id>16</id>
+        <title>Little Dorrit</title>
+        <mag_start>1855-12-01</mag_start>
+        <mag_end>1857-06-01</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>963</source>
+        <url>Little_Dorrit</url>
+        <description></description>
+    </book>
+    <book>
+        <id>17</id>
+        <title>A Tale of Two Cities</title>
+        <mag_start>1859-04-30</mag_start>
+        <mag_end>1859-11-26</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>98</source>
+        <url>A_Tale_of_Two_Cities</url>
+        <description></description>
+    </book>
+    <book>
+        <id>18</id>
+        <title>Great Expectations</title>
+        <mag_start>1860-12-01</mag_start>
+        <mag_end>1861-08-03</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>1400</source>
+        <url>Great_Expectations</url>
+        <description></description>
+    </book>
+    <book>
+        <id>19</id>
+        <title>Our Mutual Friend </title>
+        <mag_start>1864-05-01</mag_start>
+        <mag_end>1865-11-01</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>883</source>
+        <url>Our_Mutual_Friend</url>
+        <description></description>
+    </book>
+    <book>
+        <id>20</id>
+        <title>The Mystery of Edwin Drood </title>
+        <mag_start>1870-04-01</mag_start>
+        <mag_end>1870-09-01</mag_end>
+        <aka>Edwin Drood</aka>
+        <aka2></aka2>
+        <source>564</source>
+        <url>The_Mystery_of_Edwin_Drood</url>
+        <description></description>
+    </book>
+    <book>
+        <id>21</id>
+        <title>Sketches by Boz </title>
+        <mag_start>1836</mag_start>
+        <mag_end></mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>882</source>
+        <url>Sketches_by_Boz</url>
+        <description></description>
+    </book>
+    <book>
+        <id>22</id>
+        <title>Sketches by Boz </title>
+        <mag_start>1837</mag_start>
+        <mag_end></mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source></source>
+        <url></url>
+        <description></description>
+    </book>
+    <book>
+        <id>23</id>
+        <title>Reprinted Pieces </title>
+        <mag_start>1861</mag_start>
+        <mag_end></mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source></source>
+        <url></url>
+        <description></description>
+    </book>
+    <book>
+        <id>24</id>
+        <title>The Uncommercial Traveller</title>
+        <mag_start>1869</mag_start>
+        <mag_end>1869</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>914</source>
+        <url>The_Uncommercial_Traveller</url>
+        <description></description>
+    </book>
+    <book>
+        <id>25</id>
+        <title>Master Humphrey's Clock</title>
+        <mag_start>1840-04-04</mag_start>
+        <mag_end>1841-12-04</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source>588</source>
+        <url>Master_Humphrey's_Clock</url>
+        <description></description>
+    </book>
+</opencorrespondence>

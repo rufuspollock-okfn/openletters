@@ -15,15 +15,18 @@
   <link rel="stylesheet" href="http://m.okfn.org/kforge/css/master.css" type="text/css" media="screen, print" title="Master stylesheet" charset="utf-8" />
   <link rel="stylesheet" href="/css/extra.css" type="text/css" media="screen, print" title="Master stylesheet" charset="utf-8" />
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
   <script type="text/javascript" src="http://m.okfn.org/kforge/scripts/kforge.js"></script>
+
 
   <py:if test="defined('optional_head')">
     ${optional_head()}
   </py:if>
 </head>
-<!-- remove if timeline doesn't work -->
-<body onload="onLoad();" onresize="onResize();" >
+<!-- remove if timeline doesn't work 
+<body onload="onLoad();" onresize="onResize();"  >
+-->
+<body onload="init()" onresize="onResize();"  >
 <div id="airlock">
   <!--[if IE]>
     <hr class="holder" />

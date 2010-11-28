@@ -1,0 +1,66 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+ xmlns:xi="http://www.w3.org/2001/XInclude" 
+ py:strip="True">
+
+ <py:def function="page_title">Magazines</py:def>
+  <py:if test="c.coordinates">
+ <py:def function="optional_head">
+
+   <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
+   <script type="text/javascript">
+   var map, layer;
+
+   function init(){
+       //OpenLayers.ProxyHost="/proxy/?url=";
+       map = new OpenLayers.Map('map');
+       layer = new OpenLayers.Layer.WMS( "OpenLayers WMS", 
+           "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
+       //need to get an API key for open correspondence
+       //layer = new OpenLayers.Layer.Google("Google Streets", // the default
+       //        {numZoomLevels: 20}
+        //   );
+          
+           
+       map.addLayer(layer);
+       //now to overlay with street data
+       map.setCenter(new OpenLayers.LonLat(${c.end}, ${c.start}), 6);
+
+       var markers = new OpenLayers.Layer.Markers( "Markers" );
+       map.addLayer(markers);
+
+       var size = new OpenLayers.Size(21,25);
+       var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+       var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png',size,offset);
+       markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(${c.end}, ${c.start}),icon));
+
+       //map.addControl(new OpenLayers.Control.LayerSwitcher());
+       //map.zoomToMaxExtent();
+
+   }
+
+   </script>
+ </py:def>
+  </py:if>
+ 
+<div py:def="content">
+ 
+ <h3>${c.author}</h3>
+
+ <p>Born: ${c.start}</p>
+ <p>Died: ${c.end}</p>
+ <p><py:if test="c.coordinates">${c.coordinates}</py:if></p>
+ <p>Life: ${c.abstract}</p>
+ 
+<py:if test="c.coordinates">
+    <div id="map" style="
+    width: 512px;
+    height: 256px;
+    border: 1px solid #ccc;
+    "></div>
+</py:if>
+
+ <a href="${c.mag_url}">${c.author}</a>
+ </div>
+
+ <xi:include href="../layout.html" />
+</html> 

@@ -79,6 +79,34 @@ def load_source (fileobj, verbose=True):
             model.Session.remove()
         else:
             print('Source : SKIPPING')
+            
+def load_texts (fileobj, verbose=True):
+    
+    source_text = minidom.parse(fileobj)
+    
+    letters  = source_text.getElementsByTagName('book')
+    title = ''
+    for letter in letters:
+        modelbook = model.Book (
+               book_id=unicode(handle_elements("id", letter)),   
+               book_title=unicode(handle_elements("title", letter)),
+               book_pub=unicode(handle_elements("mag_start", letter)),
+               book_end_pub=unicode(handle_elements("mag_end", letter)),  
+               aka=unicode(handle_elements("aka", letter)),
+               aka2=unicode(handle_elements("aka2", letter)),
+               description=unicode(handle_elements("description", letter)),
+               url=unicode(handle_elements("url", letter)),
+               source=unicode(handle_elements("source", letter)),
+            )
+        
+        model.Session.add(modelbook)
+        model.Session.commit()
+    
+        if verbose:
+            print('Source %s: \n\t ...' % (title))
+            model.Session.remove()
+        else:
+            print('Source : SKIPPING')
 
 
 def index_letters(self, type, fileobj):

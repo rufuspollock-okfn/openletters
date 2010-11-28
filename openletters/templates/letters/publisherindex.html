@@ -1,0 +1,19 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+ xmlns:xi="http://www.w3.org/2001/XInclude" 
+ py:strip="True">
+
+ <py:def function="page_title">Letters - Home</py:def>
+
+<div py:def="content">
+ <p>Current publishers held in the collection</p>
+ 
+ <h3>Publisher index </h3>
+ <ul>
+   <li >
+     <a href="${url(controller='publisher', action='view', author='Chapman and Hall')}">Chapman and Hall</a>
+  </li>
+ </ul>
+ </div>
+
+ <xi:include href="../layout.html" />
+</html> 

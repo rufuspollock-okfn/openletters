@@ -5,6 +5,7 @@ from sqlalchemy import orm
 import meta
 from meta import Session
 from letter import letter_table, Letter, source_table, Source
+from books import books_table, Book
 
 def init_model(engine):
     """Call me before using any of the tables or classes in the model"""

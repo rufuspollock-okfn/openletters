@@ -29,5 +29,6 @@ def make_map():
     map.connect('/{controller}/{action}/{author}/{correspondent}')
     map.connect('/{controller}/{action}/{author}/{correspondent}/')
     map.connect('/{controller}/{action}/{author}/{correspondent}/{id}')
+    map.connect('/{controller}/{action}/{author}/{correspondent}/{id}/{type}')
 
     return map

@@ -107,42 +107,51 @@ class LettersController(BaseController):
                     c.type = model.Session.query(model.Source).get(letter.volume)
                     
                 return render('letters/view.html')
-        
-    
     '''
-      Method to return details about a correspondent
-    '''
-    def correspondent(self, author=None):
+        Method to return a resource view of  the letter
+    '''  
+    def resource (self, author=None, correspondent=None, id=None, type=None):
         
+        #format = request.headers.get('accept','')
+
+        #author is the base collection so cannot be empty
         if author is None:
             abort(404)
-            
-        format = request.headers.get('accept','')
-        #format = "application/xml"
-        #response.headers['content-type'] = 'text/xml; charset=utf-8'
+          
+        query_string = model.Session.query(model.Letter).filter(model.Letter.type == author).all()
 
-        if format == "application/rdf+xml":
-            response.headers['content-type'] = 'application/rdf + xml; charset=utf-8'
-            rdf = rdf_transform()
-            return rdf.create_correspondent(author, self.corr_dict(author))
         
-        elif format == "application/xml":
-            response.headers['content-type'] = 'text/xml; charset=utf-8'
-            xml = xml_transform()
-            return xml.corres_xml(author, self.corr_dict(author))
+        if correspondent is not None:
+            corr = urllib.unquote(correspondent)
+            query_string = model.Session.query(model.Letter).filter(model.Letter.type == author).filter(model.Letter.correspondent == corr).all()
         
-        elif format == "application/json":
-            response.headers['content-type'] = 'application/json;'
-            json = json_transform()
-            return json.corr_json(author, self.corr_dict(author))
-        else:
-            c.page_title = urllib.unquote(author)
-            c.author = author
-            c.nicks = self.corr_dict(author)
- 
-            return render('letters/correspondent.html')
+        if id is not None:
+            query_string = model.Session.query(model.Letter).filter(model.Letter.type == author).filter(model.Letter.correspondent == corr).filter(model.Letter.id == id).all()
             
-        return corr_rdf
+        if query_string is None or query_string == []:
+            abort(404)
+        
+        if type == "json":
+            
+            response.headers['Content-Type'] = 'application/json'
+            json = json_transform()
+            return json.to_dict(query_string, id)
+        
+        elif type == "xml":
+            response.headers['Content-Type'] = 'text/xml'
+            xml = xml_transform()
+            
+            if id is None:
+                return xml.index_xml(query_string)
+            else:
+                return xml.letter_xml(query_string)
+       
+        elif type == "rdf":
+            response.headers['Content-Type'] = 'text/xml'
+            rdf = rdf_transform()
+            return rdf.create_rdf_letter(query_string)
+
+ 
 
     def corr_dict(self, corr):
         

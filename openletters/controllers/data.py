@@ -20,9 +20,8 @@ class DataController(BaseController):
     '''
     def endpoint (self, author = '', correspondent = ''):
         
-            
         if author == "rdf":
-            response.headers['Content-Type'] = 'application/rdf+xml; charset=utf-8'
+            response.headers['Content-Type'] = 'application/rdf+xml'
             rdf = rdf_transform()
             return rdf.create_rdf_end()
         
@@ -47,14 +46,21 @@ class DataController(BaseController):
         query_string = model.Session.query(model.Letter).filter(model.Letter.type == author).all()
         return json.book_json(query_string)
     
-    def correspondent(self):
-        req = request.POST('search')
-        corres =  model.Session.query(model.Letter.correspondent).distinct().all()
+    '''
+       Method to create correspondent rdf
+       '''
+    def correspondent(self,author=None, correspondent=None):
         
-        for c in corres:
-            if req in c:
-                b = '<li>%s</li>' % c
-        
-        return b    
+        if correspondent == "rdf":
+            response.headers['Content-Type'] = 'application/rdf+xml'
+            rdf = rdf_transform()
+            return rdf.create_correspondent(author)
+        if correspondent == "xml":
+            response.headers['Content-Type'] = 'text/xml'
+            xml = xml_transform()
+            return xml.corres_xml(author)       
     
-        
+        if correspondent == "json":
+            response.headers['Content-Type'] = 'application/json'
+            json = json_transform()
+            return json.corr_json(author)

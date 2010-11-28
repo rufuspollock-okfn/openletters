@@ -5,7 +5,7 @@ from openletters.model.letter import Letter
 
 #define the table mappings here
 users = Table('letters', metadata, autoload=True)
-#notes = Table('annotation', metadata, autoload=True)
+books = Table('books', metadata, autoload=True)
 
 session = Session()
 
@@ -85,6 +85,34 @@ def get_correspondent (corr):
         ret_arr[row[4]] = [row[5]]
     
     return ret_arr
+
+def get_books():
+    titles_set = set()
+    titles = books.select()
+    rs = titles.execute()
+    for row in rs:
+        titles_set.add(str(row[1]).strip())
+        if str(row[1]).startswith("A "):
+            titles_set.add(str(row[1])[1:].strip())
+        if str(row[1]).startswith("The "):
+            titles_set.add(str(row[1])[3:].strip())
+        if ":" in str(row[1]):
+            for n in str(row[1]).split(":"):
+                titles_set.add(n[0])
+        if row[4] is not None:
+            titles_set.add(str(row[4]).strip())
+    
+    return titles_set
+#gets the book details
+def get_book_rdf (title):
+    book_arr = {}
+    book = books.select(books.c.url == title)
+    rs = book.execute()
+    for row in rs:
+        book_arr[row[1]] = [row[2], row[3], row[4], row[7], row[8]]
+        #book_arr[row[1]] = [row[2]]
+        
+    return book_arr
 #gets any annotations for a letter - this will come later
 def get_annotation (url):
     annotation = notes.select(notes.c.url == url)

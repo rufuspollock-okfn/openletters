@@ -1,0 +1,19 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+ xmlns:xi="http://www.w3.org/2001/XInclude" 
+ py:strip="True">
+
+ <py:def function="page_title">Letters - Home</py:def>
+
+<div py:def="content">
+ <p>Current authors in the database organized by their associated author.</p>
+ 
+ <h3>Author index </h3>
+ <ul>
+   <li >
+     <a href="${url(controller='author', action='view', author='Charles%20Dickens')}">Charles Dickens</a>
+  </li>
+ </ul>
+ </div>
+
+ <xi:include href="../layout.html" />
+</html> 

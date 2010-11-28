@@ -1,0 +1,47 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+ xmlns:xi="http://www.w3.org/2001/XInclude" 
+ py:strip="True">
+
+ <py:def function="page_title">Letters - Home</py:def>
+
+<div py:def="content">
+
+ <py:if test="c.magazines">
+ <p>Current places in the database.</p>
+ 
+ <h3>Index of Periodicals</h3>
+ <ul>
+  <div py:for="mags in c.magazines">
+   <li >
+     <a href="${url(controller='magazine', action='view', author=mags)}">${mags}</a>
+  </li>
+   </div>
+ </ul>
+</py:if>
+
+<py:if test="c.places">
+    <h3>Index of Locations</h3>
+ <ul>
+  <div py:for="places in c.places">
+   <li >
+     <a href="${url(controller='place', action='view', author=places)}">${places}</a>
+  </li>
+   </div>
+ </ul>
+</py:if>
+
+<py:if test="c.titles">
+    <h3>Title index </h3>
+ <ul>
+  <div py:for="title in c.titles">
+   <li >
+     <a href="${url(controller='book', action='view', author=title.url)}">${title.book_title}</a>
+  </li>
+   </div>
+ </ul>
+</py:if>
+
+ </div>
+
+ <xi:include href="../layout.html" />
+</html> 

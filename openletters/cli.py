@@ -35,7 +35,7 @@ class ManageDb(BaseCommand):
     db create
     db clean
     db rebuild # clean and create
-    # db upgrade [{version no.}] # Data migrate
+    # db upgrade [{version no.}] # Data migrate 
     '''
     summary = __doc__.split('\n')[0]
     usage = __doc__
@@ -128,20 +128,22 @@ class Load(BaseCommand):
         cmd = self.args[0]
         if cmd == 'dickens':
             fileobj = 'openletters/docs/dickens_letters.xml'
-            file_obj = 'openletters/docs/dickens_source.xml'
-            import openletters.main
-            openletters.main.load_dickens_letters(fileobj)
-            
-            openletters.main.load_source(file_obj)
+            source_obj = 'openletters/docs/dickens_source.xml'
+            book_obj = 'openletters/docs/dickens_texts.xml'
+            import openletters.command
+            openletters.command.load_dickens_letters(fileobj)
+            openletters.command.load_source(source_obj)
+            openletters.command.load_texts(book_obj)
 
         else:
             print 'Action not recognized'
 
 
 class Index(BaseCommand):
-    '''Index the letters for a Xapian powered search
+    '''
+       Index the letters for a Xapian powered search
     
-    index dickens  - indexes the Dickens letters
+       index dickens  - indexes the Dickens letters
     '''
     summary = __doc__.split('\n')[0]
     usage = __doc__
@@ -155,8 +157,8 @@ class Index(BaseCommand):
         if cmd == 'dickens':
             type = 'dickens'
             fileobj = 'openletters/docs/dickens_letters.xml'
-            import openletters.main
+            import openletters.command
             
-            openletters.main.index_letters(self, type, fileobj)
+            openletters.command.index_letters(self, type, fileobj)
         else:
             print 'Action not recognized'

@@ -5,9 +5,9 @@ from openletters.model import dbase
 
 class xml_transform:
  
-    '''create XML of letters for a defined author'''
-    def index_xml (self, letters):
     
+    def index_xml (self, letters):
+        '''create XML of letters for a defined author'''
         root = ET.Element("opencorrespondence")
         
         
@@ -32,7 +32,9 @@ class xml_transform:
         return doc
     
     def letter_xml (self, letters):
-            
+        ''' Function to return XML
+            Todo: Change this to TEI XML
+        '''
         root = ET.Element("opencorrespondence")
         
         
@@ -44,12 +46,8 @@ class xml_transform:
             date.text = unicode(l.letter_date)
             author = ET.SubElement(letter, "correspondent")
             author.text = unicode(l.correspondent)
-            l_text = ET.SubElement(letter, "letter_text")
-            l_text.text = unicode(l.letter_text)
 
-            
             if l.letter_text:
-                
                 l_text = ET.SubElement(letter, "text")
                 l_text.text = unicode(self.xml_encode(l.letter_text))
    
@@ -58,7 +56,9 @@ class xml_transform:
         return doc
     
     def corres_xml (self, corr, letters):
-        
+        ''' 
+           Function to return a correspondent in XML
+        '''
         root = ET.Element("opencorrespondence")
         
         letter = ET.SubElement(root, "person")
@@ -66,20 +66,17 @@ class xml_transform:
         author.text = unicode(corr)
         
         for name, url in letters:
- 
             nick = ET.SubElement(letter, "nick")
             nick.text = unicode(name)
 
-   
         doc = ET.tostring(root, "UTF-8")
         
         return doc
     
-    '''
-        Function to create xml for Simile timeline and xml endpoint
-    '''
     def endpoint_xml (self, type = ''):
-        
+        '''
+            Function to create xml for Simile timeline and xml endpoint
+        '''
         if type =="simile":
             root = ET.Element("data", {'date-time-format': 'ISO 8601'})
         else:
