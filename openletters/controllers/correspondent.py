@@ -1,41 +1,45 @@
-import logging
+import logging, urllib
 
 from pylons import request, response, session, tmpl_context as c
 from pylons.controllers.util import abort, redirect_to
 
 from openletters.lib.base import BaseController, render
+from openletters import model
+from openletters.model import dbase
 
+from openletters.transform.transform_json import json_transform
+from openletters.transform.transform_xml import xml_transform
 from openletters.transform.transform_rdf import rdf_transform
 
-from openletters.model import dbase
 
 log = logging.getLogger(__name__)
 
 class CorrespondentController(BaseController):
 
     def index(self):
-        c.page_title = urllib.unquote(author)
-        c.author = author
-        c.nicks = self.corr_dict(author)
-        
+        c.page_title = "Index of correspondents"
+
+        c.corres =  model.Session.query(model.Letter.correspondent).distinct().all()
+
         return render('letters/correspondent.html')
     
-    '''
-      Method to return details about a correspondent
-    '''
+
     def view(self, author=None):
-        
+        '''
+              Method to return details about a correspondent
+        '''
         c.page_title = urllib.unquote(author)
         c.author = author
         c.nicks = self.corr_dict(author)
         
         return render('letters/correspondent.html')
     
-    '''
-      Method to return details about a correspondent
-    '''
+
     def resource(self, author=None, correspondent=None):
         
+        '''
+          Method to return details about a correspondent
+        '''
         if author is None:
             abort(404)
 

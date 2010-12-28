@@ -99,19 +99,39 @@ class json_transform:
     '''
     Function to return the book graph
     '''
-    def book_json (self, book_query):
-        
-        dict = '{'
+    def book_json (self, title, type):
+        books_set = {}
+        start = '';
+        end = '';
+        abstract = '';
+        uri_str = '';
+        source = '';
 
-        for b in book_query:
-            dict +=  str(b.author) + ': [ '
-            dict += '"correspondent": "' + author
-            dict += '", "nick: "' + l
+        author = "http://www.opencorrespondence.org/author/resource/Charles%20Dickens/json"
+        books = dbase.get_book_rdf(title)
+        book_items = books.items()
+        book_items.sort()
+
+        dict = '{'
         
+        for u, book in book_items:
+
+            dict +=  str(title) + ': [ '
+            dict += '"title": "' + u
+            dict += '"author": "' + author
+            dict += '", "start: "' + book[0]
+            dict += '", "end: "' + book[1]
+            dict += '", "abstract: "' + book[2]
+                     
+            if type == "book":
+               dict += '", "source: http://gutenberg.org/ebooks/"' + book[4]
+            
+            dict +=   '", "sameas: "' + u"http://dbpedia.org/page/" + book[3] 
+            
             dict += '"]'
         
         dict += '}'
-        
+
         return self.jsonify(dict)
     
     def jsonify (self, output):

@@ -90,8 +90,8 @@ class xml_transform:
           
         for url, utext in letter_items:
             if type == "simile":
-                event = ET.SubElement(root, "event", {"start": str(utext[3])+'T00:00:00Z', "title": utext[1] , "link": 'http://www.opencorrespondence.org/letters/view/dickens/' + urllib.quote(utext[1]) + '/' + str(url)  })
-                event.text = unicode("Letter to " + utext[1])
+                event = ET.SubElement(root, "event", {"start": str(utext[3])+'T00:00:00Z', "title": str(utext[1]) , "link": 'http://www.opencorrespondence.org/letters/view/dickens/' + urllib.quote(str(utext[1])) + '/' + str(url)  })
+                event.text = unicode("Letter to " + str(utext[1]))
             else:
                 letter = ET.SubElement(root, "letter")
                 aurl = ET.SubElement(letter, "author")
@@ -101,7 +101,7 @@ class xml_transform:
                 date = ET.SubElement(letter, "date")
                 date.text = unicode(utext[3])
                 id = ET.SubElement(letter, "id")
-                id.text = unicode('http://www.opencorrespondence.org/letters/view/dickens/' + urllib.quote(utext[1]) + '/' + str(url))
+                id.text = unicode('http://www.opencorrespondence.org/letters/view/dickens/' + urllib.quote(str(utext[1])) + '/' + str(url))
         
         doc  = ET.tostring(root, "UTF-8")
         return doc

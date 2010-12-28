@@ -1,13 +1,18 @@
-# -*- coding: latin-1 -*-
+
 '''
 Class to parse the Dickens letters and enter into a store
 '''
-import unicodedata
+import unicodedata, urllib, os
+
+from ofs.local import OFS
 from xml.dom import minidom
-import urllib, os
 
 from openletters.parse import parse_text, parse_date
 from openletters import model
+
+from openletters.transform.transform_rdf import rdf_transform
+from openletters.transform.transform_json import json_transform
+from openletters.transform.transform_xml import xml_transform
 
 def getText(nodelist):
     rc = []
@@ -144,3 +149,23 @@ def index_letters(self, type, fileobj):
         database.add_document(document)
         
     database.flush()
+    
+def create_endpoint ():
+    #delete any existing endpoints first before loading
+    o = OFS()
+    for b in o.list_buckets():
+        #if o.exists(b, "rdfendpoint"): o.del_stream(b, "rdfendpoint")
+        if o.exists(b, "jsonendpoint"): o.del_stream(b, "jsonendpoint")
+        if o.exists(b, "xmlendpoint"): o.del_stream(b, "xmlendpoint")
+        if o.exists(b, "simile"): o.del_stream(b, "simile")
+        
+
+
+    
+    #TODO put in the books xml
+    
+def __store (data_store, data_name):
+    
+    o = OFS()
+    store_id = o.claim_bucket(data_name)
+    o.put_stream(store_id, data_name, data_store)

@@ -30,7 +30,7 @@ class MagazineController(BaseController):
             return render('letters/magazineindex.html')
         else:
             mag = urllib.unquote(author)
-            if mag =="Household Works":
+            if mag =="Household Words":
                 c.start = u"March 1850"
                 c.end = u"May 1859"
                 c.abstract = u"Household Words was an English weekly magazine edited by Charles Dickens in the 1850s which took its name from the line from Shakespeare 'Familiar in his mouth as household words' - Henry V"
@@ -45,19 +45,33 @@ class MagazineController(BaseController):
                 
             return render('letters/magazine.html')
      
-    '''
-       Method to return a resource view of the publication
-       @param author publication name
-       @param correspondent data type - rdf, json or xml
-    '''
+
     def resource(self, author=None, correspondent=None):
+         '''
+           Method to return a resource view of the publication
+           @param author publication name
+           @param correspondent data type - rdf, json or xml
+         '''
          if author is None:
              abort(404)
          else:
              title = str(urllib.unquote(author))
              if correspondent == "rdf":
-                 response.headers['Content-Type'] = 'text/xml; charset=utf-8'
-                 #response.headers['Content-Type'] = 'application/rdf+xml; charset=utf-8'
+
+                 response.headers['Content-Type'] = 'application/rdf+xml;'
                  rdf = rdf_transform()
-                 return rdf.create_publication(title, "magazine")
+                 return rdf.create_publication(author, "magazine")
+             
+             elif correspondent == "json":
+                 #response.headers['Content-Type'] = 'application/json'
+                 #response.headers['Content-Type'] = 'application/rdf+xml; charset=utf-8'
+                 json = json_transform()
+                 return json.book_json(author, "magazine")
+             
+                          
+             elif correspondent == "xml":
+                 #response.headers['Content-Type'] = 'application/json'
+                 #response.headers['Content-Type'] = 'application/rdf+xml; charset=utf-8'
+                 json = json_transform()
+                 return json.book_json(author, "magazine")
             

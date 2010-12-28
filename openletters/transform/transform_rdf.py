@@ -100,7 +100,7 @@ class rdf_transform:
         
         for url, text in letter_items:
             try:
-                correspondence = base_uri + "letters/resource/dickens/" + urllib.quote(text[1]) + '/' + str(url)
+                correspondence = base_uri + "letters/resource/dickens/" + urllib.quote(str(text[1])) + '/' + str(url)
                 self.add_author(correspondence, "Charles Dickens")
                 self.add_subject(correspondence, "letter")
                 self.add_subject(correspondence, "Charles Dickens")
@@ -178,42 +178,31 @@ class rdf_transform:
             end = '';
             abstract = '';
             uri_str = '';
+            source = '';
 
-            if type == "magazine":
-                if title == "Household Words":
-                     start = u"1850-03-01"
-                     end = u"1859-05-01"
-                     abstract = u"Household Words was an English weekly magazine edited by Charles Dickens in the 1850s which took its name from the line from Shakespeare 'Familiar in his mouth as household words' - Henry V"
-                     uri_str = u"Household_Words"
-                elif title =="All the Year Round":
-                     start = u"1859-01-28"
-                     end = u"1895-03-30"
-                     abstract = u"All the Year Round was a Victorian periodical, being a British weekly literary magazine founded and owned by Charles Dickens, published between 1859 and 1895 throughout the United Kingdom. Edited by Dickens, it was the direct successor to his previous publication Household Words, abandoned due to differences with his former publisher. It hosted the serialization of many prominent novels, including Dickens' own A Tale of Two Cities. After Dickens's death in 1870, it was owned and edited by his eldest son Charles Dickens, Jr." 
-                     uri_str = u"All_the_Year_Round"
-            else:
-                books = dbase.get_book_rdf(title)
-                book_items = books.items()
-                book_items.sort()
-                
-                for u, book in book_items:
+            books = dbase.get_book_rdf(title)
+            book_items = books.items()
+            book_items.sort()
 
-                    title = u
-                    start = book[0]
-                    end = book[1]
-                    abstract = book[2]
-                    uri_str = book[3]
-                    source = book[4]
-                    #create a books dictionary as a list of records to build a list of uris from
-                    # title => uri string
-                    books_set[u] = uri_str
+            for u, book in book_items:
+
+                title = u
+                start = book[0]
+                end = book[1]
+                abstract = book[2]
+                uri_str = book[3]
+                source = book[4]
+                 #create a books dictionary as a list of records to build a list of uris from
+                 # title => uri string
+                books_set[u] = uri_str
                     
-                    if ":" in u:
-                        for bk in u.split(":"):
-                            books_set[bk[0]] = uri_str
+                if ":" in u:
+                    for bk in u.split(":"):
+                        books_set[bk[0]] = uri_str
             
-                    if "The " in u or "A " in u:
-                        aka = u.replace("The ", "").replace("A ", "")
-                        books_set[aka] = uri_str
+                if "The " in u or "A " in u:
+                    aka = u.replace("The ", "").replace("A ", "")
+                    books_set[aka] = uri_str
             
             correspondence = base_uri + type + "/resource/" + title.strip().replace(" ", "_")
             self.add_subject(correspondence, type)

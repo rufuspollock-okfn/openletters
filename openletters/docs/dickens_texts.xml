@@ -274,4 +274,26 @@
         <url>Master_Humphrey's_Clock</url>
         <description></description>
     </book>
+        <book>
+        <id>26</id>
+        <title>All the Year Round</title>
+        <mag_start>1859-01-28</mag_start>
+        <mag_end>1895-03-30</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source></source>
+        <url>All_the_Year_Round</url>
+        <description>All the Year Round was a Victorian periodical, being a British weekly literary magazine founded and owned by Charles Dickens, published between 1859 and 1895 throughout the United Kingdom. Edited by Dickens, it was the direct successor to his previous publication Household Words, abandoned due to differences with his former publisher. It hosted the serialization of many prominent novels, including Dickens' own A Tale of Two Cities. After Dickens's death in 1870, it was owned and edited by his eldest son Charles Dickens, Jr.</description>
+    </book>
+        <book>
+        <id>27</id>
+        <title>Household Words</title>
+        <mag_start>1850-03-01</mag_start>
+        <mag_end>1859-05-01</mag_end>
+        <aka></aka>
+        <aka2></aka2>
+        <source></source>
+        <url>Household_Words</url>
+        <description>Household Words was an English weekly magazine edited by Charles Dickens in the 1850s which took its name from the line from Shakespeare 'Familiar in his mouth as household words' - Henry V</description>
+    </book>
 </opencorrespondence>

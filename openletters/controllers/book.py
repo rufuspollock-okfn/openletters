@@ -43,6 +43,10 @@ class BookController(BaseController):
         else:
             books = model.Session.query(model.Book).filter(model.Book.url == author)
             if correspondent == "rdf":
-                response.headers['Content-Type'] = 'text/xml'
+                #response.headers['Content-Type'] = 'application/rdf+xml'
                 rdf = rdf_transform()
                 return rdf.create_publication(author, "book")
+            if correspondent == "json":
+               # response.headers['Content-Type'] = 'application/json'
+                json = json_transform()
+                return json.book_json(author, "book")

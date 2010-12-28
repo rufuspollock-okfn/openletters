@@ -117,6 +117,8 @@ class Load(BaseCommand):
     '''Load external data into domain model.
 
         dickens: Load Dickens data.
+        
+        endpoint: create the RDF/JSON/XML endpoints
     '''
     summary = __doc__.split('\n')[0]
     usage = __doc__
@@ -135,13 +137,16 @@ class Load(BaseCommand):
             openletters.command.load_source(source_obj)
             openletters.command.load_texts(book_obj)
 
+        elif cmd == 'endpoint':
+            import openletters.command
+            openletters.command.create_endpoint()
+            
         else:
             print 'Action not recognized'
 
 
 class Index(BaseCommand):
-    '''
-       Index the letters for a Xapian powered search
+    ''' Index the letters for a Xapian powered search
     
        index dickens  - indexes the Dickens letters
     '''

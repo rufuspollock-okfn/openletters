@@ -1,24 +1,37 @@
 <html xmlns:py="http://genshi.edgewall.org/"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   py:strip="True" >
-
+  <py:if test="c.nicks">
+     <py:def function="optional_head">
+       <link rel="alt" type="application/rdf+xml" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='rdf')}" title="RDF/XML version of page" /> 
+       <link rel="alt" type="application/json" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='json')}" title="JSON version of page" />
+       <link rel="alt" type="text/xml" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='xml')}" title="XML version of page" />  
+     </py:def>
+  </py:if>
   <py:def function="page_title">c.page_title</py:def>
 
   <div py:def="content">
     <div class="letter">
 
         <h4>${c.author}</h4>
-        <p>Also known as:</p>
+        <py:if test="c.nicks">
+        <py:def function="optional_head">
+              <link rel="alt" href="${url(controller='correspondent', action='resource', author=corr.correspondent, correspondent='rdf')}" description="RDF/XML version of page" /> 
+        </py:def>
+           <p>Also known as:</p>
+               <ul>
+         		<div py:for="nick, t in c.nicks">
+           			 <li>${nick}</li>
+         		 </div>
+          </ul>
+        </py:if>
+        <py:if test="c.corres">
           <ul>
-          <div py:for="nick, t in c.nicks">
-            <li>${nick}</li>
+          <div py:for="corr in c.corres">
+            <li><a href="${url(controller='correspondent', action='view', author=corr.correspondent)}">${corr.correspondent}</a></li>
           </div>
           </ul>
-        <!--<h5>Letters</h5>
-          <ul>
-            <li><a href="${corr.type}/${corr.correspondent}/${corr.id}">${corr.type}/${corr.correspondent}/${corr.id}</a></li>
-          </ul>-->
-
+        </py:if>
     </div>
   </div>
 

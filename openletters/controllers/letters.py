@@ -5,14 +5,15 @@ from pylons.controllers.util import abort
 from routes import redirect_to
 
 from openletters.lib.base import BaseController, render
+
 from openletters import model
+from openletters.model import dbase
+
 from openletters.parse import parse_text, parse_date
 
 from openletters.transform.transform_json import json_transform
 from openletters.transform.transform_xml import xml_transform
 from openletters.transform.transform_rdf import rdf_transform
-
-from openletters.model import dbase
 
 
 log = logging.getLogger(__name__)
