@@ -106,7 +106,7 @@ def get_books():
 #gets the book details
 def get_book_rdf (title):
     book_arr = {}
-    print title
+
     book = books.select(books.c.url == title)
     rs = book.execute()
     for row in rs:
