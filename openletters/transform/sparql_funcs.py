@@ -27,7 +27,7 @@ class sparql_funcs():
     
     def __init__(self):
         self.g = Graph('IOMemory')
-        self.endpoint = "http://localhost:5000/data/endpoint/rdf"
+        self.endpoint = "http://www.opencorrespondence.org/data/endpoint/rdf"
         #self.g.bind('geo', geo)
 
     def find_places(self):
