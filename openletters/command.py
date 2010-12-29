@@ -4,7 +4,7 @@ Class to parse the Dickens letters and enter into a store
 '''
 import unicodedata, urllib, os
 
-from ofs.local import OFS
+#from ofs.local import OFS
 from xml.dom import minidom
 
 from openletters.parse import parse_text, parse_date
