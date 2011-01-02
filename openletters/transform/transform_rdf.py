@@ -55,6 +55,7 @@ class rdf_transform:
             self.add_time(correspondence, str(l.letter_date)+'T00:00:00')
             self.add_correspondent(correspondence, l.correspondent)
             #self.add_place(correspondence, parse_text.find_geographical(l.letter_text))
+            place = ''
             try:
                 place = parse_text.find_geographical(str(l.letter_text))
             #unicode errors are text related
