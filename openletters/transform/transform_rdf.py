@@ -61,7 +61,8 @@ class rdf_transform:
             #unicode errors are text related
             except UnicodeError:
                 pass
-            if place is not None:
+            
+            if place is not '':
                 self.add_place(correspondence, place)
                 
             self.add_letter_text(correspondence, l.letter_text)
