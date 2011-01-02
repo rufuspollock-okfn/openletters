@@ -4,6 +4,7 @@ Class to parse the Dickens letters and enter into a store
 '''
 import unicodedata, urllib, os
 
+from pylons import request, response, session, tmpl_context as c, config
 #from ofs.local import OFS
 from xml.dom import minidom
 
@@ -121,7 +122,8 @@ def index_letters(self, type, fileobj):
     
     #database = xapian.WritableDatabase(db_path, xapian.DB_CREATE_OR_OPEN)
     #open a writable database on the xapian-tcpsrvr
-    database = xapian.remote_open_writable("localhost/correspondence", 33333)
+    database = xapian.remote_open_writable(config['xapian_host'], int(config['xapian_port']))
+    #database = xapian.remote_open_writable("localhost", 33333)
     indexer = xapian.TermGenerator()
     indexer.set_stemmer(xapian.Stem('english'))
     
