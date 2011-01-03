@@ -321,7 +321,7 @@ class rdf_transform:
 
     def add_text (self, correspondence, textname):
         ''' function to add referred text to the graph'''
-        textid = base_uri + "book/resource/"+textname.replace("\n", "_").replace(" ", "_")
+        textid = base_uri + "book/resource/"+textname.replace("\n", "_").replace(" ", "_")+ "/rdf"
         return self.g.add((correspondence, letter_ns['textReferred'], URIRef(textid)))        
     
     
