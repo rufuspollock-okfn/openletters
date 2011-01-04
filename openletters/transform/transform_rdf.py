@@ -283,7 +283,7 @@ class rdf_transform:
     def add_author(self, correspondence, name):
         ''' function to add author to graph '''  
         dc_author = urllib.quote(name)
-        lauthor = URIRef(base_uri+ 'author/resource/%s' % dc_author)
+        lauthor = URIRef(base_uri+ 'author/resource/%s' % dc_author)+ "/rdf"
         self.g.add((correspondence, dublin_core['creator'], lauthor))
         #self.g.add((correspondence, dublin_core['creator'], Literal(name)))
         return lauthor
@@ -292,7 +292,7 @@ class rdf_transform:
     def add_salutation(self, correspondence, author, name):
         ''' function to add salutation to graph '''        
         nameid = urllib.quote(author)
-        person = URIRef(base_uri + 'correspondent/resource/%s' % nameid)
+        person = URIRef(base_uri + 'correspondent/resource/%s' % nameid)+ "/rdf"
         #self.g.add((person, RDF.type, FOAF['nick']))
         self.g.add((correspondence, FOAF['nick'], Literal(name)))
         
@@ -302,7 +302,7 @@ class rdf_transform:
     def add_correspondent(self, correspondence, name):
         ''' function to add correspondent to graph '''        
         nameid = urllib.quote(name)
-        person = URIRef(base_uri + 'correspondent/resource/%s' % nameid)
+        person = URIRef(base_uri + 'correspondent/resource/%s' % nameid)+ "/rdf"
         self.g.add((correspondence, letter_ns["correspondent"], person))
         #self.g.add((person, Letter, Literal(name)))
         
@@ -312,7 +312,7 @@ class rdf_transform:
     def add_magazine(self, correspondence, name):
         ''' function to add magazine to graph '''       
         nameid = urllib.quote(name)
-        magazine = URIRef(base_uri + 'magazine/resource/%s' % nameid)
+        magazine = URIRef(base_uri + 'magazine/resource/%s' % nameid)+ "/rdf"
         self.g.add((correspondence, letter_ns['textReferred'], magazine))
         #self.g.add((person, Letter, Literal(name)))
         
@@ -352,10 +352,10 @@ class rdf_transform:
         return self.g.add((correspondence, FOAF['nick'], Literal(nick)))
     
     def add_place (self, correspondence, place):
-        return self.g.add((correspondence, dublin_core['title'], URIRef(base_uri + "place/resource/"+urllib.quote(place))))
+        return self.g.add((correspondence, dublin_core['title'], URIRef(base_uri + "place/resource/"+urllib.quote(place)+ "/rdf")))
         
     def add_daughter (self, correspondence, author):
-        return self.g.add((correspondence, exam['daughter'], URIRef(base_uri + "author/resource/" + author)))
+        return self.g.add((correspondence, exam['daughter'], URIRef(base_uri + "author/resource/" + author + "/rdf")))
     
     def add_letter_text (self, correspondence, letter_text):
         return self.g.add((correspondence, letter_ns['Text'], Literal(letter_text)))
