@@ -17,9 +17,11 @@
     <input type="text" name="q" value="" size="30" /><br />   
     <input type="submit" name="Search Letters" />
     </form>
-
+       <py:if test="c.matches">
+          <p>${c.total} result(s)</p>
+       </py:if>
+       
        <div py:for="match in c.matches">
-        <p>${c.total} result(s)</p>
               <p> 
                 <div py:choose = ""> 
        				<span py:when="match.date == '0000-00-00'"><a href="../letters/view/${match.letterid}">Letter to ${match.correspondent}</a><br/> No date</span>
