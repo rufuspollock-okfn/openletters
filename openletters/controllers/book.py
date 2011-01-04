@@ -38,7 +38,7 @@ class BookController(BaseController):
             abort(404)
             
         if correspondent is None:
-            return redirect (controller=book, action=view, author=author)
+            redirect_to(controller="book", action="view", author=author)
         
         else:
             books = model.Session.query(model.Book).filter(model.Book.url == author)
