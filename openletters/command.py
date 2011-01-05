@@ -116,7 +116,7 @@ def load_texts (fileobj, verbose=True):
 
 
 def index_letters(self, type, fileobj):
-    import xapian
+    #import xapian
 
     db_path = 'db'
     
