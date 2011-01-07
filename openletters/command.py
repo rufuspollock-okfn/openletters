@@ -118,7 +118,6 @@ def load_texts (fileobj, verbose=True):
 def index_letters(self, type, fileobj):
     import xapian
 
-    db_path = 'db'
     
     #database = xapian.WritableDatabase(db_path, xapian.DB_CREATE_OR_OPEN)
     #open a writable database on the xapian-tcpsrvr
