@@ -121,7 +121,10 @@ def index_letters(self, type, fileobj):
     
     #database = xapian.WritableDatabase(db_path, xapian.DB_CREATE_OR_OPEN)
     #open a writable database on the xapian-tcpsrvr
-    database = xapian.WritableDatabase('data', xapian.DB_CREATE_OR_OPEN)
+    try :
+        database = xapian.WritableDatabase('data', xapian.DB_CREATE_OR_OPEN)
+    except xapian.DatabaseOpeningError:
+        return 'Cannot open database for Xapian'
     #database = xapian.remote_open_writable("localhost", 33333)
     indexer = xapian.TermGenerator()
     indexer.set_stemmer(xapian.Stem('english'))
