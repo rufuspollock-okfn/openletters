@@ -26,7 +26,8 @@ class SearchController(BaseController):
         if queryString:
             # Connect to database
             try:
-                database = xapian.WritableDatabase(config['xapian_host'], xapian.DB_CREATE_OR_OPEN)
+                database = xapian.Database(config['xapian_host'])
+                #database = xapian.WritableDatabase(config['xapian_host'], xapian.DB_CREATE_OR_OPEN)
                # database = xapian.remote_open(config['xapian_host'], config['xapian_port'])
             except xapian.DatabaseOpeningError:
                 return 'Cannot open database at ' + config['xapian_host'] + "on port:" + config['xapian_port']
