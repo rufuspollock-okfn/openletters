@@ -98,15 +98,18 @@ class LettersController(BaseController):
                     c.letters = query_string                
                 return render('letters/index.html')
             else:
-                for letter in query_string:
-                    c.page_title = "Letter written from " + parse_text.author_full(self, letter.type) + " to " + letter.correspondent
-                    c.author = parse_text.author_full(self, letter.type)
-                    c.correspondent = letter.correspondent
-                    c.letter_date = letter.letter_date
-                    c.letter_text = letter.letter_text
-                    c.id = letter.id
-                    c.type = model.Session.query(model.Source).get(letter.volume)
-                    
+                if str(id).isdigit():
+                    for letter in query_string:
+                        c.page_title = "Letter written from " + parse_text.author_full(self, letter.type) + " to " + letter.correspondent
+                        c.author = parse_text.author_full(self, letter.type)
+                        c.correspondent = letter.correspondent
+                        c.letter_date = letter.letter_date
+                        c.letter_text = letter.letter_text
+                        c.id = letter.id
+                        c.type = model.Session.query(model.Source).get(letter.volume)
+                else:
+                    abort(404) 
+                     
                 return render('letters/view.html')
     '''
         Method to return a resource view of  the letter

@@ -3,7 +3,11 @@ import logging, urllib
 from pylons import request, response, session, tmpl_context as c
 from pylons.controllers.util import abort, redirect_to
 
+from ofs.local import OFS
+
 from openletters.lib.base import BaseController, render
+
+from openletters import model
 
 from openletters.transform.transform_json import json_transform
 from openletters.transform.transform_xml import xml_transform
@@ -35,24 +39,20 @@ class PlaceController(BaseController):
         return render('letters/magazineindex.html')
     
     def view (self,author=None):
+
+        
         if author is None:
             abort(404)
         else:
-            place = urllib.unquote(author)
-            if place == "Gads Hill":
-                c.start = '51.2440'
-                c.end = '0.2728'
-                c.coordinates = '51.2440N 0.2728E'
-                c.author = place
-                c.abstract = "Gads Hill Place in Higham, Kent, sometimes spelt Gadshill Place and Gad's Hill Place, was the country home of Charles Dickens, the most successful British author of the Victorian era."
-                c.mag_url = "http://en.wikipedia.org/wiki/Gads_Hill_Place"
-            elif place == 'Tavistock House':
-                c.start = '51.5255'
-                c.end = '0.1286'
-                c.coordinates = '51.5255N  0.1286W'
-                c.author = place
-                c.abstract = "Tavistock House was the London home of the noted British author Charles Dickens and his family from 1851 to 1860. At Tavistock House Dickens wrote Bleak House, Hard Times, Little Dorrit and A Tale of Two Cities. He also put on amateur theatricals there which are described in John Forster's Life of Charles Dickens. Later, it was the home of William and Georgina Weldon, whose lodger was the French composer Charles Gounod, who composed part of his opera Polyeucte at the house."
-                c.mag_url = "http://en.wikipedia.org/wiki/Tavistock_House"
+            
+            query_string = model.Session.query(model.Place).filter(model.Place.place == author)
+
+            c.author = locations[urllib.unquote(author)]
+            c.start = locations[0]
+            c.end = locations[1]
+            c.coordinates = str(locations[0]) + ' ' + str(locations[1])
+            c.description = locations[2]
+
             return render('letters/magazine.html')
     
     def resource (self, author=None, correspondent=None):
@@ -76,4 +76,58 @@ class PlaceController(BaseController):
         elif place == 'Tavistock House':
             lat = '51.5255N'
             long = '0.1286W'
+    
+    def getText(nodelist):
+        rc = []
+        for node in nodelist:
+            if node.nodeType == node.TEXT_NODE:
+                rc.append(unicodedata.normalize('NFKC', node.data))
+        return ''.join(rc)
+
+    def handle_elements (elementname, element):
+        e = element.getElementsByTagName(elementname)
+        
+        for name in e:
+            return self.handle_parts(elementname, name)
+    
+        
+    def handle_parts (nodename, node):
+        return self.getText(node.childNodes)
             
+    # there's probably a better way to do this 
+    # but the next task is data processing so we can sort then
+    
+    def place_element(placestr):
+        place = ''
+
+        if "Baltimore" in placestr:
+            place = "Baltimore"
+        if "Bath" in placestr:
+            place = "Bath"
+           
+        if "Birmingham" in placestr:
+            place = "Birmingham"
+        if "Brighton" in placestr:
+            place = "Brighton"
+        if "Boulogne" in placestr:
+            place = "Boulogne"
+        if "Boston" in placestr:
+            place = "Boston"
+        if "Clifton" in placestr:
+            place = "Clifton"
+        if "Canterbury" in placestr:
+            place = "Canterbury"
+        if "Dover" in placestr:
+            place = "Dover"
+        if "Glasgow" in placestr:
+            place = "Glasgow"
+        if "Great Malvern" in placestr:
+            place = "Great Malvern"
+        if "Liverpool" in placestr:
+            place = "Liverpool"
+        if "Petersham" in placestr:
+            place = "Petersham"
+        else:
+            place = placestr
+                                                                    
+        return place

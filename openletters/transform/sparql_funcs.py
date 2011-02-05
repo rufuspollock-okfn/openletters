@@ -1,5 +1,7 @@
 import rdflib,urllib
 
+from ofs.local import OFS
+
 try:
     from sets import Set
 except ImportError:
@@ -27,8 +29,9 @@ class sparql_funcs():
     
     def __init__(self):
         self.g = Graph('IOMemory')
-        self.endpoint = "http://www.opencorrespondence.org/data/endpoint/rdf"
+        #self.endpoint = "http://www.opencorrespondence.org/data/endpoint/rdf"
         #self.g.bind('geo', geo)
+
 
     def find_places(self):
         '''
@@ -37,10 +40,15 @@ class sparql_funcs():
             TODO: Parsing the letters to get the places mentioned in them
         '''
         row = set()
-        self.g.parse(self.endpoint)
+        o = OFS()
+        
+        for b in o.list_buckets():
+            endpoint = o.get_stream(b, "endpoint")
+
+        self.g.parse(endpoint)
 
         for s,_,n in self.g.triples((None, dublin_core['title'], None)):
-            loc_key = urllib.unquote(n.replace("http://www.opencorrespondence.org/place/resource/", ""))
+            loc_key = urllib.unquote(n.replace("http://www.opencorrespondence.org/place/resource/", "").replace("/rdf",""))
             row.add(self.__tidy_location(loc_key))
 
         return row
@@ -79,7 +87,7 @@ class sparql_funcs():
             ret_location = "Tavistock House"
         else:
             if "U.s." in location:
-                location = str(location).replace("U.s", "United States")
+                location = str(location).replace("U.s", "")
             ret_location = str(location).replace(".", "")    
             
         return ret_location
@@ -94,7 +102,7 @@ class sparql_funcs():
         self.g.parse(self.endpoint)
 
         for s,_,n in self.g.triples((None, letter['correspondent'], None)):
-            loc_key = urllib.unquote(n.replace("http://www.opencorrespondence.org/correspondent/resource/", ""))
+            loc_key = urllib.unquote(n.replace("http://www.opencorrespondence.org/correspondent/resource/", "").replace("/rdf", ""))
             row.add(loc_key)
 
         return row

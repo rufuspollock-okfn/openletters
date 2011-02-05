@@ -2,10 +2,12 @@
 '''
 Class to parse the Dickens letters and enter into a store
 '''
-import unicodedata, urllib, os
+import unicodedata, urllib, os, xapian
 
 from pylons import request, response, session, tmpl_context as c, config
-#from ofs.local import OFS
+
+from ofs.local import OFS
+
 from xml.dom import minidom
 
 from openletters.parse import parse_text, parse_date
@@ -114,18 +116,37 @@ def load_texts (fileobj, verbose=True):
         else:
             print('Source : SKIPPING')
 
+def load_locations (fileobj, verbose=True):
+    
+    source_text = minidom.parse(fileobj)
+    
+    letters  = source_text.getElementsByTagName('location')
+    place = ''
+    for letter in letters:
+        modellocation = model.Location (
+               placeid=unicode(handle_elements("place", letter)),   
+               latitude=unicode(handle_elements("lat", letter)),
+               longitude=unicode(handle_elements("lon", letter)),
+            )
+        
+        model.Session.add(modellocation)
+        model.Session.commit()
+    
+        if verbose:
+            print('Location %s: \n\t ...' % (place))
+            model.Session.remove()
+        else:
+            print('Location : SKIPPING')
+            
 
 def index_letters(self, type, fileobj):
-    import xapian
 
-    
-    #database = xapian.WritableDatabase(db_path, xapian.DB_CREATE_OR_OPEN)
     #open a writable database on the xapian-tcpsrvr
     try :
         database = xapian.WritableDatabase(config['xapian_host'], xapian.DB_CREATE_OR_OPEN)
     except xapian.DatabaseOpeningError:
         return 'Cannot open database for Xapian'
-    #database = xapian.remote_open_writable("localhost", 33333)
+
     indexer = xapian.TermGenerator()
     indexer.set_stemmer(xapian.Stem('english'))
     
@@ -142,7 +163,7 @@ def index_letters(self, type, fileobj):
             
         document = xapian.Document()
         document.set_data(text)
-        #not sure this is going to work - rather than using the filename, use letter ids
+        
         letter_index = type + "/" + urllib.quote(corr) + "/" + str(count)
 
         print "indexing %s" ,letter_index
@@ -157,19 +178,41 @@ def index_letters(self, type, fileobj):
 def create_endpoint ():
     #delete any existing endpoints first before loading
     o = OFS()
+    
+    end = o.claim_bucket('end')
+    
     for b in o.list_buckets():
-        #if o.exists(b, "rdfendpoint"): o.del_stream(b, "rdfendpoint")
+        if o.exists(b, "rdfendpoint"): o.del_stream(b, "rdfendpoint")
+        #else: rdf_id = o.claim_bucket('rdfendpoint')
         if o.exists(b, "jsonendpoint"): o.del_stream(b, "jsonendpoint")
+        #else: js_store = o.claim_bucket('jsonendpoint')
         if o.exists(b, "xmlendpoint"): o.del_stream(b, "xmlendpoint")
-        if o.exists(b, "simile"): o.del_stream(b, "simile")
+        #else: xm_data = o.claim_bucket('xmlendpoint')
+        if o.exists(b, "simileend"): o.del_stream(b, "simileend")
+        #else: sim_data = o.claim_bucket('simileend')
+        if o.exists(b, "locationdata"): o.del_stream(b, "location")
+
+    rdf = rdf_transform()
+    rdf_data = rdf.create_rdf_end()
+    o.put_stream(end, 'endpoint', rdf_data)
+    print "rdf", rdf_data
+    
+    json = json_transform()
+    json_data = json.to_end_dict()
+    o.put_stream(end, 'jsonendpoint', json_data)
+    print "json", json_data
+    
+    xml = xml_transform()
+    x_data = xml.endpoint_xml()
+    o.put_stream(end, 'xmlendpoint', x_data)
+    print "xml", x_data   
+    
+    xml_data = xml.endpoint_xml("simile")
+    o.put_stream(end, 'simileend', xml_data)
+    print "simile", xml_data
         
-
-
     
-    #TODO put in the books xml
+def __store (self, ofsobject, data_store, data_name):
     
-def __store (data_store, data_name):
-    
-    o = OFS()
-    store_id = o.claim_bucket(data_name)
-    o.put_stream(store_id, data_name, data_store)
+    store_id = ofsobject.claim_bucket(data_name)
+    ofsobject.put_stream(store_id, data_name, data_store)

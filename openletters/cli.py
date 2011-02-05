@@ -132,10 +132,12 @@ class Load(BaseCommand):
             fileobj = 'openletters/docs/dickens_letters.xml'
             source_obj = 'openletters/docs/dickens_source.xml'
             book_obj = 'openletters/docs/dickens_texts.xml'
+            location_obj = 'openletters/docs/dickens_places.xml'
             import openletters.command
             openletters.command.load_dickens_letters(fileobj)
             openletters.command.load_source(source_obj)
             openletters.command.load_texts(book_obj)
+            openletters.command.load_locations(location_obj)
 
         elif cmd == 'endpoint':
             import openletters.command

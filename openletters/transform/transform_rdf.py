@@ -49,7 +49,7 @@ class rdf_transform:
           creates an rdf representation of letter used to load into the triple store
         '''
         for l in letters:
-            correspondence = base_uri + "letters/resource/" + l.type + '/' + urllib.quote(l.correspondent) + '/' + str(l.id)
+            correspondence = base_uri + "letters/resource/" + l.type + '/' + urllib.quote(l.correspondent) + '/' + str(l.id) + '/rdf'
             self.add_author(correspondence, "Charles Dickens")
             self.add_subject(correspondence, "letter")
             self.add_time(correspondence, str(l.letter_date)+'T00:00:00')
@@ -102,7 +102,7 @@ class rdf_transform:
         
         for url, text in letter_items:
             try:
-                correspondence = base_uri + "letters/resource/dickens/" + urllib.quote(str(text[1])) + '/' + str(url)
+                correspondence = base_uri + "letters/resource/dickens/" + urllib.quote(str(text[1])) + '/' + str(url) + '/rdf'
                 self.add_author(correspondence, "Charles Dickens")
                 self.add_subject(correspondence, "letter")
                 self.add_subject(correspondence, "Charles Dickens")
