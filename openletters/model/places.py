@@ -10,6 +10,8 @@ location_table = Table('location', metadata,
                      Column('placeid', UnicodeText), 
                      Column('latitude', UnicodeText), 
                      Column('longitude', UnicodeText),
+                     Column('url', UnicodeText),
+                     Column('source', UnicodeText),
                      )
 
 class Location(object):

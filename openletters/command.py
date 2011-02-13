@@ -93,7 +93,7 @@ def load_texts (fileobj, verbose=True):
     source_text = minidom.parse(fileobj)
     
     letters  = source_text.getElementsByTagName('book')
-    title = ''
+    book_title = ''
     for letter in letters:
         modelbook = model.Book (
                book_id=unicode(handle_elements("id", letter)),   
@@ -111,7 +111,7 @@ def load_texts (fileobj, verbose=True):
         model.Session.commit()
     
         if verbose:
-            print('Source %s: \n\t ...' % (title))
+            print('Text %s: \n\t ...' % (book_title))
             model.Session.remove()
         else:
             print('Source : SKIPPING')
@@ -127,6 +127,8 @@ def load_locations (fileobj, verbose=True):
                placeid=unicode(handle_elements("place", letter)),   
                latitude=unicode(handle_elements("lat", letter)),
                longitude=unicode(handle_elements("lon", letter)),
+               url=unicode(handle_elements("url", letter)),
+               source=unicode(handle_elements("source", letter)),
             )
         
         model.Session.add(modellocation)

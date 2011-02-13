@@ -22,9 +22,9 @@
 <py:if test="c.places">
     <h3>Index of Locations</h3>
  <ul>
-  <div py:for="places in c.places">
+  <div py:for="place in c.places">
    <li >
-     <a href="${url(controller='place', action='view', author=places)}">${places}</a>
+     <a href="${url(controller='place', action='view', author=place.url)}">${' '.join(place.url.split('_'))}</a>
   </li>
    </div>
  </ul>

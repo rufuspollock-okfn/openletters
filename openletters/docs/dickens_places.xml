@@ -1,12 +1,11 @@
 <opencorrespondence>
-<location><place>Adelphi Hotel, Ranelagh Place,
-Liverpool, Merseyside L3 5UL</place><lat>53.405089</lat><lon>-2.977404</lon><url>Adelphi_Hotel</url><source>http://en.wikipedia.org/wiki/Britannia_Adelphi_Hotel</source></location>
+<location><place>Adelphi Hotel, Ranelagh Place,Liverpool, Merseyside L3 5UL</place><lat>53.405089</lat><lon>-2.977404</lon><url>Adelphi_Hotel</url><source>http://en.wikipedia.org/wiki/Britannia_Adelphi_Hotel</source></location>
 <location><place>Albaro, Genoa</place><lat>44.2440</lat><lon>8.5558</lon><url>Albaro</url><source>http://en.wikipedia.org/wiki/Albaro</source></location>
 <location><place>Villa Di Bagnarello, Albaro, Genoa</place><lat>44.2440</lat><lon>8.5558</lon><url>Villa_Di_Bagnarello_Albaro</url><source>http://www.victorianweb.org/authors/dickens/gallery/genoa.html</source></location>
 <location><place>Albion Hotel, 6-12 Albion Street, Broadstairs, CT10 1AN</place><lat>51.358607</lat><lon>1.442359</lon><url>Albion_Hotel_Broadstairs</url><source>http://www.albionbroadstairs.co.uk/</source></location>
 <location><place>Allonby, Cumberland</place><lat>54.685659</lat><lon>-3.519317</lon><url>Allonby_Cumberland</url><source>http://www.visionofbritain.org.uk/place/place_page.jsp?p_id=3741</source></location>
 <location><place>Birmingham Station, Birmingham</place><lat>52.477662</lat><lon>-1.898012</lon><url>Birmingham_Station</url></location>
-<location><place>Athenaeum Club, Pall Mall, London</place><lat>51.506839</lat><lon>-0.132734</lon><url>Athenaeum_Club_London</url><soource>http://www.athenaeumclub.co.uk/</source></location>
+<location><place>Athenaeum Club, Pall Mall, London</place><lat>51.506839</lat><lon>-0.132734</lon><url>Athenaeum_Club_London</url><source>http://www.athenaeumclub.co.uk/</source></location>
 <location><place>Baltimore</place><lat>39.17</lat><lon>-76.37</lon><url>Baltimore</url><source>http://en.wikipedia.org/wiki/Baltimore</source><desc>A city in Maryland</desc></location>
 <location><place>Bath</place><lat>51.384400</lat><lon>-2.363221</lon><url>Bath</url><source>http://en.wikipedia.org/wiki/Bath,_Somerset</source></location>
 <location><place>Bedford Hotel, Brighton</place><lat>50.82194</lat><lon>-0.15222</lon><url>Bedford_Hotel_Brighton</url><source>http://en.wikipedia.org/wiki/Bedford_Hotel_%28Brighton%29</source></location>
@@ -109,9 +108,9 @@ Liverpool, Merseyside L3 5UL</place><lat>53.405089</lat><lon>-2.977404</lon><url
 <location><place>Royal Hotel, Derby</place><lat /><long /><url>Royal_Hotel_Derby</url><source>http://en.wikipedia.org/wiki/Derby</source></location>
 <location><place>Royal Hotel, Scarborough</place><lat>54.2773</lat><lon>-0.4017</lon><url>Royal_Hotel_Scarborough</url><source>http://en.wikipedia.org/wiki/Scarborough,_North_Yorkshire</source></location>
 <location><place>Philadelphia</place><lat>39.95</lat><lon>-75.17</lon><url>Philadelphia</url><source>http://en.wikipedia.org/wiki/Philadelphia</source></location>
-<location><place>Portland</place><lat>45.52</lat><lon>-122.681944</on><url>Portland</url><source>http://en.wikipedia.org/wiki/Portland,_Oregon</source></location>
-<location><place>Rosemont</place><lat/><lon/><url>Rosemont</url></location>
-<location><place>Osnaburgh Terrace, New Road</place><lat>528847</lat><lon>182273</lon><url>Osnaburgh_Terrace_New_Road</url></location>
+<location><place>Portland</place><lat>45.52</lat><lon>-122.681944</lon><url>Portland</url><source>http://en.wikipedia.org/wiki/Portland,_Oregon</source></location>
+<location><place>Rosemont</place><lat/><lon/><url>Rosemont</url><source /></location>
+<location><place>Osnaburgh Terrace, New Road</place><lat>528847</lat><lon>182273</lon><url>Osnaburgh_Terrace_New_Road</url><source /></location>
 </opencorrespondence>
 
 

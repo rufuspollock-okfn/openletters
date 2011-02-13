@@ -116,7 +116,7 @@ class json_transform:
         
         for u, book in book_items:
 
-            dict +=  str(title) + ': [ '
+            dict +=  str(title) + ': { '
             dict += '"title": "' + u
             dict += '"author": "' + author
             dict += '", "start: "' + book[0]
@@ -128,10 +128,23 @@ class json_transform:
             
             dict +=   '", "sameas: "' + u"http://dbpedia.org/page/" + book[3] 
             
-            dict += '"]'
+            dict += '"}'
         
         dict += '}'
 
+        return self.jsonify(dict)
+    
+    def create_place (self, placeobj):
+        
+        dict = '{'
+        for location in placeobj:
+            dict +=  location.placeid + ': {'
+            dict += '"latitude" :' +location.latitude
+            dict += '"longitude" :' +location.longitude
+            dict += '"source" :' + location.source + '}'
+            
+        dict += '}'
+        
         return self.jsonify(dict)
     
     def jsonify (self, output):

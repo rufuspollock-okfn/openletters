@@ -105,6 +105,22 @@ class xml_transform:
         
         doc  = ET.tostring(root, "UTF-8")
         return doc
+    
+    def create_place (self, placeobj):
+        
+        root = ET.Element("opencorrespondence")
+        for location in placeobj:
+            place = ET.SubElement(root, "placename", location.placeid)
+            lat = ET.SubElement(place, "latitude")
+            lat.text = location.latitude
+            long = ET.SubElement(place, "longitude")
+            long.text = location.longitude
+            id = ET.SubElement(place, "source")
+            id.text = unicode(location.source)
+            
+        doc  = ET.tostring(root, "UTF-8")
+        
+        return doc
 
     def xml_encode (self, text):
         

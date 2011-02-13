@@ -107,3 +107,9 @@ class sparql_funcs():
 
         return row
     
+    def get_abstract (self, resource_id):
+        
+        self.g.parse("http://www.dbpedia.org/resource/"+ resource_id + "/rdf")
+        return resource_id
+
+    

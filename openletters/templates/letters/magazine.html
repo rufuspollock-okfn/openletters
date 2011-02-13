@@ -11,16 +11,9 @@
    var map, layer;
 
    function init(){
-       //OpenLayers.ProxyHost="/proxy/?url=";
        map = new OpenLayers.Map('map');
        layer = new OpenLayers.Layer.WMS( "OpenLayers WMS", 
-           "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
-       //need to get an API key for open correspondence
-       //layer = new OpenLayers.Layer.Google("Google Streets", // the default
-       //        {numZoomLevels: 20}
-        //   );
-          
-           
+           "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );   
        map.addLayer(layer);
        //now to overlay with street data
        map.setCenter(new OpenLayers.LonLat(${c.end}, ${c.start}), 6);
@@ -33,9 +26,6 @@
        var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png',size,offset);
        markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(${c.end}, ${c.start}),icon));
 
-       //map.addControl(new OpenLayers.Control.LayerSwitcher());
-       //map.zoomToMaxExtent();
-
    }
 
    </script>
@@ -46,10 +36,15 @@
  
  <h3>${c.author}</h3>
 
- <p>Born: ${c.start}</p>
- <p>Died: ${c.end}</p>
- <p><py:if test="c.coordinates">${c.coordinates}</py:if></p>
- <p>Life: ${c.abstract}</p>
+ <p><py:if test="c.abstract">Born: ${c.start}</py:if></p>
+ <p><py:if test="c.abstract">Died: ${c.end}</py:if></p>
+ <p><py:if test="c.abstract">Life: ${c.abstract}</py:if></p>
+
+ <a href="${c.mag_url}">${c.author}</a>
+ 
+  <p><py:if test="c.coordinates">Latitude: ${c.start}</py:if></p>
+ <p><py:if test="c.coordinates">Longitude: ${c.end}</py:if></p>
+
  
 <py:if test="c.coordinates">
     <div id="map" style="
@@ -59,7 +54,6 @@
     "></div>
 </py:if>
 
- <a href="${c.mag_url}">${c.author}</a>
  </div>
 
  <xi:include href="../layout.html" />

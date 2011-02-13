@@ -30,11 +30,12 @@ class PlaceController(BaseController):
         # Return a rendered template
         #return render('/place.mako')
         # or, return a response
-        sparql = sparql_funcs()
-        locations = []
-        locations = list(sparql.find_places())
-        c.places = sorted(locations)
-        #print "locations", c.places
+        #sparql = sparql_funcs()
+        #locations = []
+        #locations = list(sparql.find_places())
+        #c.places = sorted(locations)
+        #print "locations", c.place
+        c.places =  model.Session.query(model.Location.url).distinct().all()
 
         return render('letters/magazineindex.html')
     
@@ -44,38 +45,28 @@ class PlaceController(BaseController):
         if author is None:
             abort(404)
         else:
-            
-            query_string = model.Session.query(model.Place).filter(model.Place.place == author)
+            c.page_title = "Location for " + author
+            query_string = model.Session.query(model.Location).filter(model.Location.url == author)
 
-            c.author = locations[urllib.unquote(author)]
-            c.start = locations[0]
-            c.end = locations[1]
-            c.coordinates = str(locations[0]) + ' ' + str(locations[1])
-            c.description = locations[2]
+            for location in query_string:
+                c.author = location.placeid
+                c.start = location.latitude
+                c.end = location.longitude
+                c.coordinates = str(location.latitude) + ' ' + str(location.longitude)
+                c.description = location.source
 
             return render('letters/magazine.html')
     
     def resource (self, author=None, correspondent=None):
         if author is None:
             abort(404)
-        else:
-            place =  str(urllib.unquote(author))
+            
+        placeobj = model.Session.query(model.Location).filter(model.Location.url == author)
+
         if correspondent == "rdf":
             response.headers['Content-Type'] = 'text/xml; charset=utf-8'
             rdf = rdf_transform()
-            return rdf.create_place(place)
-        
-    def map (self, author=None):
-        response.headers['Content-Type'] = 'text/javascript'
-        lat = ''
-        long = ''
-        place = urllib.unquote(author)
-        if place == "Gad's Hill":
-            lat = '51.2440'
-            long = '0.2728'
-        elif place == 'Tavistock House':
-            lat = '51.5255N'
-            long = '0.1286W'
+            return rdf.create_place(placeobj)
     
     def getText(nodelist):
         rc = []
