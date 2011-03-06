@@ -2,7 +2,7 @@ import logging, urllib
 
 from pylons import request, response, session, tmpl_context as c
 
-from ofs.local import OFS
+#from ofs.local import OFS
 
 from openletters import model
 from openletters.lib.base import BaseController, render
@@ -19,33 +19,38 @@ class DataController(BaseController):
         '''
           Return an endpoint in which ever format is requested
         '''
-        o = OFS()
+        #o = OFS()
         
         if author == "rdf":
             response.headers['Content-Type'] = 'application/rdf+xml'
             #response.headers['Content-Type'] = 'application/rdf+xml
-            for b in o.list_buckets():
-                g = o.get_stream(b, "endpoint")
-                return str(g.read())
+            #for b in o.list_buckets():
+            #    g = o.get_stream(b, "endpoint")
+            #    return str(g.read())
+            rdf = rdf_transform()
+            return rdf.create_rdf_end()
         
         elif author == "json":
             response.headers['Content-Type'] = 'application/json'
-            for b in o.list_buckets():
-                g = o.get_stream(b, "jsonendpoint")
-                return str(g.read())
+            #for b in o.list_buckets():
+            #    g = o.get_stream(b, "jsonendpoint")
+            #    return str(g.read())
+            js = json_transform()
+            return js.to_end_dict()
         
         elif author == "xml":
             xml = xml_transform()
             response.headers['Content-Type'] = 'application/xml'
             if correspondent == "simile":
-                for b in o.list_buckets():
-                    g = o.get_stream(b, "simileend", True)
-                    return str(g.read())
+                #for b in o.list_buckets():
+                #    g = o.get_stream(b, "simileend", True)
+                #    return str(g.read())
+                return xml.endpoint_xml('simile')
 
             else:
-                for b in o.list_buckets():
-                    g = o.get_stream(b, "xmlendpoint", True)
-                    return g.read()
+                #for b in o.list_buckets():
+                #    g = o.get_stream(b, "xmlendpoint", True)
+                #    return g.read()
                 return xml.endpoint_xml()
         else:
             return render("endpoint/index.html")

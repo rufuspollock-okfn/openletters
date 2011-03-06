@@ -3,8 +3,6 @@ import logging, urllib
 from pylons import request, response, session, tmpl_context as c
 from pylons.controllers.util import abort, redirect_to
 
-from ofs.local import OFS
-
 from openletters.lib.base import BaseController, render
 
 from openletters import model
@@ -27,14 +25,7 @@ log = logging.getLogger(__name__)
 class PlaceController(BaseController):
 
     def index(self):
-        # Return a rendered template
-        #return render('/place.mako')
-        # or, return a response
-        #sparql = sparql_funcs()
-        #locations = []
-        #locations = list(sparql.find_places())
-        #c.places = sorted(locations)
-        #print "locations", c.place
+
         c.places =  model.Session.query(model.Location.url).distinct().all()
 
         return render('letters/magazineindex.html')
