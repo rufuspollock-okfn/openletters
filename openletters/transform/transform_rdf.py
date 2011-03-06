@@ -56,10 +56,11 @@ class rdf_transform:
             self.add_subject(correspondence, "letter")
             self.add_time(correspondence, str(l.letter_date)+'T00:00:00')
             self.add_correspondent(correspondence, l.correspondent)
+    
             #self.add_place(correspondence, parse_text.find_geographical(l.letter_text))
             place = ''
             try:
-                place = parse_text.find_geographical(str(l.letter_text))
+                place = str(l.letter_place)
             #unicode errors are text related
             except UnicodeError:
                 pass
@@ -69,6 +70,10 @@ class rdf_transform:
                 
             self.add_letter_text(correspondence, l.letter_text)
             self.add_salutation(correspondence, l.correspondent, l.salutation)
+            
+            #for line in l.letter_text.splitlines():
+            #    if len(line.strip()) > 1:
+            #        self.add_open(correspondence, parse_text.parse_salutation_line(line))
                 #this section will parse for proper names in due course
                 #commented out whilst code is being ported
                 #letter_name = parse_text.parseProperNames(text)
@@ -103,6 +108,7 @@ class rdf_transform:
         works = dbase.get_books()
         
         for url, text in letter_items:
+
             try:
                 correspondence = base_uri + "letters/resource/dickens/" + urllib.quote(str(text[1])) + '/' + str(url) + '/rdf'
                 self.add_author(correspondence, "Charles Dickens")
@@ -110,9 +116,11 @@ class rdf_transform:
                 self.add_subject(correspondence, "Charles Dickens")
                 self.add_subject(correspondence, parse_text.camel_case(str(text[1])))
                 self.add_time(correspondence, str(text[3])+'T00:00:00')
-                self.add_correspondent(correspondence, urllib.quote(parse_text.camel_case(str(text[1]))))
+                self.add_correspondent(correspondence, str(text[1]))
                 self.add_salutation(correspondence, urllib.quote(str(text[1])), str(text[4]))
-                place = parse_text.find_geographical(str(text[2]))
+                place = str(text[5])
+                #for line in str(text[2]).splitlines():
+                #    self.add_open(correspondence, parse_text.parse_salutation_line(str(text[2])))
                 letter = str(text[2])
             #unicode errors are text related
             except UnicodeError:
@@ -265,7 +273,7 @@ class rdf_transform:
         self.add_nick(correspondence, "Boz")
         self.add_time(correspondence, born)
         self.add_time(correspondence, died)
-        self.add_text(correspondence, abstract)
+        self.add_abstract(correspondence, abstract)
         self.add_sameas(correspondence, author_url)
         
         letter_rdf = self.g.serialize(format="pretty-xml", max_depth=3)
@@ -367,3 +375,9 @@ class rdf_transform:
     
     def add_abstract (self, correspondence, letters):
         return self.g.add((correspondence, letter_ns['text'], Literal(letters)))
+    
+    def add_open (self, correspondence, letters):
+        return self.g.add((correspondence, letter_ns['open'], Literal(letters)))
+
+    def add_close (self, correspondence, letters):
+        return self.g.add((correspondence, letter_ns['close'], Literal(letters)))

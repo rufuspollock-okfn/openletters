@@ -106,6 +106,10 @@ class LettersController(BaseController):
                         c.letter_date = letter.letter_date
                         c.letter_text = letter.letter_text
                         c.id = letter.id
+                        place = parse_text.find_geographical(letter.letter_text)
+                        if place is not None or place is not "No Place":
+                            c.placeid = " ".join(letter.letter_place.split("_"))
+                            c.place = letter.letter_place
                         c.type = model.Session.query(model.Source).get(letter.volume)
                 else:
                     abort(404) 

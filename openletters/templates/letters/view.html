@@ -11,6 +11,7 @@
   <py:def function="page_title">Letters - View</py:def>
 
   <div py:def="content">
+
     <div class="letter">
       ${h.literal(h.markdown(c.letter_text))}
       <p>&nbsp;</p>
@@ -18,6 +19,7 @@
       <p>${getattr(c.type, 'publn_data', '')} : ${getattr(c.type, 'publn_date', '')}</p>
       <p><a href="${getattr(c.type, 's_url', '')}">${getattr(c.type, 's_url' ,'')}</a></p>
     </div>
+
   </div>
 
   <xi:include href="../layout.html" />

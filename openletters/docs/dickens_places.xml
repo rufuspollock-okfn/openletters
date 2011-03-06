@@ -29,7 +29,7 @@
 <location><place>Clifton</place><lat>51.4612</lat><lon>-2.6188</lon><url>Clifton</url><source>http://en.wikipedia.org/wiki/Clifton,_Bristol</source></location>
 <location><place>Covent Garden</place><lat>51.51197</lat><lon>-0.1228</lon><url>Covent_Garden</url><source>http://en.wikipedia.org/wiki/Covent_Garden</source></location>
 <location><place>Cremona</place><lat>45.133333</lat><lon>10.033333</lon><url>Cremona</url><source>http://en.wikipedia.org/wiki/Cremona</source></location>
-<location><place>Croce Di Malta, Genoa</place><lat/><lon/><url>Croce_Di_Malta_Geno</url></location>
+<location><place>Croce Di Malta, Genoa</place><lat/><lon/><url>Croce_Di_Malta_Genoa</url></location>
 <location><place>Devonshire Terrace, London</place><lat>51.514125</lat><lon>-0.180342</lon><url>Devonshire_Terrace_London</url></location>
 <location><place>Doughty Street</place><lat>51.523333</lat><lon>-0.116667</lon><url>Doughty_Street</url></location>
 <location><place>Dover</place><lat>51.1295</lat><lon>1.3089</lon><url>Dover</url><source>http://en.wikipedia.org/wiki/Dover</source></location>
@@ -59,7 +59,7 @@
 <location><place>Hotel Wagram Paris</place><lat>48.871944</lat><lon>2.315</lon><url>Hotel_Wagram_Paris</url><source>http://en.wikipedia.org/wiki/Paris</source></location>
 <location><place>Hotel Windsor Paris</place><lat>48.871944</lat><lon>2.315</lon><url>Hotel_Windsor_Paris</url><source>http://en.wikipedia.org/wiki/Paris</source></location>
 <location><place>Rue de Courcelles, Paris</place><lat>48.871944</lat><lon>2.315</lon><url>Rue_De_Courcelles_Paris</url><source>http://en.wikipedia.org/wiki/Paris</source></location>
-<location><place>Hyde Park Place</place><lat /><lon /><url>Hyde_Park_Place</url><source>http://en.wikipedia.org/wiki/Hyde_Park,_London</source></location>
+<location><place>Hyde Park Place</place><lat>51.513012</lat><lon>-0.164288</lon><url>Hyde_Park_Place</url><source>http://en.wikipedia.org/wiki/Hyde_Park,_London</source></location>
 <location><place>Milan</place><lat>45.464167</lat><lon>9.190278</lon><url>Milan</url><source>http://en.wikipedia.org/wiki/Milan</source></location>
 <location><place>Paris</place><lat>48.856667</lat><lon>2.350833</lon><url>Paris</url><source>http://en.wikipedia.org/wiki/Paris</source></location>
 <location><place>Imperial Hotel, Blackpool</place><lat>53.814167</lat><lon>-3.050278</lon><url>Imperial_Hotel_Blackpool</url><source>http://en.wikipedia.org/wiki/Blackpool</source></location>
@@ -76,9 +76,9 @@
 <location><place>Montreal</place><lat>45.508889</lat><lon>-73.554167</lon><url>Montreal</url><source>http://en.wikipedia.org/wiki/Montreal</source></location>
 <location><place>Morrisons Hotel, Dublin</place><lat>53.347778</lat><lon>-6.259722</lon><url>Morrisons_Hotel_Dublin</url><source>http://en.wikipedia.org/wiki/Dublin</source></location>
 <location><place>Shelbourne Hotel, Dublin</place><lat>53.347778</lat><lon>-6.259722</lon><url>Shelbourne_Hotel_Dublin</url><source>http://en.wikipedia.org/wiki/Dublin</source></location>
-<location><place>Naples</place><lat/><lon/><url>Naples</url><source>http://en.wikipedia.org/wiki/Naples</source></location>
+<location><place>Naples</place><lat>40.833333</lat><lon>14.25</lon><url>Naples</url><source>http://en.wikipedia.org/wiki/Naples</source></location>
 <location><place>New York</place><lat>40.716667</lat><lon>-74</lon><url>New_York</url><source>http://en.wikipedia.org/wiki/New_York</source></location>
-<location><place>Newcastle on Tyne</place><lat>54.974</lat><lon>-1.6132</lon><url>Newcastle-on-tyne</url><source>http://en.wikipedia.org/wiki/Newcastle_upon_Tyne</source></location>
+<location><place>Newcastle on Tyne</place><lat>54.974</lat><lon>-1.6132</lon><url>Newcastle_on_Tyne</url><source>http://en.wikipedia.org/wiki/Newcastle_upon_Tyne</source></location>
 <location><place>Queen's Hotel, Newcastle</place><lat>54.974</lat><lon>-1.6132</lon><url>Queens_Hotel_Newcastle</url><source>http://en.wikipedia.org/wiki/Newcastle_upon_Tyne</source></location>
 <location><place>Norwich</place><lat>52.628333</lat><lon>1.296667</lon><url>Norwich</url><source>http://en.wikipedia.org/wiki/Norwich</source></location>
 <location><place>Old Ship Hotel, Brighton</place><lat>50.842941</lat><lon>-0.131312</lon><url>Old_Ship_Hotel_Brighton</url><source>http://en.wikipedia.org/wiki/Brighton</source></location>
@@ -110,7 +110,13 @@
 <location><place>Philadelphia</place><lat>39.95</lat><lon>-75.17</lon><url>Philadelphia</url><source>http://en.wikipedia.org/wiki/Philadelphia</source></location>
 <location><place>Portland</place><lat>45.52</lat><lon>-122.681944</lon><url>Portland</url><source>http://en.wikipedia.org/wiki/Portland,_Oregon</source></location>
 <location><place>Rosemont</place><lat/><lon/><url>Rosemont</url><source /></location>
-<location><place>Osnaburgh Terrace, New Road</place><lat>528847</lat><lon>182273</lon><url>Osnaburgh_Terrace_New_Road</url><source /></location>
+<location><place>Osnaburgh Terrace, New Road</place><lat>51.524681</lat><lon>-0.144127</lon><url>Osnaburgh_Terrace_New_Road</url><source /></location>
+<location><place>Gad's Hill Place, Higham, Kent</place><lat>51.4112</lat><lon>0.4579</lon><url>Gads_Hill</url><source /></location>
+<location><place>Tavistock Place</place><lat>51.525849</lat><lon>-0.124820</lon><url>Tavistock_Place</url><source /></location>
+<location><place>Devonshire Terrace</place><lat>51.514430</lat><lon>-0.180863</lon><url>Devonshire_Terrace</url><source /></location>
+<location><place>Tavistock House</place><lat>51.5255</lat><lon>-0.1286</lon><url>Tavistock_House</url><source /></location>
+<location><place>Exeter</place><lat>50.7218</lat><lon>-3.533617</lon><url>Exeter</url><source /></location>
+<location><place>Niagra Falls</place><lat>43.08</lat><lon>-79.071</lon><url>Niagra_Falls</url><source /></location>
 </opencorrespondence>
 
 

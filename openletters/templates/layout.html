@@ -63,10 +63,11 @@
     <h3 class="hidden">Sections:</h3>
     <ul id="navigation">
       <li><a href="${url(controller='home', action='index')}">Home</a></li>
-      <li><a href="${url('gallery')}">Gallery</a></li>
+      <!--<li><a href="${url('gallery')}">Gallery</a></li>-->
       <li><a href="${url(controller='letters', action='index')}">Letters</a></li>
+      <li><a href="${url(controller='search', action='index')}">Search</a></li>
+      <li><a href="${url(controller='timeline', action='index')}">Timeline</a></li>
       <li><a href="${url(controller='data', action='endpoint')}">Endpoints</a></li>
-      <!-- <li><a href="${url(controller='timeline', action='index')}">Timeline</a></li> -->
       <li><a href="${url('schema')}">Schema</a></li>
     </ul>
     <h3 class="hidden">In this section:</h3>
@@ -132,7 +133,14 @@
         href="http://www.okfn.org/contact/">get in
         touch</a>.
       </p>
+
     </div>
+          <py:if test="c.correspondent">
+         <p><a href="${url(controller='correspondent', action='view', author=c.correspondent)}">${c.correspondent}</a></p>
+      </py:if>
+      <py:if test="c.placeid">
+         <p><a href="${url(controller='place', action='view', author=c.place)}">${c.placeid}</a></p>
+      </py:if>
   </div><!-- /primary -->
 </div><!-- /airlock -->
 </body>

@@ -12,7 +12,8 @@ letter_table = Table('letters', metadata,
     Column('salutation', UnicodeText),
     Column('correspondent', UnicodeText),
     Column('letter_text', UnicodeText),
-    Column('letter_date', UnicodeText),                 
+    Column('letter_date', UnicodeText),     
+    Column('letter_place', UnicodeText),            
 )
 
 source_table = Table('sources', metadata,

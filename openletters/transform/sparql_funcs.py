@@ -49,11 +49,11 @@ class sparql_funcs():
 
         for s,_,n in self.g.triples((None, dublin_core['title'], None)):
             loc_key = urllib.unquote(n.replace("http://www.opencorrespondence.org/place/resource/", "").replace("/rdf",""))
-            row.add(self.__tidy_location(loc_key))
+            row.add(self.tidy_location(loc_key))
 
         return row
     
-    def __tidy_location (self, location):
+    def tidy_location (self, location):
         '''
            Function to tidy up some of the places where they refer to the same place
            TODO: prob need some language processing to make this scalable
@@ -109,7 +109,18 @@ class sparql_funcs():
     
     def get_abstract (self, resource_id):
         
-        self.g.parse("http://www.dbpedia.org/resource/"+ resource_id + "/rdf")
-        return resource_id
+        self.g.parse('http://dbpedia.org/resource/'.resource_id)
+        q = '''
+          SELECT *
+                WHERE 
+                {
+                ?x dbpedia:abstract ?abstract .
+                FILTER (lang(?abstract) = 'en')
+                }
+        '''
+        for row in self.g.query(q,
+                   initNs=dict(dbpedia=Namespace("http://dbpedia.org/ontology/")),
+                   initBindings={}):
+            return row[1]
 
     

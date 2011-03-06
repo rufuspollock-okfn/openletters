@@ -26,7 +26,22 @@ def parseSalutation (n):
             sal = n.split("RESPECTED")
     
         return sal
-    
+
+def parse_salutation_line (n):
+    '''
+       Function to find the salutation line
+    '''
+    sal = ''
+
+    if "DEAREST" in n:
+        sal = n
+    elif "DEAR" in n:
+        sal = n  
+    elif "RESPECTED" in n:
+        sal = n
+
+    return sal
+   
 def stripPunc (urlstring, type=''):
     urlstring = str(urlstring)
     ret_url = ''
@@ -135,7 +150,8 @@ def find_geographical (text):
         for m in match_place[0].split("_"):
             place_str = m.strip()
             if place_str[:2].isupper():
-                return unicode(camel_case(place_str[0: -1]), 'utf-8')
+                #return unicode(camel_case(place_str[0: -1]), 'utf-8')
+                return camel_case(place_str[0: -1])
             else:
                 return "No Place"
     else:

@@ -72,8 +72,8 @@ def get_endpoint_rdf ():
     s = users.select()
     rs = s.execute()
     for row in rs:
-        ret_arr[row[0]] = [row[3], row[5],row[6], row[7], row[4]]
-    
+        ret_arr[row[0]] = [row[3], row[5],row[6], row[7], row[4], row[8]]
+
     return ret_arr
 
 #gets the correspondent details to wrap in foaf

@@ -51,7 +51,8 @@ def load_dickens_letters(fileobj, verbose=True):
                     correspondent = handle_elements("correspondent", letter), 
                     salutation=unicode(handle_elements("salutation", letter)),
                     letter_text=unicode(handle_elements("letter", letter)),
-                    letter_date=unicode(handle_elements("date", letter))
+                    letter_date=unicode(handle_elements("date", letter)),
+                    letter_place=unicode(handle_elements("place", letter))
                     )
         print "date", unicode(handle_elements("date", letter))
         model.Session.add(modelletter)
@@ -197,21 +198,17 @@ def create_endpoint ():
     rdf = rdf_transform()
     rdf_data = rdf.create_rdf_end()
     o.put_stream(end, 'endpoint', rdf_data)
-    print "rdf", rdf_data
     
     json = json_transform()
     json_data = json.to_end_dict()
     o.put_stream(end, 'jsonendpoint', json_data)
-    print "json", json_data
     
     xml = xml_transform()
     x_data = xml.endpoint_xml()
-    o.put_stream(end, 'xmlendpoint', x_data)
-    print "xml", x_data   
+    o.put_stream(end, 'xmlendpoint', x_data)  
     
     xml_data = xml.endpoint_xml("simile")
     o.put_stream(end, 'simileend', xml_data)
-    print "simile", xml_data
         
     
 def __store (self, ofsobject, data_store, data_name):
