@@ -6,8 +6,6 @@ import unicodedata, urllib, os, xapian
 
 from pylons import request, response, session, tmpl_context as c, config
 
-from ofs.local import OFS
-
 from xml.dom import minidom
 
 from openletters.parse import parse_text, parse_date
@@ -179,6 +177,7 @@ def index_letters(self, type, fileobj):
     database.flush()
     
 def create_endpoint ():
+    from ofs.local import OFS
     #delete any existing endpoints first before loading
     o = OFS()
     
