@@ -1,7 +1,3 @@
-
-'''
-Class to parse the Dickens letters and enter into a store
-'''
 import unicodedata, urllib, os, xapian
 
 from pylons import request, response, session, tmpl_context as c, config
