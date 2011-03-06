@@ -11,7 +11,6 @@ from openletters.transform.transform_json import json_transform
 from openletters.transform.transform_xml import xml_transform
 from openletters.transform.transform_rdf import rdf_transform
 
-from openletters.transform.sparql_funcs import sparql_funcs
 
 log = logging.getLogger(__name__)
 
