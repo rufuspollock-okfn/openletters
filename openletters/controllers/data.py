@@ -2,10 +2,11 @@ import logging, urllib
 
 from pylons import request, response, session, tmpl_context as c
 
+from nltk.corpus import wordnet as wn
 #from ofs.local import OFS
 
 from openletters import model
-from openletters.lib.base import BaseController, render
+from openletters.lib.base import BaseController, render 
 from openletters.transform.transform_rdf import rdf_transform
 from openletters.transform.transform_json import json_transform
 from openletters.transform.transform_xml import xml_transform
@@ -79,3 +80,15 @@ class DataController(BaseController):
             response.headers['Content-Type'] = 'application/json'
             json = json_transform()
             return json.corr_json(author)
+    
+    def lemmatise (self, author=None):
+        word_lem = set()
+        ret_lem = []
+        for i in wn.synsets(author):
+            [word_lem.add(lemma.name) for lemma in i.lemmas]
+            
+        ret_lem = list(word_lem)
+        return ret_lem
+
+
+        

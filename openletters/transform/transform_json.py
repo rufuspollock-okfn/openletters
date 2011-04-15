@@ -55,6 +55,11 @@ class json_transform:
         
         dict = '{'
         
+        dict += '{ licence: This text is available as Open Data.  '
+        
+        dict += 'project: Open Correspondence is a project to mine the social network of Nineteenth century letters. As part of the project it aims to provide the letters in various forms such as XML, JSON and RDF '
+        dict += 'editorial: Some diphthongs (such  as \'ae\') have been modernised.'
+        dict += 'sampling: An attempt has been made to encode the letters as they are in the original file. Work still needs to be done on the annotations.}'
         dict += "index: {"
          
         for url, text in letter_items:
@@ -83,6 +88,13 @@ class json_transform:
     def corr_json (self, author, letterobj):
 
         dict = '{'
+               
+        dict += '{ licence: This text is available as Open Data.  '
+        
+        dict += 'project: Open Correspondence is a project to mine the social network of Nineteenth century letters. As part of the project it aims to provide the letters in various forms such as XML, JSON and RDF '
+        dict += 'editorial: Some diphthongs (such  as \'ae\') have been modernised.'
+        dict += 'sampling: An attempt has been made to encode the letters as they are in the original file. Work still needs to be done on the annotations.}'
+        
 
         dict +=  str(author) + ': [ '
         dict += '"correspondent": "' + author
@@ -114,6 +126,12 @@ class json_transform:
 
         dict = '{'
         
+        dict += '{ licence: This text is available as Open Data.  '
+        
+        dict += 'project: Open Correspondence is a project to mine the social network of Nineteenth century letters. As part of the project it aims to provide the letters in various forms such as XML, JSON and RDF '
+        dict += 'editorial: Some diphthongs (such  as \'ae\') have been modernised.'
+        dict += 'sampling: An attempt has been made to encode the letters as they are in the original file. Work still needs to be done on the annotations.}'
+        
         for u, book in book_items:
 
             dict +=  str(title) + ': { '
@@ -137,6 +155,13 @@ class json_transform:
     def create_place (self, placeobj):
         
         dict = '{'
+        dict += '{ licence: This text is available as Open Data.  '
+        
+        dict += 'project: Open Correspondence is a project to mine the social network of Nineteenth century letters. As part of the project it aims to provide the letters in various forms such as XML, JSON and RDF '
+        dict += 'editorial: Some diphthongs (such  as \'ae\') have been modernised.'
+        dict += 'sampling: An attempt has been made to encode the letters as they are in the original file. Work still needs to be done on the annotations.}'
+        
+        
         for location in placeobj:
             dict +=  location.placeid + ': {'
             dict += '"latitude" :' +location.latitude
