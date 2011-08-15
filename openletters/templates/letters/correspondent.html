@@ -33,8 +33,8 @@
           </div>
           </ul>
         </py:if>
-    <p>List of letters: <a href="${url(controller='letters', action='view', author='dickens', correspondent = c.author)}">${c.author}</a></p>
-    <p>Graph showing the spread of letters</p>
+    <py:if test="c.author"><p><a href="${url(controller='letters', action='view', author='dickens', correspondent = c.author)}">Letters to ${c.author}</a></p></py:if>
+    <py:if test="c.nicks"><p>Graph showing the spread of letters</p></py:if>
   <script type="text/javascript+protovis">
        var vis = new pv.Panel()
     .width(750)
