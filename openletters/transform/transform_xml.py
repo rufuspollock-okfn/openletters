@@ -9,6 +9,7 @@ class xml_transform:
  
     
     def index_xml (self, letters):
+        print "inside xml"
         '''create XML of letters for a defined author'''
         root = ET.Element("opencorrespondence")
         
@@ -30,8 +31,6 @@ class xml_transform:
             #    l_text.text = unicode(self.xml_encode(l.letter_text))
    
         doc = ET.tostring(root, "UTF-8")
-    
-        return doc
     
         return doc
     
@@ -270,7 +269,7 @@ class xml_transform:
                 #letHeadDate = ET.SubElement(letHead, "date", date= unicode(l.letter_date))
                 #letHeadDate.text = unicode(utext[2])
                 
-                letOpen = ET.SubElement(letBody, "opener")
+                letOpen = ET.SubElement(div, "opener")
                 lines = 0
                 sal = ''
                 dtLn = ''
@@ -283,14 +282,14 @@ class xml_transform:
                          
                     
                 letAddr = ET.SubElement(letOpen, "dateLine")
-                letAddr.text = dtLn
+                letAddr.text = unicode(str(utext[3]))
                 letSalute = ET.SubElement(letOpen, "salutation")
                 letSalute.text = sal
                 
-                letText = ET.SubElement(letBody, "text")
+                letText = ET.SubElement(div, "text")
                 letText.text = unicode(utext[2])
                 
-                letClose = ET.SubElement(letBody, "closer")
+                letClose = ET.SubElement(div, "closer")
                 letSigned = ET.SubElement(letClose, "signature")
                 letSigned.text = unicode("Charles Dickens")
         

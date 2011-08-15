@@ -3,6 +3,7 @@
   py:strip="True" >
   <py:if test="c.nicks">
      <py:def function="optional_head">
+       <script type="text/javascript" src="http://localhost/js/protovis/protovis-d3.2.js"></script>
        <link rel="alt" type="application/rdf+xml" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='rdf')}" title="RDF/XML version of page" /> 
        <link rel="alt" type="application/json" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='json')}" title="JSON version of page" />
        <link rel="alt" type="text/xml" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='xml')}" title="XML version of page" />  
@@ -32,6 +33,28 @@
           </div>
           </ul>
         </py:if>
+    <p>List of letters: <a href="${url(controller='letters', action='view', author='dickens', correspondent = c.author)}">${c.author}</a></p>
+    <p>Graph showing the spread of letters</p>
+  <script type="text/javascript+protovis">
+       var vis = new pv.Panel()
+    .width(750)
+    .height(350);
+
+vis.add(pv.Rule)
+    .data(pv.range(0, ${c.xdates}, .5))
+    .bottom(function(d) d * 80 + .5)
+  .add(pv.Label);
+
+vis.add(pv.Bar)
+    .data(${c.dates_data})
+    .width(20)
+    .height(function(d) d * 80)
+    .bottom(0)
+    .left(function() this.index * 25 + 50)
+  .anchor("bottom").add(pv.Label);
+
+vis.render();
+       </script>
     </div>
   </div>
 
