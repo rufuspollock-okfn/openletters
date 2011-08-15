@@ -3,7 +3,7 @@
   py:strip="True" >
   <py:if test="c.nicks">
      <py:def function="optional_head">
-       <script type="text/javascript" src="http://localhost/js/protovis/protovis-d3.2.js"></script>
+       <script type="text/javascript" src="http://austgate.co.uk/js/protovis-d3.2.js"></script>
        <link rel="alt" type="application/rdf+xml" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='rdf')}" title="RDF/XML version of page" /> 
        <link rel="alt" type="application/json" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='json')}" title="JSON version of page" />
        <link rel="alt" type="text/xml" href="${url(controller='correspondent', action='resource', author=c.author, correspondent='xml')}" title="XML version of page" />  
