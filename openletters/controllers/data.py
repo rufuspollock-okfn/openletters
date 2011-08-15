@@ -2,9 +2,6 @@ import logging, urllib
 
 from pylons import request, response, session, tmpl_context as c
 
-#from nltk.corpus import wordnet as wn
-#from ofs.local import OFS
-
 from openletters import model
 from openletters.lib.base import BaseController, render 
 from openletters.transform.transform_rdf import rdf_transform
@@ -81,6 +78,8 @@ class DataController(BaseController):
             json = json_transform()
             return json.corr_json(author)
     
+    def corres_graph(self):
+        return render("viz/network.html") 
  #   def lemmatise (self, author=None):
  #       word_lem = set()
  #       ret_lem = []

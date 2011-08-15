@@ -18,23 +18,87 @@ class json_transform:
         dict = '{'
         
         if type is None:
-            dict += "index: {"
-        else:
             dict += "letter: {"
+        else:
+            dict += "http://www.tei-c.org/ns/1.0: {: {"
+            dict += "teiHeader: [{"
+            dict += "titleStmt: [{" 
+            
+            #begin titleStmt
+            dict += "title: Letter from Charles Dickens,"
+            dict += "author: ,"
+            dict += "editor: The Open Knowledge Foundation,"
+            dict += "respStmt:{[ "
+            dict += "resp: ,"
+            dict += "name:,"
+            dict += ']}'
+            dict += "extent: Less than 1Mb ]}"
+            dict += ']}'
+            #end titleStmt
+              
+            #begin sourceDesc
+            dict += "sourceDesc: [{"
+            dict += "p: Digitised from Project Gutenberg, "
+            dict += "bibl: [{"
+            dict += "title: The Letters of Charles Dickens, "
+            dict += "author: Charles Dickens,"
+            dict += "editor: Mamie Dickens and Georgina Hogarth,"
+            dict += "publisher: Chapman and Hall,"
+            dict += "pubPlace: London,"
+            dict += "date: 1870,"
+            dict += ']}'
+            dict += "]}"
+            #end sourceDesc
+            
+            dict += 'encodingDesc: {['
+            dict += 'projectDesc:Open Correspondence is a project to mine the social network of Nineteenth century letters. As part of the project it aims to provide the letters in various forms such as XML, JSON and RDF, '
+            dict += 'editorialDecl: Some diphthongs (such  as \'ae\') have been modernised.,'
+            dict += 'samplingDecl: An attempt has been made to encode the letters as they are in the original file. Work still needs to be done on the annotations.'
+            dict += ']}'
+            # end encodingDesc
+            
+            #publication Stmt
+            dict += 'publicationStmt: [{'
+            dict += 'distributor: Open Correspondence project for The Open Knowledge Foundation'
+            dict += 'address: [{ addrLine: www.opencorrespondence.org, }] },'
+            dict += 'date: 2011,'
+            dict += 'availability: This text is available under an Open Data licence (www.opendefinition.org),'
+            dict += ']}'
+            #end publication Stmt
+            
+            dict += ']}'
+            #end teiHeader
          
-        for l in letterobj:
+        for l in letterobj:   
+            #
+            dict += 'div: [{'
+            dict += 'head: [{ @name:' #head
+            dict += '@date:' + l.letter_date + ']}'
+            dict += 'opener: [{ dateLine:' #opener
+            dict += 'salutation:' +l.correspondent + ']}'
             
-            dict +=  str(l.id) + ': [ {'
-            dict += '"author": "' + l.type
-            dict += '", "correspondent: "' + l.correspondent
-            dict += ', "date": "' + l.letter_date
+            text = l.letter_text.replace("[", "").replace("]", "")
             
-            if l.letter_text:
+            dict += 'text:' + text + ','
+            dict += 'closer: [{ signature: \'dickens\' ]}' #signature
+            dict += 'salutation:' + + ']}'
+            dict += 'seg: [{ figure_entity:' + str(l.id) +',' #head
+            dict += 'figureDesc:' + + ']}'
+            dict += ']}'
+            #end div
+
+            
+            #dict +=  str(l.id) + ': [ {'
+            #dict += '"author": "' + l.type
+            #dict += '", "correspondent: "' + l.correspondent
+            #dict += ', "date": "' + l.letter_date
+            
+            #if l.letter_text:
                 #remove the brackets in the letter
-                text = l.letter_text.replace("[", "").replace("]", "")
-                dict += '", "text": "' + text
+            #    text = l.letter_text.replace("[", "").replace("]", "")
+            #    dict += '", "text": "' + text
             
-            dict += '"}],'
+            #dict += '"}],'
         
         #remove the last comma
         dict = dict[0: -1]

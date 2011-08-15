@@ -24,7 +24,6 @@ def get_letter_text(uri):
     for url, text in session.query(Letter.id, Letter.letter_text).filter(Letter.id==uri):
         ret_arr[url] = text
 
-    print "session", ret_arr
     return ret_arr
 
 #returns all letters by an author 

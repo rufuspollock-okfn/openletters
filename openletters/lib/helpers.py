@@ -7,3 +7,4 @@ available to Controllers. This module is available to templates as 'h'.
 #from webhelpers.html.tags import checkbox, password
 from webhelpers.markdown import markdown
 from webhelpers.html import literal
+from webhelpers.html.tags import javascript_link

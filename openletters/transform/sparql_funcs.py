@@ -124,3 +124,29 @@ class sparql_funcs():
             return row[1]
 
     
+    def query_dates(self, author):
+        '''query to identify individual dates to a correspondent'''
+        q = '''
+        SELECT ?date
+        FROM <http://localhost:5000/data/endpoint/rdf>
+        WHERE {
+            ?r dc:subject  \'''' + author + '''\' .  
+            ?r dc:date  ?date.  
+        }
+        '''
+        dates = []
+        for row in self.g.query(q,
+                       initNs=dict(letter=Namespace("http://www.opencorrespondence.org/schema#"), dc=Namespace("http://purl.org/dc/elements/1.1/")),
+                       initBindings={}):
+            
+            date = str(row[0]).split('-')
+        
+            if date[0][1:].isdigit():
+                dates.append(date[0])
+        print dates
+        dic = {}
+
+        for dt in dates:
+            dic[dt] = dates.count(dt)
+    
+        return dic

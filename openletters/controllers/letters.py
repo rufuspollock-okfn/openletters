@@ -69,7 +69,7 @@ class LettersController(BaseController):
         
         if format == "application/json":
             
-            response.headers['Content-Type'] = 'application/json'
+            #response.headers['Content-Type'] = 'application/json'
             json = json_transform()
             return json.to_dict(query_string, id)
         
@@ -119,7 +119,7 @@ class LettersController(BaseController):
         Method to return a resource view of  the letter
     '''  
     def resource (self, author=None, correspondent=None, id=None, type=None):
-        
+        print "inside resource"
         #format = request.headers.get('accept','')
 
         #author is the base collection so cannot be empty
@@ -127,7 +127,6 @@ class LettersController(BaseController):
             abort(404)
           
         query_string = model.Session.query(model.Letter).filter(model.Letter.type == author).all()
-
         
         if correspondent is not None:
             corr = urllib.unquote(correspondent)
@@ -139,13 +138,13 @@ class LettersController(BaseController):
         if query_string is None or query_string == []:
             abort(404)
         
-        if type == "json":
+        if type == "json" or id == "json":
             
-            response.headers['Content-Type'] = 'application/json'
+            #response.headers['Content-Type'] = 'application/json'
             json = json_transform()
             return json.to_dict(query_string, id)
         
-        elif type == "xml":
+        elif type == "xml" or str(id) == "xml":
             response.headers['Content-Type'] = 'text/xml'
             xml = xml_transform()
             
@@ -154,7 +153,7 @@ class LettersController(BaseController):
             else:
                 return xml.letter_xml(query_string)
        
-        elif type == "rdf":
+        elif type == "rdf"  or correspondent == "rdf":
             response.headers['Content-Type'] = 'application/rdf+xml'
             rdf = rdf_transform()
             return rdf.create_rdf_letter(query_string)
