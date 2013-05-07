@@ -1,0 +1,920 @@
+1 ,Henry Austin, Furnivals_Inn 0000-00-00
+2 ,Catherine Dickens, Furnivals_Inn 1835-00-00
+3 ,Catherine Dickens, No_Place 0000-00-00
+4 ,J P Harley, Doughty_Street 0000-00-00
+5 ,W C Macready, Doughty_Street 0000-00-00
+6 ,Catherine Dickens, Greta_Bridge 1838-02-01
+7 ,Thomas Mitton, Twickenham_Park 0000-00-00
+8 ,Serjeant Talfourd MP, Twickenham_Park 1838-07-15
+9 ,Catherine Dickens, Lion_Hotel_Shrewsbury 1838-11-01
+10 ,Hastings Hughes, Doughty_Street 1838-12-12
+11 ,W C Macready, Doughty_Street 0000-00-00
+12 ,W C Macready, Doughty_Street 1838-12-13
+13 ,W C Macready, Doughty_Street 0000-00-00
+14 ,Thomas Mitton, Exeter 1839-03-06
+15 ,George Cattermole, Petersham 0000-00-00
+16 ,J P Harley, No_Place 1839-06-28
+17 ,William Longman, Doughty_Street 0000-00-00
+18 ,W C Macready, Petersham 1839-07-26
+19 ,W C Macready, No_Place 1839-09-21
+20 ,W C Macready, Doughty_Street 1839-10-25
+21 ,W C Macready, Doughty_Street 1839-11-14
+22 ,George Cattermole, No_Place 1840-01-13
+23 ,George Cattermole, Devonshire_Terrace 0000-00-00
+24 ,George Cattermole, No_Place 1840-03-09
+25 ,S A Diezman, London 1840-03-10
+26 ,Daniel Maclise, Broadstairs 1840-06-02
+27 ,George Cattermole, Devonshire_Terrace 0000-00-00
+28 ,George Cattermole, Devonshire_Terrace 0000-00-00
+29 ,George Cattermole, No_Place 1840-12-22
+30 ,Rev William Harness, Devonshire_Terrace 1841-01-02
+31 ,George Cattermole, Devonshire_Terrace 1841-01-14
+32 ,George Cattermole, Devonshire_Terrace 1841-01-28
+33 ,George Cattermole, Devonshire_Terrace 1841-01-30
+34 ,John Tomlin, London 1841-02-23
+35 ,R Monckton Milnes, Devonshire_Terrace 1841-03-10
+36 ,George Cattermole, Devonshire_Terrace 0000-00-00
+37 ,George Cattermole, Old_Ship_Hotel_Brighton 1841-02-26
+38 ,William Harrison Ainsworth, Devonshire_Terrace 1841-04-29
+39 ,G Lovejoy, No_Place 1841-05-31
+40 ,G Lovejoy, Devonshire_Terrace 1841-06-10
+41 ,George Cattermole, Devonshire_Terrace 1841-07-28
+42 ,George Cattermole, Broadstairs 1841-08-06
+43 ,George Cattermole, Devonshire_Terrace 0000-00-00
+44 ,George Cattermole, Broadstairs 1841-08-19
+45 ,W C Macready, Broadstairs 1841-08-24
+46 ,George Cattermole, Broadstairs 1841-09-12
+47 ,George Cattermole, Broadstairs 1841-09-21
+48 ,Miss Mary Talfourd, Devonshire_Terrace 1841-12-16
+49 ,W C Macready, Devonshire_Terrace 1841-12-28
+50 ,Messrs Chapman and Hall, None 
+51 ,Thomas Mitton, Adelphi_Hotel 1842-01-03
+52 ,Thomas Mitton, Tremont_House_Boston 1842-01-31
+53 ,Fitz-Greene Halleck, Carlton_House 1842-02-14
+54 ,W C Macready, Baltimore 1842-03-22
+55 ,Thomas Mitton, Baltimore_United_States 0000-00-00
+56 ,Dr F H Deane, Cincinnati_Ohio 0000-00-00
+57 ,Henry Austin, Niagra_Falls 1842-05-01
+58 ,Henry Austin, Montreal 1842-05-12
+59 ,Thomas Longman, Athenaeum_Club_London_Club 0000-00-00
+60 ,Julia Pardoe, No_Place 1842-07-19
+61 ,H P Smith, Devonshire_Terrace 1842-07-14
+62 ,Harrison Ainsworth, Broadstairs 1842-09-14
+63 ,Henry Austin, Broadstairs 1842-09-25
+64 ,Rev William Harness, Devonshire_Terrace 1842-11-08
+65 ,W C Macready, Devonshire_Terrace 1842-11-12
+66 ,W C Macready, No_Place 0000-00-00
+67 ,W P Frith, No_Place 1842-11-15
+68 ,W P Frith, Devonshire_Terrace 1842-11-17
+69 ,Thomas Hood, Devonshire_Terrace 1842-11-30
+70 ,Frances Trollope, No_Place 1842-12-16
+71 ,George Cattermole, Devonshire_Terrace 1842-12-20
+72 ,Charles Babbage, Devonshire_Terrace 1843-04-27
+73 ,Douglas Jerrold, Devonshire_Terrace 1843-05-03
+74 ,David Dickson, No_Place 1843-05-10
+75 ,Douglas Jerrold, Devonshire_Terrace 1843-06-13
+76 ,Clarkson Stanfield, Devonshire_Terrace 1843-07-26
+77 ,Lord Morpeth, No_Place 1843-08-03
+78 ,William Harrison Ainsworth, Devonshire_Terrace 1843-10-13
+79 ,R H Horne, Devonshire_Terrace 1843-11-13
+80 ,W C Macready, Devonshire_Terrace 1844-01-03
+81 ,Laman Blanchard, Devonshire_Terrace 1844-01-04
+82 ,Catherine Dickens, Liverpool_Radleys_Hotel 1844-02-26
+83 ,Clarkson Stanfield, Devonshire_Terrace 1844-04-30
+84 ,Edwin Landseer, Athenaeum_Club_London_Club 1844-05-27
+85 ,Charles Knight, Devonshire_Terrace 1844-06-04
+86 ,Dudley Costello, No_Place 1844-06-07
+87 ,Robert Keeley, Osnaburgh_Terrace 1844-06-24
+88 ,Daniel Maclise, Albaro 1844-07-22
+89 ,Rev Edward Tagart, Albaro 1844-08-09
+90 ,Clarkson Stanfield, Albaro 0000-00-00
+91 ,W C Macready, Palazzo_Peschiere_Genoa 1844-10-14
+92 ,Douglas Jerrold, Cremona 1844-10-16
+93 ,Thomas Mitton, Peschiere_Genoa 1844-11-05
+94 ,Catherine Dickens, Parma_Albergo_Della_Posta 1844-11-08
+95 ,Catherine Dickens, Fribourg 1844-11-23
+96 ,W C Macready, No_Place 0000-00-00
+97 ,Catherine Dickens, Hotel_Bristol_Paris 1844-11-28
+98 ,Catherine Dickens, No_Place 1844-12-02
+99 ,Georgina Hogarth, Rome 1845-02-04
+100 ,Thomas Mitton, Naples 1845-02-17
+101 ,W C Macready, Albion_Hotel_Broadstairs 1845-08-17
+102 ,George Cattermole, No_Place 1845-08-27
+103 ,W C Macready, Devonshire_Terrace 1845-09-18
+104 ,Clarkson Stanfield, Devonshire_Terrace 1845-10-02
+105 ,W C Macready, Devonshire_Terrace 1845-10-17
+106 ,Viscount Morpeth, Devonshire_Terrace 1845-11-28
+107 ,W H Wills, Devonshire_Terrace 1846-02-18
+108 ,Rev James White, No_Place 1846-02-24
+109 ,W H Wills, Devonshire_Terrace 1846-03-02
+110 ,W H Wills, Devonshire_Terrace 1846-03-04
+111 ,Clarkson Stanfield, Devonshire_Terrace 0000-00-00
+112 ,Charles Knight, Devonshire_Terrace 1846-04-13
+113 ,Marion Ely, Devonshire_Terrace 1846-04-19
+114 ,Douglas Jerrold, Devonshire_Terrace 1846-05-26
+115 ,W C Macready, Geneva 1846-10-24
+116 Haldimand Paris 1846-11-00
+117 ,Walter Savage Landor, Paris 1846-11-22
+118 ,Hon Richard Watson, No_Place 1846-11-27
+119 ,William De Cerjat, No_Place 1846-11-27
+120 ,Catherine Dickens, Lincolns_Inn_Fields 1846-12-19
+121 ,Catherine Dickens, No_Place 0000-00-00
+122 ,John Forster, No_Place 0000-00-00
+123 ,Hon Mrs Watson, Paris_48_Rue_De_Courcelles 1847-01-25
+124 ,Rev Edward Tagart, No_Place 1847-01-28
+125 ,Miss Dickens, No_Place 1847-03-04
+126 ,Georgina Hogarth, Chester_Place 0000-00-00
+127 ,Miss Dickens and Miss Katey Dickens, No_Place 1847-05-00
+128 ,William Sandys, Devonshire_Terrace 1847-06-13
+129 ,H P Smith, Chester_Place 1847-06-14
+130 ,Marguerite Power, Broadstairs 1847-07-02
+131 ,H P Smith, Broadstairs 1847-07-09
+132 ,Marguerite Power, Broadstairs 1847-07-14
+133 ,Miss Dickens, Broadstairs 1847-08-04
+134 ,W C Macready, Devonshire_Terrace 1847-11-23
+135 ,Georgina Hogarth, Edinburgh 1847-12-13
+136 ,Charles Babbage, Devonshire_Terrace 1848-02-26
+137 ,W C Macready, Junction_House_Brighton 1848-03-02
+138 ,Editor of _The Sun_, No_Place 0000-00-00
+139 ,W Charles M Kent, No_Place 1848-04-18
+140 ,John Forster, Devonshire_Terrace 1848-04-22
+141 ,Mark Lemon, No_Place 1848-05-03
+142 ,Rev James White, Athenaeum_Club_London_Club 1848-05-04
+143 ,W C Macready, Devonshire_Terrace 0000-00-00
+144 ,Peter Cunningham, Devonshire_Terrace 1848-06-22
+145 ,Lavinia Watson, No_Place 1848-07-27
+146 ,W C Macready, Broadstairs 1848-08-26
+147 ,Miss Dickens, Devonshire_Terrace 1848-09-08
+148 ,Effingham William Wilson, No_Place 1848-11-07
+149 ,Frank Stone, Devonshire_Terrace 1848-11-21
+150 ,Frank Stone, Brighton 1848-11-23
+151 ,Frank Stone, Bedford_Hotel_Brighton 1848-11-27
+152 ,Mark Lemon, Bedford_Hotel_Brighton 1873-05-00
+153 ,Dudley Costello, Devonshire_Terrace 1849-01-26
+154 ,Miss Dickens, Devonshire_Terrace 1849-02-27
+155 ,Clarkson Stanfield, Devonshire_Terrace 1849-05-25
+156 ,Frank Stone, Devonshire_Terrace 1849-06-04
+157 ,Catherine Dickens, Shanklin_Isle_Of_Wight 1849-06-16
+158 ,Mark Lemon, Devonshire_Terrace 0000-00-00
+159 ,Rev James White, Winterbourne 1849-09-23
+160 ,Miss Joll, No_Place 1849-11-27
+161 ,Lavinia Watson, Devonshire_Terrace 0000-00-00
+162 ,William De Cerjat, Devonshire_Terrace 1849-12-29
+163 ,David Roberts RA, Devonshire_Terrace 1850-01-03
+164 ,James Sheridan Knowles, Devonshire_Terrace 1850-01-03
+165 ,Elizabeth Gaskell, Devonshire_Terrace 1850-01-31
+166 ,Rev James White, Devonshire_Terrace 1850-02-05
+167 ,Charles Knight, Devonshire_Terrace 0000-00-00
+168 ,W H Wills, No_Place 1850-03-12
+169 ,Rev James White, Devonshire_Terrace 1850-07-13
+170 ,W H Wills, Hotel_Windsor_Paris 0000-00-00
+171 ,W H Wills, Devonshire_Terrace 1850-08-09
+172 ,Catherine Dickens, Broadstairs 1850-09-03
+173 ,Mary Boyle, Broadstairs 1850-09-16
+174 ,Mary Boyle, Devonshire_Terrace 1850-09-20
+175 ,Lavinia Watson, Broadstairs 1850-09-24
+176 ,Mary Boyle, Devonshire_Terrace 1850-10-30
+177 ,Lavinia Watson, Devonshire_Terrace 1850-11-23
+178 ,Henry Bicknell, Devonshire_Terrace 1850-11-28
+179 ,Walter Savage Landor, No_Place 1850-12-04
+180 ,Lavinia Watson, Devonshire_Terrace 1850-12-09
+181 ,Lavinia Watson, Devonshire_Terrace 0000-00-00
+182 ,Lavinia Watson, Devonshire_Terrace 1850-12-19
+183 ,John Poole, Devonshire_Terrace 1850-00-00
+184 ,Lavinia Watson, Devonshire_Terrace 0000-00-00
+185 ,Lavinia Watson, Devonshire_Terrace 1851-01-24
+186 ,Lavinia Watson, Devonshire_Terrace 1851-01-28
+187 ,Mark Lemon, Devonshire_Terrace 1851-01-31
+188 ,W H Wills, Devonshire_Terrace 1851-02-10
+189 ,Catherine Dickens, Hotel_Wagram_Paris 1851-02-12
+190 ,Mary Boyle, Devonshire_Terrace 1851-02-21
+191 ,David Roberts RA, No_Place 0000-00-00
+192 ,W C Macready, Devonshire_Terrace 1851-02-27
+193 ,David Roberts RA, Knutsford_Lodge_Great_Malvern 0000-00-00
+194 ,Catherine Dickens, Household_Words 1851-03-26
+195 ,W H Wills, Devonshire_Terrace 1851-04-03
+196 ,W C Macready, No_Place 1851-05-24
+197 ,The Earl of Carlisle, Broadstairs 1851-07-08
+198 ,Lavinia Watson, Broadstairs 1851-07-11
+199 ,Frank Stone, Household_Words 1851-07-20
+200 ,Charles Knight, Broadstairs 1851-07-27
+201 ,Frank Stone, Broadstairs 1851-08-23
+202 ,Henry Austin, Broadstairs 1851-09-07
+203 ,Henry Austin, Broadstairs 1851-09-21
+204 ,Henry Austin, Broadstairs 1851-10-07
+205 ,Mary Boyle, Broadstairs 1851-10-10
+206 Eeles No_Place 1851-10-22
+207 ,Henry Austin, No_Place 1851-10-25
+208 ,Catherine Dickens, Clifton 1851-11-13
+209 Eeles Tavistock_House 1851-11-17
+210 ,Elizabeth Gaskell, Tavistock_House 1851-12-05
+211 ,Elizabeth Gaskell, Tavistock_House 1851-12-21
+212 ,Peter Cunningham, Tavistock_House 1851-12-26
+213 ,W C Macready, Tavistock_House 1852-01-31
+214 ,J Crofton Croker, Tavistock_House 1852-03-06
+215 ,Lavinia Watson, Tavistock_House 1852-04-06
+216 ,Charles Knight, Tavistock_House 1852-06-29
+217 ,The Lord John Russell, Tavistock_House 1852-06-30
+218 Anonymous Tavistock_House 1852-07-09
+219 ,Mary Boyle, Camden_Crescent_Dover 1852-07-22
+220 ,Charles Knight, Camden_Crescent_Dover 1852-08-01
+221 ,Mark Lemon, Dover 1852-08-05
+222 ,The Earl of Carlisle, Camden_Crescent_Dover 1852-08-05
+223 ,Lavinia Watson, Camden_Crescent_Dover 1852-08-05
+224 ,W C Macready, No_Place 1852-10-05
+225 ,W H Wills, Hotel_Des_Bains_Boulogne 1852-10-12
+226 ,W H Wills, No_Place 1852-10-13
+227 ,John Watkins, Monday 1852-10-18
+228 ,Rev James White, Household_Words 1852-10-19
+229 ,Lavinia Watson, Athenaeum_Club_London_Club 1852-11-22
+230 ,Rev James White, Household_Words 1852-11-22
+231 ,Elizabeth Gaskell, Household_Words 1852-12-01
+232 ,W H Wills, Tavistock_House 1852-12-09
+233 ,Rev James White, Tavistock_House 1852-12-09
+234 ,Elizabeth Gaskell, Tavistock_House 1852-12-17
+235 ,Wilkie Collins, Tavistock_House 1852-12-20
+236 ,Frank Stone ARA, Tavistock_House 1852-12-20
+237 ,W H Wills, Household_Words 1852-00-00
+238 ,G Linnaeus Banks, Tavistock_House 1852-12-26
+239 ,W H Wills, None 
+240 ,Clarkson Stanfield, Hms 1853-01-02
+241 ,W C Macready, Tavistock_House 1853-01-14
+242 ,Elizabeth Gaskell, Tavistock_House 1853-05-03
+243 ,Monsieur Regnier, Tavistock_House 0000-00-00
+244 ,Monsieur Regnier, Tavistock_House 1853-05-20
+245 ,W H Wills, Boulogne 1853-06-13
+246 ,W H Wills, No_Place 1853-06-18
+247 ,Frank Stone ARA, No_Place 1853-06-23
+248 ,W H Wills, Boulogne 1853-07-27
+249 ,W C Macready, No_Place 1853-08-24
+250 ,Lavinia Watson, No_Place 1853-08-27
+251 ,Peter Cunningham, None 
+252 ,Walter Savage Landor, Tavistock_House 1853-09-08
+253 ,John Delane, No_Place 1853-09-12
+254 ,W H Wills, Boulogne 1853-09-18
+255 ,The Lord John Russell, No_Place 1853-09-21
+256 ,Lavinia Watson, Boulogne 1853-09-21
+257 ,Georgina Hogarth, Hotel_De_La_Villa_Milan 1853-10-25
+258 ,Georgina Hogarth, Croce_Di_Malta_Genoa 1853-10-29
+259 ,Georgina Hogarth, No_Place 1853-11-04
+260 ,Georgina Hogarth, Rome 1853-11-13
+261 ,Sir James Emerson Tennent, No_Place 1853-11-14
+262 ,Catherine Dickens, Rome 1853-11-14
+263 ,W H Wills, Rome 1853-11-17
+264 ,W H Wills, Florence 1853-11-21
+265 ,Georgina Hogarth, Venice 1853-11-25
+266 ,Marcus Stone, Tavistock_House 1853-12-19
+267 ,Walter Savage Landor, Tavistock_House 1854-01-07
+268 ,Lavinia Watson, Tavistock_House 1854-01-13
+269 ,Mary Boyle, Tavistock_House 0000-00-00
+270 ,William De Cerjat, Tavistock_House 1854-01-16
+271 ,Arthur Ryland, Tavistock_House 1854-01-18
+272 ,Charles Knight, Tavistock_House 1854-01-30
+273 ,Rev James White, Tavistock_House 1854-03-07
+274 ,Charles Knight, Tavistock_House 1854-03-17
+275 ,W H Wills, No_Place 1854-04-12
+276 ,B W Procter, Tavistock_House 1854-04-15
+277 ,Elizabeth Gaskell, Tavistock_House 1854-04-21
+278 ,Frank Stone ARA, Tavistock_House 1854-05-30
+279 ,Peter Cunningham, Tavistock_House 1854-06-07
+280 ,W H Wills, Villa_Du_Camp_De_Droite 1854-06-22
+281 ,Wilkie Collins, No_Place 1854-07-12
+282 ,Georgina Hogarth, Household_Words 1854-07-22
+283 ,Elizabeth Gaskell, No_Place 1854-08-17
+284 ,Rev William Harness, No_Place 1854-08-19
+285 ,Henry Austin, No_Place 1854-09-06
+286 ,Wilkie Collins, Boulogne 1854-09-26
+287 ,Frank Stone ARA, Boulogne 1854-10-13
+288 ,John Saunders, Tavistock_House 1854-10-26
+289 ,W C Macready, Tavistock_House 1854-11-01
+290 ,Lavinia Watson, Tavistock_House 1854-11-01
+291 ,Clarkson Stanfield RA, Tavistock_House 1854-11-03
+292 ,Miss Procter, Tavistock_House 1854-12-17
+293 ,William De Cerjat, Tavistock_House 1855-01-03
+294 ,Mary Boyle, Tavistock_House 1855-01-03
+295 ,Elizabeth Gaskell, Tavistock_House 1855-01-27
+296 ,Arthur Ryland, Tavistock_House 1855-01-29
+297 ,Monsieur Regnier, Tavistock_House 1855-02-03
+298 ,W H Wills, Household_Words 1855-02-09
+299 ,Georgina Hogarth, Hotel_Meurice_Paris 1855-02-16
+300 ,W H Wills, Hotel_Meurice_Paris 1855-02-16
+301 ,Arthur Ryland, Tavistock_House 1855-02-26
+302 ,David Roberts RA, Tavistock_House 1855-02-28
+303 ,Austen H Layard, Tavistock_House 1855-04-03
+304 ,Austen H Layard, Tavistock_House 1855-04-10
+305 ,John Forster, Tavistock_House 1855-04-14
+306 ,Mark Lemon, Tavistock_House 1855-04-26
+307 ,Clarkson Stanfield RA, Tavistock_House 0000-00-00
+308 ,Clarkson Stanfield RA, Tavistock_House 1855-05-22
+309 ,Mark Lemon, Tavistock_House 1855-05-23
+310 ,Frank Stone ARA, Tavistock_House 1855-05-24
+311 ,Frank Stone ARA, Tavistock_House 1855-05-24
+312 ,Wilkie Collins, Tavistock_House 1855-05-24
+313 ,Frances Trollope, Tavistock_House 1855-06-19
+314 ,Clarkson Stanfield RA, Tavistock_House 1855-06-20
+315 ,W C Macready, Tavistock_House 1855-06-30
+316 ,Wilkie Collins, Albion_Villas_Folkestone 1855-07-17
+317 ,W H Wills, Folkestone 1855-09-16
+318 ,Lavinia Watson, Folkestone 1855-09-16
+319 ,Wilkie Collins, Folkestone 1855-09-30
+320 ,W C Macready, Folkestone 1855-10-04
+321 ,Catherine Dickens, Rue_St_Florentin 1855-10-16
+322 ,W H Wills, No_Place 1855-10-19
+323 ,W H Wills, No_Place 1855-10-21
+324 ,W H Wills, No_Place 0000-00-00
+325 ,Monsieur Regnier, No_Place 1855-11-21
+326 ,Madame Viardot, Avenue_Des_Champs_Elysees 1855-12-03
+327 ,Lavinia Watson, Tavistock_House 1855-12-23
+328 ,W H Wills, Champs_Elysees 1856-01-06
+329 ,Mark Lemon, Champs_Elysees_Paris 1856-01-07
+330 ,Wilkie Collins, Champs_Elysees 1856-01-19
+331 ,Mary Boyle, Champs_Elysees_Paris 1856-01-28
+332 ,Georgina Hogarth, Household_Words 1856-03-03
+333 ,Douglas Jerrold, Household_Words 1856-03-06
+334 ,Georgina Hogarth, None 
+335 ,Georgina Hogarth, Household_Words 1856-03-14
+336 ,W C Macready, Champs_Elysees_Paris 1856-03-22
+337 ,W C Macready, No_Place 1856-03-27
+338 ,W H Wills, Champs_Elysees_Paris 1856-04-06
+339 ,Catherine Dickens, Tavistock_House 1856-05-05
+340 ,Georgina Hogarth, Tavistock_House 1856-05-05
+341 ,Duke of Devonshire, Tavistock_House 1856-06-01
+342 ,Wilkie Collins, Tavistock_House 1856-06-06
+343 ,Mark Lemon, No_Place 1856-06-15
+344 ,Mark Lemon, Household_Words 1856-07-02
+345 ,Walter Savage Landor, No_Place 1856-07-05
+346 ,Duke of Devonshire, No_Place 1856-07-05
+347 ,W C Macready, No_Place 1856-07-08
+348 ,Wilkie Collins, Villa_Des_Moulineaux_Boulogne 0000-00-00
+349 ,W H Wills, Boulogne 1856-08-07
+350 ,W C Macready, Boulogne 1856-08-08
+351 ,W H Wills, Tavistock_House 1856-09-28
+352 ,Miss Dickens, Tavistock_House 1856-10-04
+353 ,Lavinia Watson, No_Place 1856-10-07
+354 Horne Tavistock_House 1856-10-20
+355 ,Duke of Devonshire, Tavistock_House 1856-12-01
+356 ,Thomas Mitton, No_Place 1856-12-03
+357 ,W C Macready, None 
+358 ,Marguerite Power, Tavistock_House 1856-12-15
+359 ,William Charles Kent, Tavistock_House 0000-00-00
+360 None None 
+361 ,B W Procter, Tavistock_House 1857-01-02
+362 ,Sir James Emerson Tennent, Tavistock_House 1857-01-09
+363 ,William De Cerjat, Tavistock_House 1857-01-17
+364 ,W C Macready, Tavistock_House 1857-01-28
+365 ,Mary Boyle, Tavistock_House 1857-02-07
+366 ,Rev James White, Tavistock_House 1857-02-08
+367 ,C W Dilke, Household_Words 1857-03-19
+368 ,The Earl of Carlisle, Gravesend_Kent 1857-04-15
+369 ,John Forster, Tavistock_House 1857-05-13
+370 ,Rev James White, Tavistock_House 1857-05-22
+371 ,Frank Stone ARA, Household_Words 1857-06-01
+372 Anonymous Gads_Hill 1857-06-04
+373 ,Henry Austin, Gads_Hill 1857-06-06
+374 ,W C Macready, Tavistock_House 1857-07-13
+375 ,Edmund Yates, Tavistock_House 1857-07-19
+376 ,T P Cooke, Regent_Street 1857-07-30
+377 Compton No_Place 1857-08-02
+378 ,W C Macready, No_Place 1857-08-03
+379 ,Frank Stone ARA, Tavistock_House 1857-08-09
+380 ,Henry Austin, Gads_Hill 1857-08-15
+381 ,Frank Stone ARA, Gads_Hill 1857-08-17
+382 ,Frank Stone ARA, Household_Words 1857-08-18
+383 ,Henry Austin, Gads_Hill 1857-09-02
+384 ,Georgina Hogarth, Allonby_Cumberland 1857-09-09
+385 ,Georgina Hogarth, Lancaster 1857-09-12
+386 ,Georgina Hogarth, Angel_Hotel_Doncaster 1857-09-15
+387 ,Arthur Ryland, Gads_Hill 1857-10-03
+388 ,Edmund Yates, Tavistock_House 1857-11-16
+389 ,Frank Stone ARA, Tavistock_House 1857-12-13
+390 ,Wilkie Collins, Tavistock_House 1858-01-17
+391 ,Edmund Yates, Tavistock_House 1858-02-02
+392 ,W M Thackeray, Tavistock_House 1858-02-02
+393 ,John Forster, Tavistock_House 1858-02-03
+394 ,Dr Westland Marston, Tavistock_House 1858-02-03
+395 ,Monsieur Regnier, Tavistock_House 1858-02-11
+396 ,Monsieur Regnier, Tavistock_House 1858-02-20
+397 ,W C Macready, Tavistock_House 1858-03-15
+398 Hogge No_Place 1858-04-14
+399 ,Edmund Yates, No_Place 1858-04-28
+400 ,Elizabeth Yates, No_Place 1858-05-15
+401 ,William De Cerjat, Gads_Hill 1858-07-07
+402 ,Georgina Hogarth, West_Hoe_Plymouth 0000-00-00
+403 ,Miss Dickens, London 1858-08-07
+404 ,Miss Dickens, Shrewsbury 1858-08-12
+405 ,Georgina Hogarth, No_Place 1858-08-18
+406 ,Georgina Hogarth, Adelphi_Hotel 1858-08-20
+407 ,Miss Dickens, Morrisons_Hotel_Dublin 1858-08-23
+408 ,Georgina Hogarth, Morrisons_Hotel_Dublin 0000-00-00
+409 ,Miss Dickens, Belfast 1858-08-28
+410 ,Georgina Hogarth, Morrisons_Hotel_Dublin 1858-08-29
+411 ,Wilkie Collins, No_Place 1858-09-06
+412 ,Mary Boyle, Station_Hotel_York 1858-09-10
+413 ,Georgina Hogarth, Royal_Hotel_Scarborough 1858-09-11
+414 ,Miss Dickens, Scarborough_Arms_Leeds 1858-09-15
+415 ,Georgina Hogarth, Kings_Head_Sheffield 1858-09-17
+416 ,Georgina Hogarth, No_Place 1858-09-26
+417 ,John Forster, No_Place 1858-10-10
+418 ,Miss Dickens, Royal_Hotel_Derby 1858-10-22
+419 ,Georgina Hogarth, Wolverhampton 1858-11-03
+420 ,Rev James White, No_Place 1858-11-05
+421 ,Frank Stone ARA, No_Place 1858-12-13
+422 ,B W Procter, Tavistock_House 1858-12-18
+423 ,Arthur Smith, Tavistock_House 1859-01-26
+424 ,William De Cerjat, Tavistock_House 1859-02-01
+425 ,Antonio Panizzi, Tavistock_House 1859-03-14
+426 ,Antonio Panizzi, Tavistock_House 1859-03-15
+427 ,B W Procter, Tavistock_House 1859-03-19
+428 ,Edmund Yates, No_Place 1859-03-29
+429 ,Antonio Panizzi, All_The_Year_Round 1859-04-07
+430 ,Miss White, No_Place 1859-04-18
+431 ,Lavinia Watson, No_Place 1859-05-31
+432 White Tavistock_House 1859-06-05
+433 ,Miss Dickens, No_Place 1859-06-11
+434 ,Rev James White, No_Place 1859-07-07
+435 ,John Forster, Gads_Hill 1859-08-25
+436 ,Miss Dickens and Miss Katie Dickens, Albion_Broadstairs 1859-09-02
+437 ,Wilkie Collins, No_Place 1859-09-16
+438 ,Monsieur Regnier, No_Place 1859-10-15
+439 ,Frank Stone ARA, Peterborough 1859-10-19
+440 ,W R Sculthorpe, Tavistock_House 1859-11-10
+441 ,Monsieur Regnier, No_Place 1859-11-16
+442 ,T Longman, Tavistock_House 1859-11-28
+443 ,W C Macready, Tavistock_House 1860-01-02
+444 ,Wilkie Collins, No_Place 1860-01-07
+445 ,John Forster, No_Place 1860-05-02
+446 ,William De Cerjat, Tavistock_House 1860-05-03
+447 ,Sir Edward Bulwer Lytton, Gads_Hill 1860-06-05
+448 ,The Lord John Russell, No_Place 1860-06-17
+449 ,The Earl of Carlisle, No_Place 1860-08-08
+450 ,W H Wills, No_Place 1860-09-04
+451 ,Lavinia Watson, No_Place 1860-09-14
+452 ,Edmund Yates, No_Place 1860-09-23
+453 ,Miss Dickens, No_Place 1860-09-23
+454 ,Georgina Hogarth, No_Place 1860-09-24
+455 ,Marguerite Power, No_Place 1860-09-25
+456 ,John Forster, No_Place 1860-10-04
+457 ,Wilkie Collins, No_Place 1860-10-24
+458 ,Georgina Hogarth, Bideford_North_Devon 1860-11-01
+459 ,Mary Boyle, No_Place 1860-12-28
+460 ,Georgina Hogarth, No_Place 1861-01-09
+461 ,William De Cerjat, All_The_Year_Round 1861-02-01
+462 ,E M Ward RA, No_Place 1861-03-09
+463 ,W C Macready, All_The_Year_Round 1861-06-11
+464 ,John Forster, Gads_Hill 1861-07-01
+465 ,Lavinia Watson, No_Place 1861-07-08
+466 ,Wilkie Collins, No_Place 1861-08-28
+467 ,Arthur Smith, No_Place 1861-09-03
+468 ,John Watkins, No_Place 1861-09-28
+469 ,Edmund Yates, No_Place 1861-10-06
+470 ,Miss Dickens, No_Place 1861-10-10
+471 ,W C Macready, No_Place 1861-10-13
+472 ,Georgina Hogarth, No_Place 1861-10-13
+473 ,Georgina Hogarth, Norwich 1861-10-29
+474 ,Georgina Hogarth, The_Great_White_Horse_Ipswich 1861-11-01
+475 ,Henry Austin, Gads_Hill 1861-11-03
+476 ,Miss Dickens, Fountain_Hotel_Canterbury 1861-11-04
+477 ,John Agate, Lord_Warden_Hotel_Dover 1861-11-06
+478 ,Georgina Hogarth, Bedford_Hotel_Brighton 1861-11-07
+479 ,The Earl of Carlisle, No_Place 1861-11-15
+480 ,Mary Boyle, No_Place 1861-11-17
+481 ,Georgina Hogarth, Newcastle_on_Tyne 1861-11-22
+482 ,Miss Dickens, No_Place 1861-11-23
+483 ,Georgina Hogarth, Berwick-on-tweed 1861-11-25
+484 ,Miss Dickens, Waterloo_Hotel_Edinburgh 1861-11-27
+485 ,Miss Dickens, Waterloo_Hotel_Edinburgh 1861-11-29
+486 ,Georgina Hogarth, Carricks_Royal_Hotel_Glasgow 1861-12-03
+487 ,W H Wills, Victoria_Hotel_Preston 1861-12-13
+488 ,W H Wills, Adelphi_Hotel 1861-12-15
+489 ,Mary Boyle, No_Place 1861-12-28
+490 ,W H Wills, At_The_Birmingham_Station 1862-01-02
+491 ,Georgina Hogarth, Cheltenham 1862-01-03
+492 ,Georgina Hogarth, Torquay 1862-01-08
+493 ,Georgina Hogarth, Adelphi_Hotel 1862-01-28
+494 ,Misses Armstrong, No_Place 1862-02-10
+495 ,William De Cerjat, No_Place 1862-03-16
+496 ,Walter Thornbury, No_Place 1862-04-18
+497 Baylis Gads_Hill 1862-07-02
+498 ,Henry Austin, Gads_Hill 1862-10-07
+499 ,Wilkie Collins, No_Place 1862-10-14
+500 ,M Charles Fechter, No_Place 1862-11-04
+501 ,Clarkson Stanfield RA, No_Place 1862-12-05
+502 ,M Charles Fechter, Paris 1862-12-06
+503 ,Mary Boyle, No_Place 1862-12-27
+504 ,Miss Dickens, No_Place 1863-01-16
+505 ,Monsieur Regnier, Paris 1863-02-01
+506 ,Miss Dickens, HOtel_Du_Helder_Paris 1863-02-01
+507 ,Georgina Hogarth, Paris 1863-02-01
+508 ,M Charles Fechter, Paris 1863-02-04
+509 ,W C Macready, No_Place 1863-02-19
+510 ,Marguerite Power, No_Place 1863-02-26
+511 ,Charles Knight, No_Place 1863-03-04
+512 Dallas None 
+513 Lehmann No_Place 1863-03-10
+514 ,Mary Major, No_Place 1863-03-12
+515 ,W C Macready, No_Place 1863-03-31
+516 ,Wilkie Collins, No_Place 1863-04-22
+517 ,Rev W Brookfield, Gads_Hill 1863-05-17
+518 ,Rev W Brookfield, No_Place 1863-05-24
+519 ,William De Cerjat, No_Place 1863-05-28
+520 ,Percy Fitzgerald, No_Place 1863-07-10
+521 ,Frederic Ouvry, No_Place 1863-07-29
+522 ,Charles Reade, No_Place 1863-09-30
+523 ,Georgina Hogarth, No_Place 1863-10-07
+524 ,W H Wills, Gads_Hill 1863-12-20
+525 ,Wilkie Collins, Gads_Hill 1864-01-24
+526 ,Marcus Stone, No_Place 1864-02-23
+527 ,Charles Knight, No_Place 1864-03-01
+528 ,Edmund Ollier, All_The_Year_Round 1864-03-00
+529 ,The Lord Chief Baron, Gloucester_Place 1864-03-15
+530 ,John Forster, Gloucester_Place 1864-03-29
+531 Storrar No_Place 1864-05-15
+532 ,Percy Fitzgerald, No_Place 1864-07-27
+533 ,Sir James Emerson Tennent, No_Place 1864-08-26
+534 ,Clarkson Stanfield RA, Athenaeum_Club_London_Club_London 1864-09-21
+535 ,William De Cerjat, No_Place 1864-11-16
+536 ,B W Procter, No_Place 1864-12-31
+537 ,William Charles Kent, No_Place 1865-01-17
+538 ,Adelaide Anne Procter, No_Place 1865-02-15
+539 ,W C Macready, No_Place 1865-03-01
+540 ,W C Macready, No_Place 1865-04-22
+541 ,W C Macready, Gads_Hill 0000-00-00
+542 ,Thomas Mitton, No_Place 1865-06-13
+543 ,Walter Jones, None 
+544 Hulkes Gads_Hill 1865-06-18
+545 ,Arthur Ryland, No_Place 1865-06-21
+546 Lehmann No_Place 1865-06-29
+547 ,Percy Fitzgerald, No_Place 1865-07-07
+548 ,Professor Owen FRS, Gads_Hill 1865-07-12
+549 ,The Earl Russell, No_Place 1865-08-16
+550 ,Marcus Stone, HOtel_Du_Helder_Paris 1865-09-13
+551 ,Percy Fitzgerald, No_Place 1865-09-23
+552 ,Adelaide Anne Procter, No_Place 1865-09-26
+553 ,Edmund Yates, HOtel_Du_Helder_Paris 1865-09-30
+554 ,William Charles Kent, Wellington_Street 1865-11-06
+555 ,William De Cerjat, No_Place 1865-11-13
+556 ,Miss Dickens, No_Place 1865-11-14
+557 ,Mary Boyle, No_Place 1866-01-06
+558 ,William Charles Kent, Gads_Hill 1866-01-18
+559 ,Percy Fitzgerald, Gads_Hill 1866-02-02
+560 ,Georgina Hogarth, All_The_Year_Round 1866-02-09
+561 Brookfield No_Place 1866-02-20
+562 ,Georgina Hogarth, Adelphi_Hotel 1866-04-13
+563 ,Miss Dickens, Adelphi_Hotel 1866-04-14
+564 ,Georgina Hogarth, Glasgow 1866-04-17
+565 ,Miss Dickens, Waterloo_Hotel_Edinburgh 1866-04-18
+566 ,Georgina Hogarth, Edinburgh 1866-04-19
+567 ,Miss Dickens, Waterloo_Hotel_Edinburgh 1866-04-20
+568 ,Georgina Hogarth, Liverpool 1866-04-26
+569 ,Georgina Hogarth, Down_Hotel_Clifton 1866-05-11
+570 ,Miss Lily Benzon, No_Place 1866-06-18
+571 ,B W Procter, No_Place 1866-08-13
+572 ,Sir James Emerson Tennent, Gads_Hill 1866-08-20
+573 ,M Charles Fechter, Gads_Hill 1866-09-04
+574 ,Walter Thornbury, All_The_Year_Round 1866-09-15
+575 ,Percy Fitzgerald, Gads_Hill 1866-11-06
+576 ,W C Macready, No_Place 1866-12-28
+577 ,William De Cerjat, No_Place 1867-00-00
+578 ,Georgina Hogarth, Adelphi_Hotel 0000-00-00
+579 ,Miss Dickens, Chester 1867-01-22
+580 ,Georgina Hogarth, Hen_And_Chickens_Birmingham 1867-01-24
+581 ,Miss Dickens, Hen_And_Chickens_Birmingham 1867-01-24
+582 ,Miss Dickens, Leeds 1867-02-01
+583 Anonymous All_The_Year_Round 1867-02-05
+584 ,Georgina Hogarth, Liverpool 1867-02-15
+585 ,Miss Dickens, Glasgow 1867-02-17
+586 ,Georgina Hogarth, Bridge_Of_Allan 1867-02-19
+587 ,Miss Dickens, Glasgow 1867-02-21
+588 ,Jewish Lady, Bradford_Yorkshire 1867-03-01
+589 ,Georgina Hogarth, Newcastle-on-tyne 1867-03-06
+590 ,Georgina Hogarth, Shelbourne_Hotel_Dublin 1867-03-15
+591 ,Miss Dickens, Shelbourne_Hotel_Dublin 1867-03-16
+592 ,Georgina Hogarth, Shelbourne_Hotel_Dublin 1867-03-17
+593 ,Georgina Hogarth, Belfast 1867-03-20
+594 ,Miss Dickens, Belfast 1867-03-21
+595 ,Georgina Hogarth, Norwich 1867-03-29
+596 ,Walter Thornbury, No_Place 1867-04-01
+597 ,Clarkson Stanfield RA, No_Place 1867-04-18
+598 ,George Stanfield, No_Place 1867-05-19
+599 ,W H Wills, No_Place 1867-06-06
+600 ,W H Wills, No_Place 1867-06-13
+601 Henderson Gads_Hill 1867-07-04
+602 ,Percy Fitzgerald, Gads_Hill 1867-07-21
+603 ,Percy Fitzgerald, No_Place 1867-07-28
+604 ,Georgina Hogarth, Adelphi_Hotel 1867-08-02
+605 ,W H Wills, Gads_Hill 1867-09-02
+606 ,F D Finlay, No_Place 1867-09-03
+607 ,M Charles Fechter, No_Place 0000-00-00
+608 ,Georgina Hogarth, No_Place 1867-09-30
+609 ,Miss Dickens, No_Place 1867-09-30
+610 ,William Charles Kent, Wellington_Street 1867-10-19
+611 Power Gads_Hill 1867-10-23
+612 ,J L Toole, No_Place 1867-11-02
+613 ,W H Wills, Wellington_Street 1867-11-03
+614 ,Lavinia Watson, No_Place 1867-11-05
+615 ,Miss Dickens, No_Place 1867-11-10
+616 ,Georgina Hogarth, No_Place 1867-11-13
+617 ,Georgina Hogarth, No_Place 0000-00-00
+618 ,Miss Dickens, Parker_House_Boston 1867-11-21
+619 ,Georgina Hogarth, Parker_House_Boston 1867-11-25
+620 ,Charles Dickens, Parker_House_Boston 1867-12-03
+621 ,Miss Dickens, Parker_House_Boston 0000-00-00
+622 ,Georgina Hogarth, Boston 1867-12-04
+623 ,Mary Boyle, Boston 1867-12-04
+624 ,Miss Dickens, No_Place 1867-12-11
+625 ,Georgina Hogarth, No_Place 1867-12-16
+626 ,Georgina Hogarth, Boston 1867-12-22
+627 ,Miss Dickens, No_Place 0000-00-00
+628 ,Miss Dickens, No_Place 1867-12-30
+629 ,Georgina Hogarth, No_Place 1868-01-03
+630 ,Georgina Hogarth, Parker_House_Boston 1868-01-04
+631 ,Wilkie Collins, Westminster_Hotel_New_York 1868-01-12
+632 ,Georgina Hogarth, Westminster_Hotel_New_York 1868-01-12
+633 ,Miss Dickens, Philadelphia 1868-01-13
+634 ,Charles Dickens, No_Place 1868-01-15
+635 ,Miss Dickens, Westminster_Hotel_New_York 1868-01-18
+636 ,Georgina Hogarth, Westminster_Hotel_New_York 1868-01-21
+637 ,Miss Dickens, Philadelphia 1868-01-23
+638 ,Georgina Hogarth, Baltimore 0000-00-00
+639 ,Samuel Cartwright, Baltimore 1868-01-29
+640 ,Miss Dickens, Philadelphia 1868-01-31
+641 ,Miss Dickens, Washington 1868-02-04
+642 ,Georgina Hogarth, No_Place 0000-00-00
+643 ,Miss Dickens, Baltimore 1868-02-11
+644 ,Henry Fielding Dickens, Baltimore 1868-02-11
+645 ,Georgina Hogarth, Philadelphia 1868-02-13
+646 ,Georgina Hogarth, New_York 1868-02-17
+647 ,M Charles Fechter, Washington 1868-02-24
+648 ,Miss Dickens, Boston 1868-02-25
+649 ,Georgina Hogarth, Boston 0000-00-00
+650 ,Miss Dickens, Boston 1868-03-02
+651 ,M Charles Fechter, No_Place 1868-03-08
+652 ,Georgina Hogarth, Syracuse 1868-03-08
+653 ,Georgina Hogarth, No_Place 1868-03-12
+654 ,Miss Dickens, Rochester 1868-03-16
+655 ,W C Macready, Springfield_Mass 1868-03-21
+656 ,Miss Dickens, Portland 0000-00-00
+657 ,Georgina Hogarth, Boston 0000-00-00
+658 ,Miss Dickens, Boston 1868-04-07
+659 ,Lavinia Watson, Gads_Hill 1868-05-11
+660 ,George Cattermole, No_Place 1868-05-16
+661 ,W C Macready, Gads_Hill 1868-06-10
+662 ,Henry Austin, No_Place 1868-07-21
+663 ,George Cattermole, Gads_Hill 1868-07-22
+664 ,W H Wills, No_Place 1868-07-31
+665 ,William De Cerjat, No_Place 1868-08-26
+666 ,Miss Dickens, No_Place 0000-00-00
+667 ,F D Finlay, No_Place 1868-10-04
+668 ,M Charles Fechter, None 
+669 ,M Charles Fechter, No_Place 1868-10-07
+670 ,Georgina Hogarth, Queens_Hotel_Manchester 1868-10-11
+671 ,Miss Dickens, Adelphi_Hotel 1868-10-12
+672 ,Georgina Hogarth, Adelphi_Hotel 1868-10-13
+673 ,Henry Fielding Dickens, Adelphi_Hotel 1868-10-15
+674 ,William Charles Kent, No_Place 1868-11-16
+675 ,F Lehmann, Kennedys_Hotel_Edinburgh 1868-12-06
+676 ,Georgina Hogarth, Kennedys_Hotel_Edinburgh 1868-12-06
+677 ,Wilkie Collins, Kennedys_Hotel_Edinburgh 1868-12-08
+678 ,Georgina Hogarth, Kennedys_Hotel_Edinburgh 1868-12-12
+679 ,Georgina Hogarth, Kennedys_Hotel_Edinburgh 1868-12-14
+680 ,Miss Dickens, No_Place 1868-12-15
+681 ,Georgina Hogarth, No_Place 1868-12-16
+682 ,Georgina Hogarth, Kennedys_Hotel_Edinburgh 1868-12-18
+683 ,J C Parkinson, Gads_Hill 1868-00-00
+684 ,Edward Bulwer Lytton Dickens, None 
+685 ,F D Finlay, Athenaeum_Club_London_Club_London 1869-00-00
+686 ,William De Cerjat, No_Place 1869-01-04
+687 ,Mary Boyle, No_Place 1869-01-06
+688 ,Miss Dickens, Torquay 1869-01-27
+689 ,Georgina Hogarth, Bath 1869-01-29
+690 Lehmann Office 1869-02-03
+691 ,Georgina Hogarth, Glasgow 1869-02-25
+692 ,Georgina Hogarth, Edinburgh 1869-02-26
+693 ,Miss Dickens, Birmingham 1869-03-05
+694 ,Georgina Hogarth, Queens_Hotel_Manchester 1869-03-07
+695 ,Georgina Hogarth, Queens_Hotel_Manchester 1869-03-20
+696 ,Georgina Hogarth, Manchester 1869-03-21
+697 ,John Clarke, No_Place 1869-03-24
+698 ,Georgina Hogarth, Adelphi_Hotel 1869-04-04
+699 ,Georgina Hogarth, Imperial_Hotel_Blackpool 1869-04-21
+700 ,Miss Dickens, Preston 0000-00-00
+701 ,The Lord John Russell, No_Place 1869-05-26
+702 ,W H Wills, No_Place 1869-06-24
+703 ,Shirley Brooks, No_Place 1869-07-12
+704 ,W C Macready, Gads_Hill 1869-07-20
+705 ,Edmund Ollier, No_Place 1869-08-03
+706 ,Miss Dickens, No_Place 1869-08-03
+707 ,Arthur Ryland, No_Place 1869-08-13
+708 ,Frederic Ouvry, No_Place 1869-08-22
+709 ,Arthur Ryland, No_Place 1869-09-06
+710 ,William Charles Kent, No_Place 1869-10-07
+711 ,W C Macready, Gads_Hill 1869-10-18
+712 ,W H Wills, Hyde_Park_Place 1870-01-23
+713 Dallas No_Place 1870-01-16
+714 ,S L Fildes, No_Place 1870-01-16
+715 ,Henry Fielding Dickens, Hyde_Park_Place 1870-02-17
+716 ,W C Macready, No_Place 1870-03-02
+717 Anonymous No_Place 1870-03-09
+718 Anonymous Hyde_Park_Place 1870-03-11
+719 ,William Charles Kent, Hyde_Park_Place 1870-03-26
+720 ,Henry Fielding Dickens, Hyde_Park_Place 1870-03-29
+721 ,Shirley Brooks, Hyde_Park_Place 1870-04-01
+722 ,W P Frith RA, Hyde_Park_Place 1870-04-16
+723 ,William Charles Kent, No_Place 1870-04-25
+724 ,Frederick Pollock, Hyde_Park_Place 1870-05-02
+725 ,E M Ward, Hyde_Park_Place 1870-05-11
+726 ,William Charles Kent, Hyde_Park_Place 1870-05-17
+727 Bancroft No_Place 1870-05-31
+728 ,William Charles Kent, None 
+729 ,John M Makeham, None 
+730 None None 
+731 ,John Hullah, None 
+732 ,John Hullah, Furnivals_Inn 0000-00-00
+733 ,John Hullah, Petersham 0000-00-00
+734 ,George Hogarth, Furnivals_Inn 1837-01-20
+735 ,Georgina Hogarth, Doughty_Street 1838-01-15
+736 ,W L Sammins, Doughty_Street 1839-01-31
+737 ,J P Harley, Doughty_Street 0000-00-00
+738 ,Edward Chapman, Devonshire_Terrace 1839-12-27
+739 ,H G Adams, No_Place 1840-01-18
+740 Thompson Devonshire_Terrace 1840-12-15
+741 ,Rev Thomas Robinson, Devonshire_Terrace 1841-04-08
+742 ,The Countess of Blessington, Devonshire_Terrace 1841-06-02
+743 ,L Gaylord Clark, No_Place 1841-09-28
+744 ,Georgina Hogarth, Devonshire_Terrace 1841-10-24
+745 ,Washington Irving, None 
+746 ,Professor Felton, Fullers_Hotel_Washington 1842-03-14
+747 ,Washington Irving, Washington 1842-03-21
+748 ,Professor Felton, Montreal 1842-05-21
+749 ,Professor Felton, London 1842-07-31
+750 ,Professor Felton, London 1842-09-01
+751 ,Professor Felton, London 1842-12-31
+752 ,Tom Hood, None 
+753 ,Macvey Napier, No_Place 1843-01-21
+754 ,Professor Felton, Devonshire_Terrace 1843-03-02
+755 ,Georgina Hogarth, Devonshire_Terrace 1843-05-08
+756 ,Professor Felton, Broadstairs 1843-09-01
+757 ,Macvey Napier, Broadstairs 1843-09-16
+758 ,Professor Felton, Devonshire_Terrace 1844-01-02
+759 ,Sir Edward Bulwer Lytton, Athenaeum_Club_London 1844-01-25
+760 Thompson No_Place 0000-00-00
+761 ,Countess of Blessington, Devonshire_Terrace 1844-03-10
+762 Thompson Devonshire_Terrace 1844-03-13
+763 Thompson Devonshire_Terrace 1844-03-24
+764 ,Ebenezer Jones, Devonshire_Terrace 1844-04-15
+765 ,Charles Babbage, Osnaburgh_Terrace_New_Road 1844-05-28
+766 ,Countess of Blessington, Milan 1844-11-20
+767 ,Countess of Blessington, Covent_Garden 1844-00-00
+768 ,Countess of Blessington, Genoa 1845-05-09
+769 ,Macvey Napier, Devonshire_Terrace 1845-07-28
+770 Thompson Devonshire_Terrace 1845-10-17
+771 ,H P Smith, Devonshire_Terrace 1845-11-04
+772 ,Macvey Napier, No_Place 1845-11-10
+773 ,W J Fox, No_Place 1846-01-21
+774 Thompson Rosemont 0000-00-00
+775 Thompson No_Place 1846-12-02
+776 ,Sir Edward Bulwer Lytton, Devonshire_Terrace 1847-01-12
+777 ,Countess of Blessington, Rue_De_Courcelles_Paris 1847-01-24
+778 ,Edward Chapman, Chester_Place 1847-05-03
+779 ,James Sheridan Knowles, No_Place 1847-05-26
+780 ,Dr Hodgson, Regents_Park 1847-06-04
+781 ,Dr Hodgson, Regents_Park 1847-06-12
+782 ,Alexander Ireland, Regents_Park 1847-06-17
+783 ,Alexander Ireland, Athenaeum_Club_London 1847-06-26
+784 ,Alexander Ireland, Broadstairs 1847-07-11
+785 ,Sir Edward Bulwer Lytton, Devonshire_Terrace 1848-04-10
+786 ,Cowden Clarke, No_Place 1848-04-14
+787 ,Alexander Ireland, Devonshire_Terrace 1848-05-22
+788 ,Cowden Clarke, No_Place 0000-00-00
+789 ,Sir Edward Bulwer Lytton, Devonshire_Terrace 1849-02-23
+790 ,C Cowden Clarke, Devonshire_Terrace 1849-05-05
+791 ,Joseph C King, Devonshire_Terrace 1849-12-01
+792 ,Alexander Ireland, Devonshire_Terrace 1849-12-24
+793 ,Sir Edward Bulwer Lytton, Broadstairs 1850-09-03
+794 ,Sir Edward Bulwer Lytton, No_Place 0000-00-00
+795 ,Sir Edward Bulwer Lytton, No_Place 0000-00-00
+796 ,Sir Edward Bulwer Lytton, No_Place 0000-00-00
+797 ,Sir Edward Bulwer Lytton, Devonshire_Terrace 0000-00-00
+798 ,Sir Edward Bulwer Lytton, Devonshire_Terrace 1851-03-25
+799 ,Cowden Clarke, Great_Malvern 1851-03-29
+800 ,Thomas Mitton, Devonshire_Terrace 1851-04-19
+801 ,Sir Edward Bulwer Lytton, Devonshire_Terrace 1851-04-28
+802 ,Miss Eden, Broadstairs 1851-09-28
+803 ,Frank Stone, No_Place 1851-09-08
+804 ,Henry Austin, Broadstairs 1851-09-08
+805 ,Austen Henry Layard, Tavistock_House 1851-12-16
+806 ,James Bower Harrison, Tavistock_House 1852-01-05
+807 ,Sir Edward Bulwer Lytton, Tavistock_House 1852-02-15
+808 ,Cowden Clarke, Tavistock_House 1852-03-03
+809 ,James Bower Harrison, Tavistock_House 1852-03-26
+810 ,W H Wills, No_Place 1853-03-04
+811 ,W H Wills, Boulogne 1853-08-07
+812 ,Rev James White, Boulogne 1853-09-30
+813 ,Catherine Dickens, No_Place 0000-00-00
+814 ,Catherine Dickens, HOtel_De_La_Ville_Milan 1853-10-25
+815 ,Catherine Williams, No_Place 0000-00-00
+816 ,Catherine Williams, No_Place 1853-11-04
+817 ,Frederick Grew, Tavistock_House 1854-01-13
+818 ,Elizabeth Gaskell, Tavistock_House 1854-02-18
+819 ,Rev W Harness, Tavistock_House 1854-05-19
+820 ,Rev James White, Tavistock_House 1854-05-26
+821 ,W H Wills, Boulogne 1854-08-02
+822 ,Miss King, No_Place 0000-00-00
+823 ,Miss King, Tavistock_House 1855-02-24
+824 ,W M Thackeray, Tavistock_House 1855-03-23
+825 Forster Tavistock_House 1855-03-29
+826 ,Maria Winter, No_Place 1855-04-03
+827 ,Maria Winter, Tavistock_House 1855-06-30
+828 ,Wilkie Collins, Tavistock_House 1855-07-08
+829 ,Miss Emily Jolly, No_Place 1855-07-17
+830 ,Miss Emily Jolly, Albion_Villas_Folkestone 1855-07-21
+831 ,Captain Morgan, None 
+832 ,T Ross Mr J Kenny, Tavistock_House 1856-05-19
+833 ,Washington Irving, Tavistock_House 1856-07-05
+834 ,Frank Stone ARA, No_Place 1856-07-09
+835 ,Sir Edward Bulwer Lytton, Tavistock_House 1857-01-28
+836 ,Miss Emily Jolly, Gravesend_Kent 1857-04-10
+837 ,Miss Emily Jolly, Tavistock_House 1857-05-30
+838 ,Albert Smith, No_Place 1858-12-01
+839 ,Arthur Smith, Tavistock_House 1858-12-02
+840 ,W P Frith RA, Gads_Hill 1859-01-12
+841 ,Cowden Clark, No_Place 1859-08-21
+842 ,Henry F Chorley, No_Place 1860-02-00
+843 ,Sir John Bowring, Gads_Hill 1860-10-31
+844 ,A H Layard, No_Place 1860-12-04
+845 ,Captain Morgan, None 
+846 Malleson No_Place 1861-01-14
+847 ,Sir Edward Bulwer Lytton, No_Place 1861-01-23
+848 ,Sir Edward Bulwer Lytton, No_Place 1861-04-28
+849 ,Sir Edward Bulwer Lytton, No_Place 1861-05-08
+850 ,Sir Edward Bulwer Lytton, Hanover_Terrace 1861-05-12
+851 ,Sir Edward Bulwer Lytton, No_Place 1861-05-00
+852 ,Lady Olliffe, No_Place 1861-05-00
+853 ,Milner Gibson, Gads_Hill 1861-07-00
+854 ,Sir Edward Bulwer Lytton, No_Place 1861-09-00
+855 ,H G Adams, No_Place 1861-10-00
+856 ,B W Procter, No_Place 1861-11-00
+857 ,Sir Edward Bulwer Lytton, No_Place 1861-11-00
+858 ,Sir Edward Bulwer Lytton, None 
+859 ,Sir Edward Bulwer Lytton, No_Place 1862-01-00
+860 Baylis No_Place 1862-02-00
+861 ,Henry F Chorley, No_Place 1862-03-01
+862 Austin No_Place 1862-11-00
+863 ,Henry F Chorley, No_Place 1863-12-18
+864 ,W H Wills, No_Place 1864-10-16
+865 ,W H Wills, Gads_Hill 1864-11-30
+866 ,Mary Boyle, No_Place 1864-12-31
+867 ,Sir Edward Bulwer Lytton, Gads_Hill 0000-00-00
+868 ,Henry F Chorley, No_Place 1865-10-28
+869 ,Adelaide Anne Procter, Gads_Hill 1865-10-29
+870 ,W B Rye, No_Place 1865-11-03
+871 Forster No_Place 1866-01-26
+872 ,R M Ross, No_Place 1866-02-19
+873 ,R Browning, No_Place 1866-03-12
+874 ,Lord Lytton, Gads_Hill 1866-07-16
+875 ,George William Rusden, No_Place 1866-09-00
+876 Anonymous Gads_Hill 1866-12-27
+877 ,Hon Robert Lytton, No_Place 1867-04-17
+878 ,Henry W Phillips, Gads_Hill 1867-04-16
+879 ,Henry F Chorley, No_Place 1867-06-02
+880 ,James T Fields, No_Place 1867-09-03
+881 ,Lord Lytton, No_Place 1867-09-17
+882 ,James T Fields, No_Place 1867-10-00
+883 Thornbury Gads_Hill 1867-10-05
+884 ,Lord Lytton, No_Place 1867-10-14
+885 ,Sir Edward Bulwer Lytton, No_Place 0000-00-00
+886 ,M Charles Fechter, Parker_House_Boston 1868-02-03
+887 ,Charles Lanman, Washington 1868-02-05
+888 Pease Baltimore 1868-02-09
+889 ,James T Fields, No_Place 0000-00-00
+890 ,Jame T Fields, All_The_Year_Round 1868-05-15
+891 ,M Charles Fechter, No_Place 1868-05-22
+892 ,James T Fields, No_Place 1868-05-25
+893 ,Alexander Ireland, Athenaeum_Club_London 1868-05-30
+894 ,James T Fields, Gads_Hill 1868-07-07
+895 ,J E Millais RA, No_Place 1868-07-19
+896 ,TJ Serle, Gads_Hill 1868-07-29
+897 ,George William Rusden, No_Place 1868-08-24
+898 ,Russell Sturgis, No_Place 1868-12-14
+899 ,James T Fields, Glasgow 1868-12-00
+900 ,Russell Sturgis, No_Place 1868-12-18
+901 Forster No_Place 1869-03-08
+902 ,H A Layard, No_Place 1869-03-13
+903 ,Miss Florence Olliffe, Wellington_Street 1869-03-16
+904 ,James T Fields, Adelphi_Hotel 1869-04-09
+905 ,George William Rusden, Preston 1869-04-22
+906 ,Thomas Chappell, No_Place 1869-05-03
+907 ,George William Rusden, No_Place 1869-05-18
+908 ,Miss Emily Jolly, No_Place 1869-07-22
+909 ,Hon Robert Lytton, No_Place 1869-09-02
+910 ,Robert Lytton, No_Place 1869-10-01
+911 ,George William Rusden, No_Place 0000-00-00
+912 ,A H Layard, Gads_Hill 1869-11-08
+913 ,James T Fields, No_Place 1870-01-14
+914 ,Lord Lytton, Hyde_Park_Place 1870-02-14
+915 ,Frederic Chapman, Hyde_Park_Place 1870-03-14
+916 ,Charles Mackay, No_Place 1870-04-21
+917 ,Sir John Bowring, Gads_Hill 1870-05-05
+918 ,J B Buckstone, No_Place 1870-05-15
+919 ,George William Rusden, Athenaeum_Club_London 1870-05-20
+920 ,Alfred Tennyson Dickens, Athenaeum_Club_London_Club 1870-05-20
