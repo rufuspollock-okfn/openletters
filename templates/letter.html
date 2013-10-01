@@ -1,0 +1,11 @@
+<!doctype html>
+{% if letter['date'] %}
+<title>Open Correspondence - {{letter['correspondent']}} on {{letter['date']}}</title>
+{% else %}
+<title>Open Correspondence - {{letter['correspondent']}} on {{letter['date']}}</title>
+{% endif %}
+<h1>{{ name }}</h1>
+
+<p><a  href="/correspondent/{{letter['correspondent']}}">{{letter['correspondent']}}</a></p>
+<p><a  href="/place/{{letter['place']}}">{{letter['place']}}</a></p>
+<p>{{letter['letter']}}</p>

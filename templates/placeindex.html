@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Open Correspondence - {{location}}</title>
+
+{% if place %}
+{% for id, loc in place.iteritems() %}
+	<p><a  href="/correspondent/{{loc['correspondent']}}">{{loc['correspondent']}}</a> on {{loc['date']}}
+	 (<a  href="/letter/{{id}}">Letter</a>) </p>
+{% endfor %}
+     {% else %}
+ <p>This place does not exist in the letter set.</p>
+{% endif %}
