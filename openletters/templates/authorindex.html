@@ -1,6 +1,9 @@
-<!doctype html>
-<title>Author Listing</title>
+{% extends "layout.html" %}
 
-{% for correspondent in name %}
-<p><a  href="/correspondent/{{correspondent}}">{{correspondent}}</a></p>
-{% endfor %}
+{% block title %}Author Listing{% endblock %}
+
+{% block content %}
+    {% for correspondent in name %}
+        <p><a  href="/correspondent/{{ correspondent }}">{{ correspondent }}</a></p>
+    {% endfor %}
+{% endblock %}

@@ -1,13 +1,15 @@
-<!doctype html>
-<title>Open Correspondence - {{ name }}</title>
-<h1>{{ name }}</h1>
+{% extends "layout.html" %}
 
-{% if dates %}
-	{% for id, date in dates.iteritems() %}
-	<p><a  href="/letter/{{id}}">{{date}}</a></p>
-	{% endfor %}
-	{% else %}
-	{% for correspondent in name %}
-	   <p><a  href="/correspondent/{{correspondent}}">{{correspondent}}</a></p>
-	{% endfor %}
-{% endif %}
+{% block title %}Open Correspondence - {{ name }}{% endblock %}
+
+{% block content %}
+    {% if dates %}
+        {% for id, date in dates.iteritems() %}
+            <p><a  href="/letter/{{ id }}">{{ date }}</a></p>
+        {% endfor %}
+    {% else %}
+        {% for correspondent in name %}
+            <p><a  href="/correspondent/{{ correspondent }}">{{ correspondent }}</a></p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
