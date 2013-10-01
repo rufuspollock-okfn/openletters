@@ -8,9 +8,17 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/schema')
+def schema():
+    return render_template('schema.html')
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
 @app.route('/correspondent/', methods=['GET'])
 @app.route('/correspondent/<name>', methods=['GET'])
-# '@todo implement limitting by author
+# '@todo implement limiting by author
 # @app.route('/correspondent/<name>/<author>', methods=['GET'])
 def author(name=None):
     
