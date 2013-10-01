@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}Open Correspondent - Places{% endblock %}
+
+{% block content %}
+{% for place in location %}
+<p><a  href="/place/{{place}}">{{place.replace('_', ' ')}}</a></p>
+{% endfor %}
+{% endblock %}

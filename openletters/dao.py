@@ -46,6 +46,32 @@ def getletter(letterid):
             
     return letter
 
+def getplacemap():
+    
+    d = __getplacedata()
+    
+    place = []
+    for lines in d['Charles_Dickens']:
+        place.append({
+            "lon" : lines['lon'], 
+            "lat" : lines['lat']
+                 })
+    print place
+    # put it into a list and then reorder
+    return json.dumps({'geo':place})   
+
+def getplaceindex():
+    '''
+       Fetch the places and put into a basic index
+    '''
+    d = __getdata()
+    
+    place = set()
+    for lines in d['Charles_Dickens']:
+        place.add(lines['place'])
+    place = list(place)
+    return place   
+
 def getplace(place):
     """
        Get the file
@@ -56,32 +82,32 @@ def getplace(place):
     data = __getdata()
     places = {}
     
-    for points in d['Charles_Dickens']:
-        if points['url'] == place:
-            places['place'] = {
-                'lat' : points['lat'],
-                'lon' : points['lon']
-            }
+   # for points in d['Charles_Dickens']:
+   #     if points['url'] == place:
+   #         places['place'] = {
+   #             'lat' : points['lat'],
+   #             'lon' : points['lon']
+   #         }
             
 
-    #for lines in data['Charles_Dickens']:
+    for lines in data['Charles_Dickens']:
  
-    #    if lines['place'] == place:
+        if lines['place'] == place:
 
-   #         places[lines['id']] = {'correspondent':lines['correspondent'], 
-   #                   'date':lines['date'],
-   #                   'place':lines['place']}
-            
+            places[lines['id']] = {'correspondent':lines['correspondent'], 
+                      'date':lines['date'],
+                      'place':lines['place']}
+    
     return places
 
 def __getdata():
     '''
        Private function to open the JSON file
     '''
-    return json.loads(open('./data/dickensletter.json', 'r').read())
+    return json.loads(open('../data/dickensletter.json', 'r').read())
 
 def __getplacedata():
     '''
        Private function to open the JSON file
     '''
-    return json.loads(open('./data/place.json', 'r').read())
+    return json.loads(open('../data/place.json', 'r').read())

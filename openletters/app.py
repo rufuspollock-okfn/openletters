@@ -46,7 +46,11 @@ def letter(letterid=None):
 def place(location=None):
 
     if location is None:
-        return render_template('placeindex.html', place=location)
+        location = dao.getplaceindex()
+        latlon = dao.getplacemap()
+        print latlon
+        return render_template('placemap.html', location=sorted(location))
+        #return render_template('placemap.html', place=location, latlon=latlon)
     else:
         letter = dao.getplace(location)
         return render_template('placeindex.html', place=letter, location=location)  

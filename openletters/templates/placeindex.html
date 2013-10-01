@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
 
-{% block title %}Open Correspondence - {{ location }}{% endblock %}
+{% block title %}Open Correspondent - Places{% endblock %}
 
 {% block content %}
-    {% if place %}
-        {% for id, loc in place.iteritems() %}
-            <p>
-                <a  href="/correspondent/{{ loc['correspondent'] }}">{{ loc['correspondent'] }}</a> on {{ loc['date'] }}
-                (<a  href="/letter/{{ id }}">Letter</a>)
-            </p>
-        {% endfor %}
-    {% else %}
-        <p>This place does not exist in the letter set.</p>
-    {% endif %}
+	{% if place %}
+	{% for id, loc in place.iteritems() %}
+		<p><a  href="/correspondent/{{loc['correspondent']}}">{{loc['correspondent']}}</a> on {{loc['date']}}
+		 (<a  href="/letter/{{id}}">Letter</a>) </p>
+	{% endfor %}
+	     {% else %}
+	 <p>This place does not exist in the letter set.</p>
+	{% endif %}
 {% endblock %}
