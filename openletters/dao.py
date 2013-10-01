@@ -104,10 +104,10 @@ def __getdata():
     '''
        Private function to open the JSON file
     '''
-    return json.loads(open('../data/dickensletter.json', 'r').read())
+    return json.loads(open('./data/dickensletter.json', 'r').read())
 
 def __getplacedata():
     '''
        Private function to open the JSON file
     '''
-    return json.loads(open('../data/place.json', 'r').read())
+    return json.loads(open('./data/place.json', 'r').read())
