@@ -1,4 +1,4 @@
-from flask import Flask,app, render_template, request
+from flask import Flask, app, render_template, request
 
 import dao
 
@@ -16,7 +16,7 @@ def schema():
 def help():
     return render_template('help.html')
 
-@app.route('/correspondent/', methods=['GET'])
+@app.route('/correspondents/', methods=['GET'])
 @app.route('/correspondent/<name>', methods=['GET'])
 # '@todo implement limiting by author
 # @app.route('/correspondent/<name>/<author>', methods=['GET'])
